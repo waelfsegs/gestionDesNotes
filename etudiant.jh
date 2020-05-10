@@ -1,0 +1,20 @@
+
+
+entity Etudiant {
+	cin Integer,
+    nom String,
+    matericule String,
+    prenom String,       
+}
+// Set pagination options
+
+paginate Etudiant with pagination
+
+//Use Data Transfert Objects (DTO)
+
+dto * with mapstruct
+
+service all with serviceImpl 
+filter *
+// Set an angular suffix
+// angularSuffix * with mySuffix
