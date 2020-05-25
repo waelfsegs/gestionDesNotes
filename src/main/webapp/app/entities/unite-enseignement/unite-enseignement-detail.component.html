@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="uniteEnseignement">
+            <h2><span jhiTranslate="gestionNotesFsegsApp.uniteEnseignement.detail.title">Unite Enseignement</span> {{ uniteEnseignement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gestionNotesFsegsApp.uniteEnseignement.nomUE">Nom UE</span></dt>
+                <dd>
+                    <span>{{ uniteEnseignement.nomUE }}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.uniteEnseignement.desgnationUE">Desgnation UE</span></dt>
+                <dd>
+                    <span>{{ uniteEnseignement.desgnationUE }}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.uniteEnseignement.coefficientUE">Coefficient UE</span></dt>
+                <dd>
+                    <span>{{ uniteEnseignement.coefficientUE }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/unite-enseignement', uniteEnseignement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

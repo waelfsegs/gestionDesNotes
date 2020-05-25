@@ -1,0 +1,54 @@
+{
+  "name": "Inscription",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "annee",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "etudiant",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "etudiant",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "classe",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "classe",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "groupe",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "groupe",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "semstre",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "semstre",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200525001613",
+  "entityTableName": "inscription",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

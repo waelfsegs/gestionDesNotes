@@ -14,6 +14,31 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525000813_added_entity_Etudiant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525000913_added_entity_Classe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001013_added_entity_Specialite.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001113_added_entity_Niveau.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001213_added_entity_Cycle.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001313_added_entity_Resultat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001413_added_entity_Matiere.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001513_added_entity_Groupe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001613_added_entity_Inscription.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001713_added_entity_Semstre.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001813_added_entity_Enseignant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001913_added_entity_AffectationChef.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525002013_added_entity_Departement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525002113_added_entity_UniteEnseignement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525002213_added_entity_Enseignement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525002313_added_entity_Regime.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525002413_added_entity_TypeEnseignement.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200525000913_added_entity_constraints_Classe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001113_added_entity_constraints_Niveau.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001313_added_entity_constraints_Resultat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001413_added_entity_constraints_Matiere.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001613_added_entity_constraints_Inscription.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001813_added_entity_constraints_Enseignant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525001913_added_entity_constraints_AffectationChef.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200525002213_added_entity_constraints_Enseignement.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

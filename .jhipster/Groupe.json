@@ -1,0 +1,21 @@
+{
+  "name": "Groupe",
+  "fields": [
+    {
+      "fieldName": "nomgroup",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200525001513",
+  "entityTableName": "groupe",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

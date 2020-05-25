@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gestionNotesFsegsApp.enseignement.home.title">Enseignements</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-enseignement" [routerLink]="['/enseignement/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gestionNotesFsegsApp.enseignement.home.createLabel">
+            Create a new Enseignement
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="enseignements?.length === 0">
+        <span jhiTranslate="gestionNotesFsegsApp.enseignement.home.notFound">No enseignements found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="enseignements && enseignements.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="matiereId"><span jhiTranslate="gestionNotesFsegsApp.enseignement.matiere">Matiere</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="enseignantId"><span jhiTranslate="gestionNotesFsegsApp.enseignement.enseignant">Enseignant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="groupeId"><span jhiTranslate="gestionNotesFsegsApp.enseignement.groupe">Groupe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typeEnseignementId"><span jhiTranslate="gestionNotesFsegsApp.enseignement.typeEnseignement">Type Enseignement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let enseignement of enseignements ;trackBy: trackId">
+                    <td><a [routerLink]="['/enseignement', enseignement.id, 'view']">{{ enseignement.id }}</a></td>
+                    <td>
+                        <div *ngIf="enseignement.matiereId">
+                            <a [routerLink]="['/matiere', enseignement.matiereId , 'view']" >{{ enseignement.matiereId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="enseignement.enseignantId">
+                            <a [routerLink]="['/enseignant', enseignement.enseignantId , 'view']" >{{ enseignement.enseignantId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="enseignement.groupeId">
+                            <a [routerLink]="['/groupe', enseignement.groupeId , 'view']" >{{ enseignement.groupeId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="enseignement.typeEnseignementId">
+                            <a [routerLink]="['/type-enseignement', enseignement.typeEnseignementId , 'view']" >{{ enseignement.typeEnseignementId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/enseignement', enseignement.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/enseignement', enseignement.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(enseignement)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="enseignements && enseignements.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

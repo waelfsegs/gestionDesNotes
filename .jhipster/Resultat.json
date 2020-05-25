@@ -1,0 +1,44 @@
+{
+  "name": "Resultat",
+  "fields": [
+    {
+      "fieldName": "notecc1",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "notecc2",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "noteexmen",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "matiere",
+      "otherEntityRelationshipName": "resultat",
+      "relationshipName": "matiere",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inscription",
+      "otherEntityRelationshipName": "resultat",
+      "relationshipName": "inscription",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200525001313",
+  "entityTableName": "resultat",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

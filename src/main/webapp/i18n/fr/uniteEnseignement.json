@@ -1,0 +1,24 @@
+{
+  "gestionNotesFsegsApp": {
+    "uniteEnseignement": {
+      "home": {
+        "title": "UniteEnseignements",
+        "createLabel": "Créer un nouveau Unite Enseignement",
+        "createOrEditLabel": "Créer ou éditer un Unite Enseignement",
+        "notFound": "Aucun Unite Enseignement trouvé"
+      },
+      "created": "Un nouveau Unite Enseignement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Unite Enseignement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Unite Enseignement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Unite Enseignement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Unite Enseignement"
+      },
+      "nomUE": "Nom UE",
+      "desgnationUE": "Desgnation UE",
+      "coefficientUE": "Coefficient UE"
+    }
+  }
+}

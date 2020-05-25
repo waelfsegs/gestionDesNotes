@@ -7,6 +7,23 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "الكيانات",
+        "etudiant": "Etudiant",
+        "classe": "Classe",
+        "specialite": "Specialite",
+        "niveau": "Niveau",
+        "cycle": "Cycle",
+        "resultat": "Resultat",
+        "matiere": "Matiere",
+        "groupe": "Groupe",
+        "inscription": "Inscription",
+        "semstre": "Semstre",
+        "enseignant": "Enseignant",
+        "affectationChef": "Affectation Chef",
+        "departement": "Departement",
+        "uniteEnseignement": "Unite Enseignement",
+        "enseignement": "Enseignement",
+        "regime": "Regime",
+        "typeEnseignement": "Type Enseignement",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

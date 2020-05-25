@@ -1,0 +1,22 @@
+{
+  "gestionNotesFsegsApp": {
+    "typeEnseignement": {
+      "home": {
+        "title": "Type Enseignements",
+        "createLabel": "Create a new Type Enseignement",
+        "createOrEditLabel": "Create or edit a Type Enseignement",
+        "notFound": "No Type Enseignements found"
+      },
+      "created": "A new Type Enseignement is created with identifier {{ param }}",
+      "updated": "A Type Enseignement is updated with identifier {{ param }}",
+      "deleted": "A Type Enseignement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Enseignement {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Enseignement"
+      },
+      "type": "Type"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "gestionNotesFsegsApp": {
+    "semstre": {
+      "home": {
+        "title": "Semstres",
+        "createLabel": "Créer un nouveau Semstre",
+        "createOrEditLabel": "Créer ou éditer un Semstre",
+        "notFound": "Aucun Semstre trouvé"
+      },
+      "created": "Un nouveau Semstre a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Semstre avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Semstre avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Semstre {{ id }} ?"
+      },
+      "detail": {
+        "title": "Semstre"
+      },
+      "annee": "Annee",
+      "numSemstre": "Num Semstre"
+    }
+  }
+}
