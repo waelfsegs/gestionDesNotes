@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-matiere-heading" jhiTranslate="gestionNotesFsegsApp.matiere.home.createOrEditLabel">Create or edit a Matiere</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.matiere.coefficientMatiere" for="field_coefficientMatiere">Coefficient Matiere</label>
+                    <input type="number" class="form-control" name="coefficientMatiere" id="field_coefficientMatiere"
+                           formControlName="coefficientMatiere"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.matiere.coefficientTp" for="field_coefficientTp">Coefficient Tp</label>
+                    <input type="number" class="form-control" name="coefficientTp" id="field_coefficientTp"
+                           formControlName="coefficientTp"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.matiere.coefficientDc" for="field_coefficientDc">Coefficient Dc</label>
+                    <input type="number" class="form-control" name="coefficientDc" id="field_coefficientDc"
+                           formControlName="coefficientDc"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.matiere.coefficientExem" for="field_coefficientExem">Coefficient Exem</label>
+                    <input type="number" class="form-control" name="coefficientExem" id="field_coefficientExem"
+                           formControlName="coefficientExem"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.matiere.designation" for="field_designation">Designation</label>
+                    <input type="text" class="form-control" name="designation" id="field_designation"
+                           formControlName="designation"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.matiere.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.matiere.regime" for="field_regime">Regime</label>
+                    <select class="form-control" id="field_regime" name="regime" formControlName="regimeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="regimeOption.id" *ngFor="let regimeOption of regimes; trackBy: trackById">{{ regimeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-inscription-heading" jhiTranslate="gestionNotesFsegsApp.inscription.home.createOrEditLabel">Create or edit a Inscription</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.date" for="field_date">Date</label>
+                    <div class="input-group">
+                        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #dateDp="ngbDatepicker" formControlName="date"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.annee" for="field_annee">Annee</label>
+                    <div class="input-group">
+                        <input id="field_annee" type="text" class="form-control" name="annee" ngbDatepicker #anneeDp="ngbDatepicker" formControlName="annee"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="anneeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.etudiant" for="field_etudiant">Etudiant</label>
+                    <select class="form-control" id="field_etudiant" name="etudiant" formControlName="etudiantId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="etudiantOption.id" *ngFor="let etudiantOption of etudiants; trackBy: trackById">{{ etudiantOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.classe" for="field_classe">Classe</label>
+                    <select class="form-control" id="field_classe" name="classe" formControlName="classeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="classeOption.id" *ngFor="let classeOption of classes; trackBy: trackById">{{ classeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.groupe" for="field_groupe">Groupe</label>
+                    <select class="form-control" id="field_groupe" name="groupe" formControlName="groupeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="groupeOption.id" *ngFor="let groupeOption of groupes; trackBy: trackById">{{ groupeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.semstre" for="field_semstre">Semstre</label>
+                    <select class="form-control" id="field_semstre" name="semstre" formControlName="semstreId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="semstreOption.id" *ngFor="let semstreOption of semstres; trackBy: trackById">{{ semstreOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

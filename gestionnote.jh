@@ -1,0 +1,114 @@
+
+
+entity Etudiant {
+	cin Integer,
+    nom String,
+    matricule String,
+    prenom String,
+    tel Integer,
+    dateNais LocalDate
+     
+}
+entity Classe{
+nom String
+}
+entity Specialite{
+libelle String
+}
+entity Niveau{
+niveau String
+}
+entity Cycle{
+nomcycle String
+}
+entity Resultat{
+notecc1 Double,
+notecc2 Double,
+noteexmen Double
+}
+entity Matiere{
+coefficientMatiere Double,
+coefficientTp Double,
+coefficientDc Double,
+coefficientExem Double,
+designation String,
+nom String
+
+
+}
+entity Groupe{
+nomgroup String
+}
+entity Inscription{
+date LocalDate,
+annee LocalDate
+} 
+entity Semstre{
+annee Integer,
+numSemstre Integer
+}
+
+entity Enseignant {
+	nom String,
+    pernom String,
+    mail String,
+    matricule Integer ,
+    cin Integer ,
+    dateEmbauchement LocalDate
+}
+entity AffectationChef {
+	startDate LocalDate,
+	endDate LocalDate,
+}
+entity Departement {
+	nomDep String,
+	designiation String
+	}
+entity UniteEnseignement {
+	nomUE String,
+	desgnationUE String,
+    coefficientUE Integer 
+    }
+    entity Enseignement {
+
+}
+entity Regime{
+type String
+
+}
+entity TypeEnseignement {
+	type String 
+}
+relationship ManyToOne {
+  Inscription{Etudiant} to Etudiant,
+  Inscription{Classe} to Classe,
+  Inscription{Groupe} to Groupe,
+  Inscription{Semstre} to Semstre,
+  Resultat{Matiere} to Matiere,
+  Resultat{Inscription} to Inscription,
+  Niveau{Cycle} to Cycle,
+  Classe{Specialite} to Specialite,
+   Classe{Niveau} to Niveau,
+   Enseignement{Matiere} to Matiere,
+    Enseignement{Enseignant} to Enseignant,
+     Enseignement{Groupe} to Groupe,
+      Enseignement{TypeEnseignement} to TypeEnseignement,
+      AffectationChef{Departement} to Departement,
+       AffectationChef{Enseignant} to Enseignant,
+       Enseignant{Departement} to Departement,
+       Matiere{Regime} to Regime
+      
+}
+// Set pagination options
+
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+filter *
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

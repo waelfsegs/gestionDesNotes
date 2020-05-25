@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gestionNotesFsegsApp.inscription.home.title">Inscriptions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inscription" [routerLink]="['/inscription/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gestionNotesFsegsApp.inscription.home.createLabel">
+            Create a new Inscription
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="inscriptions?.length === 0">
+        <span jhiTranslate="gestionNotesFsegsApp.inscription.home.notFound">No inscriptions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="inscriptions && inscriptions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="gestionNotesFsegsApp.inscription.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="annee"><span jhiTranslate="gestionNotesFsegsApp.inscription.annee">Annee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="etudiantId"><span jhiTranslate="gestionNotesFsegsApp.inscription.etudiant">Etudiant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="classeId"><span jhiTranslate="gestionNotesFsegsApp.inscription.classe">Classe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="groupeId"><span jhiTranslate="gestionNotesFsegsApp.inscription.groupe">Groupe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="semstreId"><span jhiTranslate="gestionNotesFsegsApp.inscription.semstre">Semstre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inscription of inscriptions ;trackBy: trackId">
+                    <td><a [routerLink]="['/inscription', inscription.id, 'view']">{{ inscription.id }}</a></td>
+                    <td>{{ inscription.date | date:'mediumDate' }}</td>
+                    <td>{{ inscription.annee | date:'mediumDate' }}</td>
+                    <td>
+                        <div *ngIf="inscription.etudiantId">
+                            <a [routerLink]="['/etudiant', inscription.etudiantId , 'view']" >{{ inscription.etudiantId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inscription.classeId">
+                            <a [routerLink]="['/classe', inscription.classeId , 'view']" >{{ inscription.classeId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inscription.groupeId">
+                            <a [routerLink]="['/groupe', inscription.groupeId , 'view']" >{{ inscription.groupeId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inscription.semstreId">
+                            <a [routerLink]="['/semstre', inscription.semstreId , 'view']" >{{ inscription.semstreId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/inscription', inscription.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/inscription', inscription.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(inscription)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="inscriptions && inscriptions.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

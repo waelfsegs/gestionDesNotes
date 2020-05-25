@@ -1,0 +1,29 @@
+{
+  "name": "UniteEnseignement",
+  "fields": [
+    {
+      "fieldName": "nomUE",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "desgnationUE",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "coefficientUE",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200525002113",
+  "entityTableName": "unite_enseignement",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

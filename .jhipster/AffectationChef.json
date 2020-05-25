@@ -1,0 +1,40 @@
+{
+  "name": "AffectationChef",
+  "fields": [
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "departement",
+      "otherEntityRelationshipName": "affectationChef",
+      "relationshipName": "departement",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "enseignant",
+      "otherEntityRelationshipName": "affectationChef",
+      "relationshipName": "enseignant",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200525001913",
+  "entityTableName": "affectation_chef",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

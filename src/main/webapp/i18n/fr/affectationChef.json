@@ -1,0 +1,25 @@
+{
+  "gestionNotesFsegsApp": {
+    "affectationChef": {
+      "home": {
+        "title": "AffectationChefs",
+        "createLabel": "Créer un nouveau Affectation Chef",
+        "createOrEditLabel": "Créer ou éditer un Affectation Chef",
+        "notFound": "Aucun Affectation Chef trouvé"
+      },
+      "created": "Un nouveau Affectation Chef a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Affectation Chef avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Affectation Chef avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Affectation Chef {{ id }} ?"
+      },
+      "detail": {
+        "title": "Affectation Chef"
+      },
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "departement": "Departement",
+      "enseignant": "Enseignant"
+    }
+  }
+}

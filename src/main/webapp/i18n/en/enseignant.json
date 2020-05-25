@@ -1,0 +1,28 @@
+{
+  "gestionNotesFsegsApp": {
+    "enseignant": {
+      "home": {
+        "title": "Enseignants",
+        "createLabel": "Create a new Enseignant",
+        "createOrEditLabel": "Create or edit a Enseignant",
+        "notFound": "No Enseignants found"
+      },
+      "created": "A new Enseignant is created with identifier {{ param }}",
+      "updated": "A Enseignant is updated with identifier {{ param }}",
+      "deleted": "A Enseignant is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Enseignant {{ id }}?"
+      },
+      "detail": {
+        "title": "Enseignant"
+      },
+      "nom": "Nom",
+      "pernom": "Pernom",
+      "mail": "Mail",
+      "matricule": "Matricule",
+      "cin": "Cin",
+      "dateEmbauchement": "Date Embauchement",
+      "departement": "Departement"
+    }
+  }
+}

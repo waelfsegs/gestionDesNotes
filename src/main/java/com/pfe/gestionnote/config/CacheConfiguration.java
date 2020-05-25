@@ -45,6 +45,23 @@ public class CacheConfiguration {
             createCache(cm, com.pfe.gestionnote.domain.User.class.getName());
             createCache(cm, com.pfe.gestionnote.domain.Authority.class.getName());
             createCache(cm, com.pfe.gestionnote.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.pfe.gestionnote.domain.Etudiant.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Classe.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Specialite.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Niveau.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Cycle.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Resultat.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Matiere.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Groupe.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Inscription.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Semstre.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Enseignant.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.AffectationChef.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Departement.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.UniteEnseignement.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Enseignement.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Regime.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.TypeEnseignement.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

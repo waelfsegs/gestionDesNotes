@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="matiere">
+            <h2><span jhiTranslate="gestionNotesFsegsApp.matiere.detail.title">Matiere</span> {{ matiere.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientMatiere">Coefficient Matiere</span></dt>
+                <dd>
+                    <span>{{ matiere.coefficientMatiere }}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientTp">Coefficient Tp</span></dt>
+                <dd>
+                    <span>{{ matiere.coefficientTp }}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientDc">Coefficient Dc</span></dt>
+                <dd>
+                    <span>{{ matiere.coefficientDc }}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientExem">Coefficient Exem</span></dt>
+                <dd>
+                    <span>{{ matiere.coefficientExem }}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.designation">Designation</span></dt>
+                <dd>
+                    <span>{{ matiere.designation }}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ matiere.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.regime">Regime</span></dt>
+                <dd>
+                    <div *ngIf="matiere.regimeId">
+                        <a [routerLink]="['/regime', matiere.regimeId, 'view']">{{ matiere.regimeId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/matiere', matiere.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
