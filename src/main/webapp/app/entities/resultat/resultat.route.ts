@@ -42,7 +42,7 @@ export const resultatRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ADMIN', 'ROLE_ETUDIANT'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.resultat.home.title'
     },
@@ -55,7 +55,7 @@ export const resultatRoute: Routes = [
       resultat: ResultatResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ADMIN', 'ROLE_ETUDIANT'],
       pageTitle: 'gestionNotesFsegsApp.resultat.home.title'
     },
     canActivate: [UserRouteAccessService]
