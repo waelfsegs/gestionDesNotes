@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="classe" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_ADMIN'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="classe" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_AGENT']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.classe">Classe</span>
                         </a>
