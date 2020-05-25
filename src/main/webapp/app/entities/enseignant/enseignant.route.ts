@@ -5,7 +5,6 @@ import { JhiResolvePagingParams } from 'ng-jhipster';
 import { Observable, of, EMPTY } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
-import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { IEnseignant, Enseignant } from 'app/shared/model/enseignant.model';
 import { EnseignantService } from './enseignant.service';
@@ -40,49 +39,49 @@ export const enseignantRoute: Routes = [
     path: '',
     component: EnseignantComponent,
     resolve: {
-      pagingParams: JhiResolvePagingParams,
+      pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: ['ROLE_ADMIN'],
       defaultSort: 'id,asc',
-      pageTitle: 'gestionNotesFsegsApp.enseignant.home.title',
+      pageTitle: 'gestionNotesFsegsApp.enseignant.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: ':id/view',
     component: EnseignantDetailComponent,
     resolve: {
-      enseignant: EnseignantResolve,
+      enseignant: EnseignantResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.enseignant.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.enseignant.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: 'new',
     component: EnseignantUpdateComponent,
     resolve: {
-      enseignant: EnseignantResolve,
+      enseignant: EnseignantResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.enseignant.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.enseignant.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: ':id/edit',
     component: EnseignantUpdateComponent,
     resolve: {
-      enseignant: EnseignantResolve,
+      enseignant: EnseignantResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.enseignant.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.enseignant.home.title'
     },
-    canActivate: [UserRouteAccessService],
-  },
+    canActivate: [UserRouteAccessService]
+  }
 ];

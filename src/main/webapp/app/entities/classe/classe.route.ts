@@ -4,8 +4,6 @@ import { Resolve, ActivatedRouteSnapshot, Routes, Router } from '@angular/router
 import { JhiResolvePagingParams } from 'ng-jhipster';
 import { Observable, of, EMPTY } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
-
-import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { IClasse, Classe } from 'app/shared/model/classe.model';
 import { ClasseService } from './classe.service';
@@ -40,49 +38,49 @@ export const classeRoute: Routes = [
     path: '',
     component: ClasseComponent,
     resolve: {
-      pagingParams: JhiResolvePagingParams,
+      pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: ['ROLE_ADMIN'],
       defaultSort: 'id,asc',
-      pageTitle: 'gestionNotesFsegsApp.classe.home.title',
+      pageTitle: 'gestionNotesFsegsApp.classe.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: ':id/view',
     component: ClasseDetailComponent,
     resolve: {
-      classe: ClasseResolve,
+      classe: ClasseResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.classe.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.classe.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: 'new',
     component: ClasseUpdateComponent,
     resolve: {
-      classe: ClasseResolve,
+      classe: ClasseResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.classe.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.classe.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: ':id/edit',
     component: ClasseUpdateComponent,
     resolve: {
-      classe: ClasseResolve,
+      classe: ClasseResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.classe.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.classe.home.title'
     },
-    canActivate: [UserRouteAccessService],
-  },
+    canActivate: [UserRouteAccessService]
+  }
 ];

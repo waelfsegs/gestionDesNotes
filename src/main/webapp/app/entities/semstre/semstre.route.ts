@@ -5,7 +5,6 @@ import { JhiResolvePagingParams } from 'ng-jhipster';
 import { Observable, of, EMPTY } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
-import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { ISemstre, Semstre } from 'app/shared/model/semstre.model';
 import { SemstreService } from './semstre.service';
@@ -40,49 +39,49 @@ export const semstreRoute: Routes = [
     path: '',
     component: SemstreComponent,
     resolve: {
-      pagingParams: JhiResolvePagingParams,
+      pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: ['ROLE_ADMIN'],
       defaultSort: 'id,asc',
-      pageTitle: 'gestionNotesFsegsApp.semstre.home.title',
+      pageTitle: 'gestionNotesFsegsApp.semstre.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: ':id/view',
     component: SemstreDetailComponent,
     resolve: {
-      semstre: SemstreResolve,
+      semstre: SemstreResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.semstre.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.semstre.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: 'new',
     component: SemstreUpdateComponent,
     resolve: {
-      semstre: SemstreResolve,
+      semstre: SemstreResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.semstre.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.semstre.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: ':id/edit',
     component: SemstreUpdateComponent,
     resolve: {
-      semstre: SemstreResolve,
+      semstre: SemstreResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.semstre.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.semstre.home.title'
     },
-    canActivate: [UserRouteAccessService],
-  },
+    canActivate: [UserRouteAccessService]
+  }
 ];

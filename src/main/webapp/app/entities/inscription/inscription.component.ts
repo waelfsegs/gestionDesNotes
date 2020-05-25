@@ -13,7 +13,7 @@ import { InscriptionDeleteDialogComponent } from './inscription-delete-dialog.co
 
 @Component({
   selector: 'jhi-inscription',
-  templateUrl: './inscription.component.html',
+  templateUrl: './inscription.component.html'
 })
 export class InscriptionComponent implements OnInit, OnDestroy {
   inscriptions?: IInscription[];
@@ -40,7 +40,7 @@ export class InscriptionComponent implements OnInit, OnDestroy {
       .query({
         page: pageToLoad - 1,
         size: this.itemsPerPage,
-        sort: this.sort(),
+        sort: this.sort()
       })
       .subscribe(
         (res: HttpResponse<IInscription[]>) => this.onSuccess(res.body, res.headers, pageToLoad),
@@ -62,7 +62,7 @@ export class InscriptionComponent implements OnInit, OnDestroy {
 
   handleBackNavigation(): void {
     this.activatedRoute.queryParamMap.subscribe((params: ParamMap) => {
-      const prevPage = params.get('page');
+      /* const prevPage = params.get('page');
       const prevSort = params.get('sort');
       const prevSortSplit = prevSort?.split(',');
       if (prevSortSplit) {
@@ -74,7 +74,7 @@ export class InscriptionComponent implements OnInit, OnDestroy {
         this.loadPage(+prevPage);
       } else {
         this.loadPage(this.page);
-      }
+      }*/
     });
   }
 
@@ -113,8 +113,8 @@ export class InscriptionComponent implements OnInit, OnDestroy {
       queryParams: {
         page: this.page,
         size: this.itemsPerPage,
-        sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc'),
-      },
+        sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc')
+      }
     });
     this.inscriptions = data || [];
   }

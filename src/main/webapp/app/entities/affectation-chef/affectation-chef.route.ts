@@ -4,8 +4,6 @@ import { Resolve, ActivatedRouteSnapshot, Routes, Router } from '@angular/router
 import { JhiResolvePagingParams } from 'ng-jhipster';
 import { Observable, of, EMPTY } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
-
-import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { IAffectationChef, AffectationChef } from 'app/shared/model/affectation-chef.model';
 import { AffectationChefService } from './affectation-chef.service';
@@ -40,49 +38,49 @@ export const affectationChefRoute: Routes = [
     path: '',
     component: AffectationChefComponent,
     resolve: {
-      pagingParams: JhiResolvePagingParams,
+      pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: ['ROLE_ADMIN'],
       defaultSort: 'id,asc',
-      pageTitle: 'gestionNotesFsegsApp.affectationChef.home.title',
+      pageTitle: 'gestionNotesFsegsApp.affectationChef.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: ':id/view',
     component: AffectationChefDetailComponent,
     resolve: {
-      affectationChef: AffectationChefResolve,
+      affectationChef: AffectationChefResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.affectationChef.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.affectationChef.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: 'new',
     component: AffectationChefUpdateComponent,
     resolve: {
-      affectationChef: AffectationChefResolve,
+      affectationChef: AffectationChefResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.affectationChef.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.affectationChef.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: ':id/edit',
     component: AffectationChefUpdateComponent,
     resolve: {
-      affectationChef: AffectationChefResolve,
+      affectationChef: AffectationChefResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.affectationChef.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.affectationChef.home.title'
     },
-    canActivate: [UserRouteAccessService],
-  },
+    canActivate: [UserRouteAccessService]
+  }
 ];

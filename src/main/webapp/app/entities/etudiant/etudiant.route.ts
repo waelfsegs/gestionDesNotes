@@ -4,8 +4,6 @@ import { Resolve, ActivatedRouteSnapshot, Routes, Router } from '@angular/router
 import { JhiResolvePagingParams } from 'ng-jhipster';
 import { Observable, of, EMPTY } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
-
-import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { IEtudiant, Etudiant } from 'app/shared/model/etudiant.model';
 import { EtudiantService } from './etudiant.service';
@@ -40,49 +38,49 @@ export const etudiantRoute: Routes = [
     path: '',
     component: EtudiantComponent,
     resolve: {
-      pagingParams: JhiResolvePagingParams,
+      pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: ['ROLE_ADMIN'],
       defaultSort: 'id,asc',
-      pageTitle: 'gestionNotesFsegsApp.etudiant.home.title',
+      pageTitle: 'gestionNotesFsegsApp.etudiant.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: ':id/view',
     component: EtudiantDetailComponent,
     resolve: {
-      etudiant: EtudiantResolve,
+      etudiant: EtudiantResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.etudiant.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.etudiant.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: 'new',
     component: EtudiantUpdateComponent,
     resolve: {
-      etudiant: EtudiantResolve,
+      etudiant: EtudiantResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.etudiant.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.etudiant.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: ':id/edit',
     component: EtudiantUpdateComponent,
     resolve: {
-      etudiant: EtudiantResolve,
+      etudiant: EtudiantResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.etudiant.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.etudiant.home.title'
     },
-    canActivate: [UserRouteAccessService],
-  },
+    canActivate: [UserRouteAccessService]
+  }
 ];

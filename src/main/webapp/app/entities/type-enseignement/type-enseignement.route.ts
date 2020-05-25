@@ -5,7 +5,6 @@ import { JhiResolvePagingParams } from 'ng-jhipster';
 import { Observable, of, EMPTY } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
-import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { ITypeEnseignement, TypeEnseignement } from 'app/shared/model/type-enseignement.model';
 import { TypeEnseignementService } from './type-enseignement.service';
@@ -40,49 +39,49 @@ export const typeEnseignementRoute: Routes = [
     path: '',
     component: TypeEnseignementComponent,
     resolve: {
-      pagingParams: JhiResolvePagingParams,
+      pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: ['ROLE_ADMIN'],
       defaultSort: 'id,asc',
-      pageTitle: 'gestionNotesFsegsApp.typeEnseignement.home.title',
+      pageTitle: 'gestionNotesFsegsApp.typeEnseignement.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: ':id/view',
     component: TypeEnseignementDetailComponent,
     resolve: {
-      typeEnseignement: TypeEnseignementResolve,
+      typeEnseignement: TypeEnseignementResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.typeEnseignement.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.typeEnseignement.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: 'new',
     component: TypeEnseignementUpdateComponent,
     resolve: {
-      typeEnseignement: TypeEnseignementResolve,
+      typeEnseignement: TypeEnseignementResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.typeEnseignement.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.typeEnseignement.home.title'
     },
-    canActivate: [UserRouteAccessService],
+    canActivate: [UserRouteAccessService]
   },
   {
     path: ':id/edit',
     component: TypeEnseignementUpdateComponent,
     resolve: {
-      typeEnseignement: TypeEnseignementResolve,
+      typeEnseignement: TypeEnseignementResolve
     },
     data: {
-      authorities: [Authority.USER],
-      pageTitle: 'gestionNotesFsegsApp.typeEnseignement.home.title',
+      authorities: ['ROLE_ADMIN'],
+      pageTitle: 'gestionNotesFsegsApp.typeEnseignement.home.title'
     },
-    canActivate: [UserRouteAccessService],
-  },
+    canActivate: [UserRouteAccessService]
+  }
 ];
