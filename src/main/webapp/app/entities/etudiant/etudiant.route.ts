@@ -54,7 +54,7 @@ export const etudiantRoute: Routes = [
       etudiant: EtudiantResolve
     },
     data: {
-      authorities: ['ROLE_AGENT'],
+      authorities: ['ROLE_AGENT','ROLE_Enseignant'],
       pageTitle: 'gestionNotesFsegsApp.etudiant.home.title'
     },
     canActivate: [UserRouteAccessService]

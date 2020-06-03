@@ -28,7 +28,7 @@
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
                     <li>
-                        <a class="dropdown-item" routerLink="etudiant" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_AGENT','ROLE_ADMIN']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="etudiant" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_AGENT','ROLE_Enseignant','ROLE_ADMIN']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.etudiant">Etudiant</span>
                         </a>
