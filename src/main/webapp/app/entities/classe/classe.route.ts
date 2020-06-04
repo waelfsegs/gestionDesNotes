@@ -41,7 +41,7 @@ export const classeRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ADMIN', 'ROLE_AGENT'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.classe.home.title'
     },
@@ -54,7 +54,7 @@ export const classeRoute: Routes = [
       classe: ClasseResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ADMIN', 'ROLE_AGENT'],
       pageTitle: 'gestionNotesFsegsApp.classe.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -66,7 +66,7 @@ export const classeRoute: Routes = [
       classe: ClasseResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ADMIN', 'ROLE_AGENT'],
       pageTitle: 'gestionNotesFsegsApp.classe.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -78,7 +78,7 @@ export const classeRoute: Routes = [
       classe: ClasseResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ADMIN', 'ROLE_AGENT'],
       pageTitle: 'gestionNotesFsegsApp.classe.home.title'
     },
     canActivate: [UserRouteAccessService]

@@ -55,7 +55,7 @@ export const groupeRoute: Routes = [
       groupe: GroupeResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ADMIN','ROLE_Enseignant'],
       pageTitle: 'gestionNotesFsegsApp.groupe.home.title'
     },
     canActivate: [UserRouteAccessService]

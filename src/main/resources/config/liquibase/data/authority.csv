@@ -1,3 +1,7 @@
 name
 ROLE_ADMIN
 ROLE_USER
+ROLE_ETUDIANT
+ROLE_AGENT
+ROLE_Enseignant
+ROLE_ChefDepartement
