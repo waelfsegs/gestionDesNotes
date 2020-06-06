@@ -3,8 +3,9 @@
     They are written in English to avoid character encoding issues (not a perfect solution)
 */
 export const LANGUAGES: string[] = [
+  'fr',
   'en',
-  'ar-ly',
-  'fr'
+  'ar-ly'
+  
   // jhipster-needle-i18n-language-constant - JHipster will add/remove languages in this array
 ];

@@ -41,7 +41,7 @@ export const etudiantRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_AGENT'],
+      authorities: ['ROLE_AGENT','ROLE_Enseignant'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.etudiant.home.title'
     },
