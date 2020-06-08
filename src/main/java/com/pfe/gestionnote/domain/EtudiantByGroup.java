@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class EtudiantByGroup {
     @Id
     @Column(name = "matricule")
-    public Integer matricule;
+    public String matricule;
 
     @Column(name = "nom")
     public String nom;
