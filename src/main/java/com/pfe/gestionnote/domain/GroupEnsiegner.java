@@ -10,6 +10,10 @@ public class GroupEnsiegner {
     @Column(name = "id")
     public Integer id;
     
-   
+    @Column(name = "ens_id")
+    public String ensid;
+
+    @Column(name = "matiere_id")
+    public Integer matiereid;
    
 }

@@ -26,9 +26,9 @@ public class NoteccRessource {
     public List<EtudiantByGroup> getEtudiantByGroup(@PathVariable Integer idgroup){
         return noteccService.getEtudiantByGroup(idgroup);
     }
-    @GetMapping("/getGroupEnseigner/{idgroup}")
-    public List<GroupEnsiegner> getGroupEnseigner(@PathVariable Integer idgroup){
-        return noteccService.getGroupEnseigner(idgroup);
+    @GetMapping("/getGroupEnseigner/{idens},{matiereid}")
+    public List<GroupEnsiegner> getGroupEnseigner(@PathVariable Integer idens,@PathVariable Integer matiereid){
+        return noteccService.getGroupEnseigner(idens,matiereid);
     }
     
 }

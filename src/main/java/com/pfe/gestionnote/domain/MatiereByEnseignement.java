@@ -13,9 +13,6 @@ public class MatiereByEnseignement {
 
     @Column(name = "designation")
     public String designation;
-    
-    @Column(name = "groupe_id")
-    public String groupe_id;
 
     @Column(name = "ensg_id")
     public Integer ensgId; 

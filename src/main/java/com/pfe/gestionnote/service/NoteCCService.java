@@ -25,7 +25,7 @@ public class NoteCCService {
     public List<EtudiantByGroup> getEtudiantByGroup(Integer idgroup){
         return etudiantByGroupRepository.getEtudiantByGroup(idgroup);
     }
-    public List<GroupEnsiegner> getGroupEnseigner(Integer idgroup){
-        return GroupEnsiegnerRepository.getGroupEnseigner(idgroup);
+    public List<GroupEnsiegner> getGroupEnseigner(Integer idens,Integer matiereid){
+        return GroupEnsiegnerRepository.getGroupEnseigner(idens,matiereid);
     }
 }
