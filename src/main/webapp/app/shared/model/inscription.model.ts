@@ -8,6 +8,10 @@ export interface IInscription {
   classeId?: number;
   groupeId?: number;
   semstreId?: number;
+  nomEtudiant?: string;
+  classe?: string;
+  group?: string;
+  semstre?: number;
 }
 
 export class Inscription implements IInscription {
