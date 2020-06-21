@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="inscription" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_AGENT'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="inscription" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_AGENT','ROLE_ADMIN]" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.inscription">Inscription</span>
                         </a>
