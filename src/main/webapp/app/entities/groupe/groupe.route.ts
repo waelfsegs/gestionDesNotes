@@ -42,7 +42,7 @@ export const groupeRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_Enseignant','ROLE_AGENT'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.groupe.home.title'
     },
@@ -55,7 +55,7 @@ export const groupeRoute: Routes = [
       groupe: GroupeResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN','ROLE_Enseignant'],
+      authorities: ['ROLE_AGENT','ROLE_Enseignant'],
       pageTitle: 'gestionNotesFsegsApp.groupe.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -67,7 +67,7 @@ export const groupeRoute: Routes = [
       groupe: GroupeResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_AGENT'],
       pageTitle: 'gestionNotesFsegsApp.groupe.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -79,7 +79,7 @@ export const groupeRoute: Routes = [
       groupe: GroupeResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_AGENT'],
       pageTitle: 'gestionNotesFsegsApp.groupe.home.title'
     },
     canActivate: [UserRouteAccessService]
