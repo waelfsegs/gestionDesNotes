@@ -13,5 +13,5 @@
 </div>
 <ul class="list-group">
     <li class="list-group-item active">Group</li>
-    <li class="list-group-item hoverme" *ngFor="let group of listGroup | async" (click)="selectGroup(group)">{{group.nomgroup}}</li>
+    <li class="list-group-item hoverme" *ngFor="let group of listGroup | async" ><a  [routerLink]="['/note-controle-continue', group.id,matiereid, 'group']" >{{group.nomgroup}}</a></li>
   </ul>

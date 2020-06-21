@@ -19,6 +19,6 @@ import { EditNoteComponent } from './list-group-etudiant/edit-note/edit-note.com
     EditNoteComponent,
     EditNoteComponent
   ],
-  entryComponents: []
+  entryComponents: [EditNoteComponent]
 })
 export class GestionNotesFsegSNoteControlContinueModule {}

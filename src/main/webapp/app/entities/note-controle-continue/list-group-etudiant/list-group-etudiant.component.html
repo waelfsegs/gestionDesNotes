@@ -1,28 +1,53 @@
-<div class="card card-sm">
-  <div class="card-body row no-gutters align-items-center">
-      <div class="col-auto">
-          <i class="fas fa-search h4 text-body"></i>
-      </div>
-      <div class="col">
-          <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search Etudiant">
-      </div>
-      <div class="col-auto">
-          <button class="btn btn-lg btn-primary" type="submit"> <fa-icon icon="search" [fixedWidth]="true"></fa-icon></button>
-      </div>
-  </div>
+<div class="modal-header">
+    <h2>liste etudiant pour le matiere {{matiereName}} et group {{groupName}}</h2>
+    
 </div>
-
-<ul class="list-group">
-    <li class="list-group-item active">Etudiant</li>
-    <ng-container *ngFor="let etudiant of listEtudiant | async ; trackBy: trackId">
-        <li class="list-group-item hoverme"  (click)="isshow(etudiant)">
-            <span > {{etudiant.nom  }}</span> 
-            </li>
-            <li class="list-group-item" *ngIf='etudiant.show'>  
-                <edit-note [etudiant]="etudiant"   (hide)="hide($event)"></edit-note>
-            </li>
-      </ng-container>
-   
-   
- 
-  </ul>
+<div class="modal-body">
+    <div class="card card-sm">
+        <div class="card-body row no-gutters align-items-center">
+            <div class="col-auto">
+                <i class="fas fa-search h4 text-body"></i>
+            </div>
+            <div class="col">
+                <input class="form-control form-control-lg form-control-borderless"(input)="clear()" type="number" [(ngModel)]="matricule" placeholder="Search Matricule">
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-lg btn-primary" type="button" (click)="searchMat()"> <fa-icon icon="search" [fixedWidth]="true"></fa-icon></button>
+            </div>
+        </div>
+    
+    <div class="table-responsive" id="entities" >
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr >
+                    <th ><span jhiTranslate="gestionNotesFsegsApp.etudiant.matricule">Matricule</span> </th>
+                    <th ><span >Nom Prénom</span> </th>
+                    <th ><span jhiTranslate="gestionNotesFsegsApp.resultat.notecc1">notecc1</span> </th>
+                    <th ><span jhiTranslate="gestionNotesFsegsApp.resultat.notecc2">notecc2</span> </th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let etudiant of etudiantnotes ">
+                    <td>{{ etudiant.matricule }}</td>
+                    <td>{{ etudiant.prenom }} {{ etudiant.nom }}</td>
+                    <td>{{ etudiant.notecc1 }}</td>
+                    <td>{{ etudiant.notecc2 }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                        
+                            <button type="submit"
+                                    (click)="openEdit(etudiant)"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<div class="modal-footer"></div>

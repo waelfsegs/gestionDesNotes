@@ -1,67 +1,135 @@
-import { takeUntil, take } from 'rxjs/operators';
-import { NoteControleContinueService } from './../note-controle-continue.service';
-import { Component, OnInit, OnDestroy, OnChanges, Input, SimpleChanges } from '@angular/core';
-import { Subject, BehaviorSubject } from 'rxjs';
-import { IGroupbyetudiant } from 'app/shared/model/group-by-etudiant';
+import { IEtudiantNote } from './../../../shared/model/etudiantNote';
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
+import { MatiereService } from './../../matiere/matiere.service';
+
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+
+import { Subject } from 'rxjs';
+
+import { ResultatService } from './../../resultat/resultat.service';
+import { InscriptionService } from './../../inscription/inscription.service';
+
+import { EtudiantService } from './../../etudiant/etudiant.service';
+
+import { IEtudiantNote } from 'app/shared/model/etudiantNote';
+import { IInscription } from 'app/shared/model/inscription.model';
+import { GroupeService } from 'app/entities/groupe/groupe.service';
+import { EditNoteComponent } from './edit-note/edit-note.component';
 
 @Component({
   selector: 'list-group-etudiant',
   templateUrl: './list-group-etudiant.component.html',
   styleUrls: ['list-group-etudiant.scss']
 })
-export class ListGroupEtudiantComponent implements OnDestroy, OnChanges {
-  listEtudiant: BehaviorSubject<IGroupbyetudiant[]> = new BehaviorSubject<IGroupbyetudiant[]>([]);
-
+export class ListGroupEtudiantComponent implements OnDestroy, OnInit {
   unsubscribe = new Subject();
-  @Input('groupid') groupid: number = 0;
-  constructor(private noteService: NoteControleContinueService) {}
+  etudiantnotes: IEtudiantNote[] = [];
+  groupid: number = 0;
+  matiereid: number = 0;
+  matiereName: string = '';
+  groupName: string = '';
+  matricule: string = '';
+  constructor(
+    private etudiantService: EtudiantService,
+    private inscriptionService: InscriptionService,
+    private resultatService: ResultatService,
+    private modaleService: NgbModal,
+    private matiereService: MatiereService,
+    private groupService: GroupeService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.groupid);
-    this.loadGroupEtudiant();
+  ngOnInit() {
+    this.activatedRoute.paramMap.subscribe(param => {
+      if (param) {
+        this.groupid = Number(param.get('id'));
+        this.matiereid = Number(param.get('idmatiere'));
+        console.log(this.matiereid);
+        this.getGroupBYid(this.groupid);
+        this.getMatiereBYid(this.matiereid);
+        this.loadInscription();
+      }
+    });
   }
-
-  loadGroupEtudiant() {
-    this.noteService
-      .getEtudiantByGroup(this.groupid)
-      .pipe(takeUntil(this.unsubscribe))
+  getMatiereBYid(id: number) {
+    this.matiereService.find(id).subscribe(matiere => {
+      if (matiere.body && matiere.body.nom) this.matiereName = matiere.body.nom;
+    });
+  }
+  getGroupBYid(id: number) {
+    this.groupService.find(id).subscribe(groupe => {
+      if (groupe.body && groupe.body.nomgroup) this.groupName = groupe.body.nomgroup;
+    });
+  }
+  loadInscription() {
+    this.etudiantnotes = [];
+    this.inscriptionService
+      .query({
+        'groupeId.equals': this.groupid
+      })
       .subscribe(res => {
-        if (res.body) this.listEtudiant.next(res.body);
-        else this.listEtudiant.next([]);
+        if (res.body) this.prpareListEtudiant(res.body);
       });
   }
-  isshow(etudiant: IGroupbyetudiant) {
-    if (etudiant.show == undefined || etudiant.show === null) etudiant.show = false;
-    etudiant.show = !etudiant.show;
+  prpareListEtudiant(data: IInscription[]) {
+    data.forEach(element => {
+      let etudiantnote: IEtudiantNote = {};
+      if (element.etudiantId) {
+        this.etudiantService.find(element.etudiantId).subscribe(etudiant => {
+          if (etudiant.body) {
+            etudiantnote.nom = etudiant.body.nom;
+            etudiantnote.prenom = etudiant.body.prenom;
+            etudiantnote.cin = etudiant.body.cin;
+            etudiantnote.matricule = etudiant.body.matricule;
+            etudiantnote.idinscription = element.id;
+            if (element.id) this.getNoteByInscription(element.id, etudiantnote);
+            this.etudiantnotes.push(etudiantnote);
+          }
+        });
+      }
+    });
   }
-  hide(etudiant: IGroupbyetudiant) {
-    etudiant.show = false;
-    /*this.listEtudiant.pipe(take(1))
-  .subscribe((etudiants:IGroupbyetudiant[]) => {
-    let groupetudiants:IGroupbyetudiant[]=[]
-
-    etudiants.forEach(element=>{
-if(element.matricule==etudiant.matricule){
-etudiant.show=false
-
-}
-
-groupetudiants.push(element);
-    })
-    console.log(groupetudiants)
-    this.listEtudiant.next(groupetudiants);
-  });
-
- 
-    
-    
-
- */
+  getNoteByInscription(idinscription: number, etudiantnote: IEtudiantNote) {
+    this.resultatService.query({ 'inscriptionId.equals': idinscription }).subscribe(resultat => {
+      if (resultat.body && resultat.body.length > 0) {
+        etudiantnote.notecc1 = resultat.body[0].notecc1;
+        etudiantnote.notecc2 = resultat.body[0].notecc2;
+      }
+    });
   }
-  trackId(index: number, item: IGroupbyetudiant): string {
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
-    return item.matricule!;
+
+  openEdit(etudiantnote: IEtudiantNote) {
+    const modelRef: NgbModalRef = this.modaleService.open(EditNoteComponent as Component);
+    modelRef.componentInstance.etudiantnotes = etudiantnote;
+    modelRef.componentInstance.matiereid = this.matiereid;
+    modelRef.componentInstance.parent = this;
+    modelRef.componentInstance.matiereName = this.matiereName;
+    modelRef.componentInstance.modalref = modelRef;
   }
+  clear() {
+    console.log('heloo');
+    if (!this.matricule) {
+      this.loadInscription();
+    }
+  }
+  searchMat() {
+    if (this.matricule) {
+      let filterd: IEtudiantNote[] = [];
+      this.etudiantnotes.forEach(element => {
+        if (element.matricule == this.matricule) {
+          console.log(element);
+          filterd.push(element);
+        }
+      });
+      this.etudiantnotes = [];
+      this.etudiantnotes = filterd;
+    } else {
+      this.loadInscription();
+    }
+  }
+
   ngOnDestroy() {
     this.unsubscribe.next();
     this.unsubscribe.complete();

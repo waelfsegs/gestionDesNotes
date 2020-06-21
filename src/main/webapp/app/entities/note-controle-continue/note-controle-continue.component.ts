@@ -21,6 +21,7 @@ export class NoteControleContinueComponent implements OnInit, OnDestroy {
       if (this.currentaccount) {
         if (this.currentaccount.ensiegnent) {
           this.enseignentid = Number(this.currentaccount.ensiegnent);
+          console.log('******************', this.enseignentid);
         }
       }
     });

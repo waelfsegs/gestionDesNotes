@@ -1,30 +1,53 @@
-
+<div class="modal-header">
+    <h2>Edit Note</h2>
+</div>
 <div class="modal-body">
-   
-    <div class="row ">
-        <div class="col-md-2"> <label for="notecc1" >notecc1</label></div>
-        <div class="col-md-3">
-            <div class="form-group" >
-               
-                <input type="number" class="form-control" id="notecc1" onKeyDown="return false" name="notecc1" min=0  max=20 />
+    <dl class="row-md jh-entity-details">
+        <div class="row">
+            <div class="col-md-3">
+                <dt><span jhiTranslate="gestionNotesFsegsApp.etudiant.cin">Cin</span></dt>
+                <dd>
+                    <span>{{ etudiantnotes.cin }}</span>
+                </dd>
+
+            </div>
+            <div class="col-md-3">
+                <dt><span jhiTranslate="gestionNotesFsegsApp.etudiant.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ etudiantnotes.nom }}</span>
+                </dd>
+            </div>
+            <div class="col-md-3">
+                <dt><span jhiTranslate="gestionNotesFsegsApp.etudiant.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{ etudiantnotes.matricule }}</span>
+                </dd>
+            </div>
+            <div class="col-md-3">
+                <dt><span>Matiere</span></dt>
+
+                <dd>
+                    <span>{{ matiereName }}</span>
+                </dd>
             </div>
         </div>
-        <div class="col-md-2"><label for="notecc2" >notecc2</label></div>
-    <div class="col-md-3">
-        <div class="form-group" >  
-            <input type="number" class="form-control" id="notecc2" onKeyDown="return false" name="notecc2" min=0  max=20   />
-        </div>
+    </dl>
+
+    <div class="form-group">
+        <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.resultat.notecc1"
+            for="field_notecc1">Notecc 1</label>
+        <input type="number" class="form-control" name="notecc1" id="field_notecc1"
+            [(ngModel)]="etudiantnotes.notecc1" />
     </div>
 
+    <div class="form-group">
+        <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.resultat.notecc2"
+            for="field_notecc2">Notecc 2</label>
+        <input type="number" class="form-control" name="notecc2" id="field_notecc2"
+            [(ngModel)]="etudiantnotes.notecc2" />
+    </div>
 </div>
-  
 
-
-</div>
 <div class="modal-footer">
-    <button class="btn btn-primary" >save</button>
-    <button class="btn btn-danger" (click)="Hide()">cancel</button>
+    <button class="btn btn-primary" (click)="save()">save</button>
 </div>
-
- 
-

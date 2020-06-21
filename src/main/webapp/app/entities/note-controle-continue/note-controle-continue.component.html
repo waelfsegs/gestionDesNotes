@@ -3,14 +3,12 @@
 </div>
 <div class="modal-body">
 <div class="row">
-    <div class="col-md-4">
-        <list-matiere-enseignent (selectmatiere)="selectmatiere($event)"></list-matiere-enseignent>
+    <div class="col-md-6">
+        <list-matiere-enseignent [enseignentid]="enseignentid"  (selectmatiere)="selectmatiere($event)"></list-matiere-enseignent>
     </div>
-    <div class="col-md-4">
-        <list-group-matiere [matiereid]="matiereid" (selectgroupe)="selectgroupe($event)"></list-group-matiere>
+    <div class="col-md-6">
+        <list-group-matiere [enseignentid]="enseignentid" [matiereid]="matiereid" (selectgroupe)="selectgroupe($event)"></list-group-matiere>
     </div>
-    <div class="col-md-4">
-        <list-group-etudiant [groupid]="groupid"></list-group-etudiant>
-    </div>
+   
 </div>
 </div>
