@@ -1,5 +1,5 @@
 import { IEtudiantNote } from './../../../shared/model/etudiantNote';
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
+
 import { MatiereService } from './../../matiere/matiere.service';
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -13,7 +13,6 @@ import { InscriptionService } from './../../inscription/inscription.service';
 
 import { EtudiantService } from './../../etudiant/etudiant.service';
 
-import { IEtudiantNote } from 'app/shared/model/etudiantNote';
 import { IInscription } from 'app/shared/model/inscription.model';
 import { GroupeService } from 'app/entities/groupe/groupe.service';
 import { EditNoteComponent } from './edit-note/edit-note.component';
