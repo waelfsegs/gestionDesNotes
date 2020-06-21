@@ -9,12 +9,18 @@ import { IEnseignant, Enseignant } from 'app/shared/model/enseignant.model';
 import { EnseignantService } from './enseignant.service';
 import { IDepartement } from 'app/shared/model/departement.model';
 import { DepartementService } from 'app/entities/departement/departement.service';
+import { User } from 'app/core/user/user.model';
+import { RegisterService } from 'app/account/register/register.service';
+import { JhiLanguageService } from 'ng-jhipster';
+
+import { UserService } from 'app/core/user/user.service';
 
 @Component({
   selector: 'jhi-enseignant-update',
-  templateUrl: './enseignant-update.component.html',
+  templateUrl: './enseignant-update.component.html'
 })
 export class EnseignantUpdateComponent implements OnInit {
+  user: User = {};
   isSaving = false;
   departements: IDepartement[] = [];
   dateEmbauchementDp: any;
@@ -27,14 +33,17 @@ export class EnseignantUpdateComponent implements OnInit {
     matricule: [],
     cin: [],
     dateEmbauchement: [],
-    departementId: [],
+    departementId: []
   });
 
   constructor(
     protected enseignantService: EnseignantService,
     protected departementService: DepartementService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private registerService: RegisterService,
+    private fb: FormBuilder,
+    private userService: UserService,
+    private languageService: JhiLanguageService
   ) {}
 
   ngOnInit(): void {
@@ -54,7 +63,7 @@ export class EnseignantUpdateComponent implements OnInit {
       matricule: enseignant.matricule,
       cin: enseignant.cin,
       dateEmbauchement: enseignant.dateEmbauchement,
-      departementId: enseignant.departementId,
+      departementId: enseignant.departementId
     });
   }
 
@@ -71,7 +80,13 @@ export class EnseignantUpdateComponent implements OnInit {
       this.subscribeToSaveResponse(this.enseignantService.create(enseignant));
     }
   }
-
+  prepreUser(enseignant: IEnseignant) {
+    this.user.ensiegnent = enseignant.id;
+    this.user.activated = true;
+    this.user.firstName = enseignant.nom;
+    this.user.lastName = enseignant.pernom;
+    (this.user.authorities = ['ROLE_Enseignant']), (this.user.langKey = 'fr');
+  }
   private createFromForm(): IEnseignant {
     return {
       ...new Enseignant(),
@@ -82,13 +97,30 @@ export class EnseignantUpdateComponent implements OnInit {
       matricule: this.editForm.get(['matricule'])!.value,
       cin: this.editForm.get(['cin'])!.value,
       dateEmbauchement: this.editForm.get(['dateEmbauchement'])!.value,
-      departementId: this.editForm.get(['departementId'])!.value,
+      departementId: this.editForm.get(['departementId'])!.value
     };
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IEnseignant>>): void {
     result.subscribe(
-      () => this.onSaveSuccess(),
+      res => {
+        if (res.body) {
+          this.prepreUser(res.body);
+          this.registerService
+            .save({
+              login: res.body.cin + '',
+              email: res.body.mail,
+              password: res.body.matricule + '',
+              langKey: this.languageService.getCurrentLanguage(),
+              ensiegnent: this.user.ensiegnent,
+              firstName: this.user.firstName,
+              activated: true,
+              lastName: this.user.lastName,
+              authorities: this.user.authorities
+            })
+            .subscribe(() => this.onSaveSuccess());
+        }
+      },
       () => this.onSaveError()
     );
   }

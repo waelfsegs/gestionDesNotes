@@ -1,3 +1,7 @@
+import { SemstreService } from './../semstre/semstre.service';
+import { GroupeService } from './../groupe/groupe.service';
+import { ClasseService } from './../classe/classe.service';
+import { EtudiantService } from './../etudiant/etudiant.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
@@ -16,7 +20,7 @@ import { InscriptionDeleteDialogComponent } from './inscription-delete-dialog.co
   templateUrl: './inscription.component.html'
 })
 export class InscriptionComponent implements OnInit, OnDestroy {
-  inscriptions?: IInscription[];
+  inscriptions?: IInscription[] = [];
   eventSubscriber?: Subscription;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
@@ -29,6 +33,10 @@ export class InscriptionComponent implements OnInit, OnDestroy {
     protected inscriptionService: InscriptionService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
+    protected etudiantService: EtudiantService,
+    protected classService: ClasseService,
+    protected groupeService: GroupeService,
+    protected semestreService: SemstreService,
     protected eventManager: JhiEventManager,
     protected modalService: NgbModal
   ) {}
@@ -78,12 +86,6 @@ export class InscriptionComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-    if (this.eventSubscriber) {
-      this.eventManager.destroy(this.eventSubscriber);
-    }
-  }
-
   trackId(index: number, item: IInscription): number {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return item.id!;
@@ -116,10 +118,51 @@ export class InscriptionComponent implements OnInit, OnDestroy {
         sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc')
       }
     });
-    this.inscriptions = data || [];
+    this.inscriptions = [];
+    if (data) {
+      data.forEach(element => {
+        this.getNameEtudiantById(element);
+        this.getGroupNameById(element);
+        this.getSemestertById(element);
+        this.getNameclasstById(element);
+        if (this.inscriptions) this.inscriptions.push(element);
+      });
+    }
   }
-
+  getNameEtudiantById(element: IInscription) {
+    if (element.etudiantId) {
+      this.etudiantService.find(element.etudiantId).subscribe(res => {
+        if (res.body) element.nomEtudiant = res.body.nom + ' ' + res.body.prenom;
+      });
+    }
+  }
+  getSemestertById(element: IInscription) {
+    if (element.semstreId) {
+      this.semestreService.find(element.semstreId).subscribe(res => {
+        if (res.body) element.semstre = res.body.numSemstre;
+      });
+    }
+  }
+  getGroupNameById(element: IInscription) {
+    if (element.groupeId) {
+      this.groupeService.find(element.groupeId).subscribe(res => {
+        if (res.body) element.group = res.body.nomgroup;
+      });
+    }
+  }
+  getNameclasstById(element: IInscription) {
+    if (element.classeId) {
+      this.classService.find(element.classeId).subscribe(res => {
+        if (res.body) element.classe = res.body.nom;
+      });
+    }
+  }
   protected onError(): void {
     this.ngbPaginationPage = this.page;
+  }
+  ngOnDestroy(): void {
+    if (this.eventSubscriber) {
+      this.eventManager.destroy(this.eventSubscriber);
+    }
   }
 }

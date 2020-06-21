@@ -4,6 +4,10 @@ export interface IEnseignement {
   enseignantId?: number;
   groupeId?: number;
   typeEnseignementId?: number;
+  matierenom?: string;
+  enseignantnom?: string;
+  groupenom?: string;
+  typeEnseignement?: string;
 }
 
 export class Enseignement implements IEnseignement {

@@ -82,7 +82,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @Column(name = "reset_date")
     private Instant resetDate = null;
-
+    @Column(name = "ensiegnent",nullable = true)
+    private Integer ensiegnent ;
+ 
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -226,5 +228,13 @@ public class User extends AbstractAuditingEntity implements Serializable {
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +
             "}";
+    }
+
+    public Integer getEnsiegnent() {
+        return ensiegnent;
+    }
+
+    public void setEnsiegnent(Integer ensiegnent) {
+        this.ensiegnent = ensiegnent;
     }
 }

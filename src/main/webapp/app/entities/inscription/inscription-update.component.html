@@ -35,7 +35,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.etudiant" for="field_etudiant">Etudiant</label>
                     <select class="form-control" id="field_etudiant" name="etudiant" formControlName="etudiantId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="etudiantOption.id" *ngFor="let etudiantOption of etudiants; trackBy: trackById">{{ etudiantOption.id }}</option>
+                        <option [ngValue]="etudiantOption.id" *ngFor="let etudiantOption of etudiants; trackBy: trackById">{{ etudiantOption.nom }} {{ etudiantOption.prenom }}</option>
                     </select>
                 </div>
 
@@ -43,7 +43,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.classe" for="field_classe">Classe</label>
                     <select class="form-control" id="field_classe" name="classe" formControlName="classeId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="classeOption.id" *ngFor="let classeOption of classes; trackBy: trackById">{{ classeOption.id }}</option>
+                        <option [ngValue]="classeOption.id" *ngFor="let classeOption of classes; trackBy: trackById">{{ classeOption.nom }}</option>
                     </select>
                 </div>
 
@@ -51,7 +51,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.groupe" for="field_groupe">Groupe</label>
                     <select class="form-control" id="field_groupe" name="groupe" formControlName="groupeId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="groupeOption.id" *ngFor="let groupeOption of groupes; trackBy: trackById">{{ groupeOption.id }}</option>
+                        <option [ngValue]="groupeOption.id" *ngFor="let groupeOption of groupes; trackBy: trackById">{{ groupeOption.nomgroup }}</option>
                     </select>
                 </div>
 
@@ -59,7 +59,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.semstre" for="field_semstre">Semstre</label>
                     <select class="form-control" id="field_semstre" name="semstre" formControlName="semstreId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="semstreOption.id" *ngFor="let semstreOption of semstres; trackBy: trackById">{{ semstreOption.id }}</option>
+                        <option [ngValue]="semstreOption.id" *ngFor="let semstreOption of semstres; trackBy: trackById">{{ semstreOption.numSemstre }}</option>
                     </select>
                 </div>
             </div>

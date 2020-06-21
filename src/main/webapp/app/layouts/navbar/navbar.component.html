@@ -34,6 +34,14 @@
                         </a>
                     </li>
                     <li>
+                   
+                        <a class="dropdown-item" routerLink="note-controle-continue" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_Enseignant']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span>Note Controle Continue </span>
+                        </a>
+                    </li>
+                    <li>
+                     
                         <a class="dropdown-item" routerLink="classe" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_AGENT']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.classe">Classe</span>

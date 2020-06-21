@@ -39,22 +39,22 @@
                     <td>{{ inscription.annee | date:'mediumDate' }}</td>
                     <td>
                         <div *ngIf="inscription.etudiantId">
-                            <a [routerLink]="['/etudiant', inscription.etudiantId , 'view']" >{{ inscription.etudiantId }}</a>
+                            <a [routerLink]="['/etudiant', inscription.etudiantId , 'view']" >{{ inscription.nomEtudiant}}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="inscription.classeId">
-                            <a [routerLink]="['/classe', inscription.classeId , 'view']" >{{ inscription.classeId }}</a>
+                            <a [routerLink]="['/classe', inscription.classeId , 'view']" >{{ inscription.classe }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="inscription.groupeId">
-                            <a [routerLink]="['/groupe', inscription.groupeId , 'view']" >{{ inscription.groupeId }}</a>
+                            <a [routerLink]="['/groupe', inscription.groupeId , 'view']" >{{ inscription.group }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="inscription.semstreId">
-                            <a [routerLink]="['/semstre', inscription.semstreId , 'view']" >{{ inscription.semstreId }}</a>
+                            <a [routerLink]="['/semstre', inscription.semstreId , 'view']" >{{ inscription.semstre }}</a>
                         </div>
                     </td>
                     <td class="text-right">

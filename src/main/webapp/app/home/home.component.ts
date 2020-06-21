@@ -17,7 +17,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private accountService: AccountService, private loginModalService: LoginModalService) {}
 
   ngOnInit(): void {
-    this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
+    this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => {
+      console.log(account);
+      this.account = account;
+    });
   }
 
   isAuthenticated(): boolean {
