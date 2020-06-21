@@ -35,22 +35,22 @@
                     <td><a [routerLink]="['/enseignement', enseignement.id, 'view']">{{ enseignement.id }}</a></td>
                     <td>
                         <div *ngIf="enseignement.matiereId">
-                            <a [routerLink]="['/matiere', enseignement.matiereId , 'view']" >{{ enseignement.matiereId }}</a>
+                            <a [routerLink]="['/matiere', enseignement.matiereId , 'view']" >{{ enseignement.matierenom }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="enseignement.enseignantId">
-                            <a [routerLink]="['/enseignant', enseignement.enseignantId , 'view']" >{{ enseignement.enseignantId }}</a>
+                            <a [routerLink]="['/enseignant', enseignement.enseignantId , 'view']" >{{ enseignement.enseignantnom }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="enseignement.groupeId">
-                            <a [routerLink]="['/groupe', enseignement.groupeId , 'view']" >{{ enseignement.groupeId }}</a>
+                            <a [routerLink]="['/groupe', enseignement.groupeId , 'view']" >{{ enseignement.groupenom }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="enseignement.typeEnseignementId">
-                            <a [routerLink]="['/type-enseignement', enseignement.typeEnseignementId , 'view']" >{{ enseignement.typeEnseignementId }}</a>
+                            <a [routerLink]="['/type-enseignement', enseignement.typeEnseignementId , 'view']" >{{ enseignement.typeEnseignement }}</a>
                         </div>
                     </td>
                     <td class="text-right">

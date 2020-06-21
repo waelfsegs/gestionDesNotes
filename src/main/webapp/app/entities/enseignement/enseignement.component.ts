@@ -1,3 +1,8 @@
+import { TypeEnseignement } from './../../shared/model/type-enseignement.model';
+import { TypeEnseignementService } from './../type-enseignement/type-enseignement.service';
+import { EnseignantService } from './../enseignant/enseignant.service';
+import { GroupeService } from './../groupe/groupe.service';
+import { MatiereService } from './../matiere/matiere.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
@@ -30,7 +35,11 @@ export class EnseignementComponent implements OnInit, OnDestroy {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    private matiereService: MatiereService,
+    private groupService: GroupeService,
+    private enseignentService: EnseignantService,
+    private typeEnsiengnantService: TypeEnseignementService
   ) {}
 
   loadPage(page?: number): void {
@@ -47,7 +56,6 @@ export class EnseignementComponent implements OnInit, OnDestroy {
         () => this.onError()
       );
   }
-
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(data => {
       this.page = data.pagingParams.page;
@@ -117,6 +125,52 @@ export class EnseignementComponent implements OnInit, OnDestroy {
       }
     });
     this.enseignements = data || [];
+    this.enseignements.forEach(element => {
+      this.getmatiereNomById(element);
+      this.getgroupService(element);
+      this.getenseignentService(element);
+      this.gettypeEnsiengnantService(element);
+    });
+  }
+
+  getmatiereNomById(element: IEnseignement) {
+    if (element.matiereId) {
+      this.matiereService.find(element.matiereId).subscribe(res => {
+        if (res.body) {
+          element.matierenom = res.body.nom;
+        }
+      });
+    }
+  }
+
+  getgroupService(element: IEnseignement) {
+    if (element.groupeId) {
+      this.groupService.find(element.groupeId).subscribe(res => {
+        if (res.body) {
+          element.groupenom = res.body.nomgroup;
+        }
+      });
+    }
+  }
+
+  getenseignentService(element: IEnseignement) {
+    if (element.enseignantId) {
+      this.enseignentService.find(element.enseignantId).subscribe(res => {
+        if (res.body) {
+          element.enseignantnom = res.body.nom + ' ' + res.body.pernom;
+        }
+      });
+    }
+  }
+
+  gettypeEnsiengnantService(element: IEnseignement) {
+    if (element.typeEnseignementId) {
+      this.typeEnsiengnantService.find(element.typeEnseignementId).subscribe(res => {
+        if (res.body) {
+          element.typeEnseignement = res.body.type;
+        }
+      });
+    }
   }
 
   protected onError(): void {
