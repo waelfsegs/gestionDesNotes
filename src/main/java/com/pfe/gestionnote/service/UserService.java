@@ -113,12 +113,25 @@ public class UserService {
         newUser.setImageUrl(userDTO.getImageUrl());
         newUser.setLangKey(userDTO.getLangKey());
         // new user is not active
-        newUser.setActivated(false);
+        newUser.setActivated(true);
         // new user gets registration key
         newUser.setActivationKey(RandomUtil.generateActivationKey());
+  
+      Set<Authority> managedAuthorities = newUser.getAuthorities();
+      if (userDTO.getAuthorities() != null) {
+      managedAuthorities.clear();
+      userDTO.getAuthorities().stream()
+          .map(authorityRepository::findById)
+          .filter(Optional::isPresent)
+          .map(Optional::get)
+          .forEach(managedAuthorities::add);
+      this.clearUserCaches(newUser);}
+      else{
         Set<Authority> authorities = new HashSet<>();
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
-        newUser.setAuthorities(authorities);
+        newUser.setAuthorities(authorities); 
+      }
+        newUser.setEnsiegnent(userDTO.getEnsiegnent());
         userRepository.save(newUser);
         this.clearUserCaches(newUser);
         log.debug("Created Information for User: {}", newUser);
@@ -162,6 +175,7 @@ public class UserService {
                 .collect(Collectors.toSet());
             user.setAuthorities(authorities);
         }
+        user.setEnsiegnent(userDTO.getEnsiegnent());
         userRepository.save(user);
         this.clearUserCaches(user);
         log.debug("Created Information for User: {}", user);
@@ -215,6 +229,7 @@ public class UserService {
                 user.setImageUrl(userDTO.getImageUrl());
                 user.setActivated(userDTO.isActivated());
                 user.setLangKey(userDTO.getLangKey());
+                user.setEnsiegnent(userDTO.getEnsiegnent());
                 Set<Authority> managedAuthorities = user.getAuthorities();
                 managedAuthorities.clear();
                 userDTO.getAuthorities().stream()

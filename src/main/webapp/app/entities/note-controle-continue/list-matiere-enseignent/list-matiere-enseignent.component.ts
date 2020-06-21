@@ -1,5 +1,5 @@
 import { IMatierByEnseignent } from './../../../shared/model/matiere-by-enseignent';
-import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { NoteControleContinueService } from '../note-controle-continue.service';
 import { takeUntil } from 'rxjs/operators';
@@ -13,7 +13,7 @@ import { HttpResponse } from '@angular/common/http';
 export class ListMatiereEnsiegnentComponent implements OnInit, OnDestroy {
   unsubscribe = new Subject();
   listMatiere: BehaviorSubject<IMatierByEnseignent[]> = new BehaviorSubject<IMatierByEnseignent[]>([]);
-  idenseignent: number = 1;
+  @Input('enseignentid') idenseignent: number = 0;
   @Output('selectmatiere') selectmatiere: EventEmitter<number> = new EventEmitter();
   constructor(private noteService: NoteControleContinueService) {}
 

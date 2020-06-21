@@ -13,6 +13,7 @@ export class ListGroupMatiereComponent implements OnDestroy, OnChanges {
   unsubscribe = new Subject();
   listGroup: BehaviorSubject<IGroupEnseigner[]> = new BehaviorSubject<IGroupEnseigner[]>([]);
   @Input('matiereid') matiereid: number = 0;
+  @Input('enseignentid') enseignentid: number = 0;
   @Output('selectgroupe') selectgroupe: EventEmitter<number> = new EventEmitter();
   constructor(private noteService: NoteControleContinueService) {}
 
@@ -22,7 +23,7 @@ export class ListGroupMatiereComponent implements OnDestroy, OnChanges {
 
   loadGroup() {
     this.noteService
-      .getGroupEnseigner(1, this.matiereid)
+      .getGroupEnseigner(this.enseignentid, this.matiereid)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(res => {
         if (res.body) {
