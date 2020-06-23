@@ -9,7 +9,7 @@ export const note_continue_Rotue: Routes = [
     component: NoteControleContinueComponent,
 
     data: {
-      authorities: ['ROLE_Enseignant'],
+      authorities: ['ROLE_Enseignant','ROLE_ChefDepartement'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.matiere.home.title'
     },
@@ -20,7 +20,7 @@ export const note_continue_Rotue: Routes = [
     component: ListGroupEtudiantComponent,
 
     data: {
-      authorities: ['ROLE_Enseignant'],
+      authorities: ['ROLE_Enseignant','ROLE_ChefDepartement'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.matiere.home.title'
     }

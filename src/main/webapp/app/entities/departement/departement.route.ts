@@ -42,7 +42,7 @@ export const departementRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ADMIN','ROLE_ChefDepartement'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.departement.home.title'
     },
@@ -55,7 +55,7 @@ export const departementRoute: Routes = [
       departement: DepartementResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ADMIN','ROLE_ChefDepartement'],
       pageTitle: 'gestionNotesFsegsApp.departement.home.title'
     },
     canActivate: [UserRouteAccessService]
