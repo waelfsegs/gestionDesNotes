@@ -42,7 +42,7 @@ export const regimeRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ChefDepartement'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.regime.home.title'
     },
@@ -55,7 +55,7 @@ export const regimeRoute: Routes = [
       regime: RegimeResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ChefDepartement'],
       pageTitle: 'gestionNotesFsegsApp.regime.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -67,7 +67,7 @@ export const regimeRoute: Routes = [
       regime: RegimeResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ChefDepartement'],
       pageTitle: 'gestionNotesFsegsApp.regime.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -79,7 +79,7 @@ export const regimeRoute: Routes = [
       regime: RegimeResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_ChefDepartement'],
       pageTitle: 'gestionNotesFsegsApp.regime.home.title'
     },
     canActivate: [UserRouteAccessService]
