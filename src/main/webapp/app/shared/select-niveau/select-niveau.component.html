@@ -1,0 +1,4 @@
+<select class="form-control" (change)="SelectNiveau()"  [(ngModel)]="niveauid">
+    <option [ngValue]="null"></option>
+    <option [ngValue]="niveauOption.id" *ngFor="let niveauOption of niveau$ |async">{{ niveauOption.niveau }}</option>
+</select>

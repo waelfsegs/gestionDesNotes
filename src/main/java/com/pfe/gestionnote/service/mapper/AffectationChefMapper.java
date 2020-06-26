@@ -13,7 +13,10 @@ import org.mapstruct.*;
 public interface AffectationChefMapper extends EntityMapper<AffectationChefDTO, AffectationChef> {
 
     @Mapping(source = "departement.id", target = "departementId")
+    @Mapping(source = "departement.nomDep", target = "departementName")
     @Mapping(source = "enseignant.id", target = "enseignantId")
+    @Mapping(source = "enseignant.nom", target = "enseignantName")
+    @Mapping(source = "enseignant.pernom", target = "enseignantPrenom")
     AffectationChefDTO toDto(AffectationChef affectationChef);
 
     @Mapping(source = "departementId", target = "departement")

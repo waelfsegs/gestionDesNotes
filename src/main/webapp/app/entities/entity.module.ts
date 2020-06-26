@@ -9,6 +9,10 @@ import { RouterModule } from '@angular/router';
         loadChildren: () => import('./etudiant/etudiant.module').then(m => m.GestionNotesFsegsEtudiantModule)
       },
       {
+        path: 'examen',
+        loadChildren: () => import('./tbl-examen-affecter/examen.module').then(m => m.GestionNotesFsegsExamenModule)
+      },
+      {
         path: 'classe',
         loadChildren: () => import('./classe/classe.module').then(m => m.GestionNotesFsegsClasseModule)
       },

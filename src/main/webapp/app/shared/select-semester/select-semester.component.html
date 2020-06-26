@@ -1,0 +1,4 @@
+<select class="form-control" (change)="SelectSemestre()" [(ngModel)]="semestreid">
+    <option [ngValue]="null"></option>
+    <option [ngValue]="semestreOption.id" *ngFor="let semestreOption of semestre$ | async">{{ semestreOption.numSemstre }}</option>
+</select>

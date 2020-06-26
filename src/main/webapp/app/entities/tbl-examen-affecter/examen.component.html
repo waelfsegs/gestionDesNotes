@@ -1,0 +1,64 @@
+<div class="modal-header">
+    <h4>Examen</h4>
+</div>
+<div class="modal-body">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h6>session</h6>
+            <select class="form-control"  [(ngModel)]="session">
+                <option ngValue="control">control</option> 
+                <option ngValue="principal">principal</option> 
+              
+             </select>
+        </div>
+        <div class="col-md-4">
+            <h6>semester</h6>
+            <select-semester></select-semester>
+        </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h6>cycle</h6>
+            <select-cycle></select-cycle>
+        </div>
+        <div class="col-md-4">
+            <h6>niveau</h6>
+            <select-niveau></select-niveau>
+        </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h6>speciality</h6>
+            <select-speciality></select-speciality>
+        </div>
+        <div class="col-md-4">
+            <h6>matiere</h6>
+            <select-matiere></select-matiere>
+        </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+        de 
+        <div class="col-md-2">
+          <input type="number">
+        </div>
+        <div class="col-md-1">jusqu a</div>
+        <div class="col-md-2">
+            <input type="number">
+        </div>
+    </div> 
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <table class="table table-bordered">
+            <thead>
+                <th>numSeq</th>
+                <th>matricule</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div>
