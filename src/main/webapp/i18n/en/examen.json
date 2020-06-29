@@ -1,0 +1,31 @@
+{
+  "gestionNotesFsegsApp": {
+    "examen": {
+      "home": {
+        "title": "Examen",
+        "createLabel": "Create a new Examen",
+        "createOrEditLabel": "Create or edit a Examen",
+        "notFound": "No Examen found"
+      },
+      "created": "A new Examen is created with identifier {{ param }}",
+      "updated": "A Examen is updated with identifier {{ param }}",
+      "deleted": "A Examen is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Examen {{ id }}?"
+      },
+      "detail": {
+        "title": "Examen"
+      },
+      "matricule": "Matricule",
+      "session": "Session",
+      "numcomp": "Numcomp",
+      "matiere": "Matiere",
+      "inscription": "Inscription",
+      "semstre": "Semstre",
+      "niveau": "Niveau",
+      "specialite": "Specialite",
+      "enveloppe": "Enveloppe",
+      "cycle": "Cycle"
+    }
+  }
+}

@@ -11,7 +11,7 @@
       },
       {
         "fieldName": "numcomp",
-        "fieldType": "number"
+        "fieldType": "Integer"
       }
     ],
     "relationships": [

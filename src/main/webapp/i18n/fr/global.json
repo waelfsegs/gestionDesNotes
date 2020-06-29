@@ -25,6 +25,7 @@
         "regime": "Regime",
         "typeEnseignement": "Type Enseignement",
         "enveloppe": "Enveloppe",
+        "examen": "Examen",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
