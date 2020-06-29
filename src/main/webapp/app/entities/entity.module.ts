@@ -80,6 +80,10 @@ import { RouterModule } from '@angular/router';
         path: 'note-controle-continue',
         loadChildren: () =>
           import('./note-controle-continue/note-controle-continue.module').then(m => m.GestionNotesFsegSNoteControlContinueModule)
+      },
+      {
+        path: 'enveloppe',
+        loadChildren: () => import('./enveloppe/enveloppe.module').then(m => m.GestionNotesFsegsEnveloppeModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])
