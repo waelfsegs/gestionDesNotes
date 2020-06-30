@@ -42,7 +42,7 @@ export const enveloppeRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_Enseignant '],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.enveloppe.home.title'
     },
@@ -55,7 +55,7 @@ export const enveloppeRoute: Routes = [
       enveloppe: EnveloppeResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_Enseignant '],
       pageTitle: 'gestionNotesFsegsApp.enveloppe.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -67,7 +67,7 @@ export const enveloppeRoute: Routes = [
       enveloppe: EnveloppeResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_Enseignant '],
       pageTitle: 'gestionNotesFsegsApp.enveloppe.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -79,7 +79,7 @@ export const enveloppeRoute: Routes = [
       enveloppe: EnveloppeResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_Enseignant '],
       pageTitle: 'gestionNotesFsegsApp.enveloppe.home.title'
     },
     canActivate: [UserRouteAccessService]

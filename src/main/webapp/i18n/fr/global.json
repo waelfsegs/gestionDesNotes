@@ -26,6 +26,7 @@
         "typeEnseignement": "Type Enseignement",
         "enveloppe": "Enveloppe",
         "examen": "Examen",
+        "corrige": "Corrige",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

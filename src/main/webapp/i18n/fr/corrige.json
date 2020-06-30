@@ -1,0 +1,23 @@
+{
+  "gestionNotesFsegsApp": {
+    "corrige": {
+      "home": {
+        "title": "Corriges",
+        "createLabel": "Créer un nouveau Corrige",
+        "createOrEditLabel": "Créer ou éditer un Corrige",
+        "notFound": "Aucun Corrige trouvé"
+      },
+      "created": "Un nouveau Corrige a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Corrige avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Corrige avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Corrige {{ id }} ?"
+      },
+      "detail": {
+        "title": "Corrige"
+      },
+      "enseignant": "Enseignant",
+      "enveloppe": "Enveloppe"
+    }
+  }
+}

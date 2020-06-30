@@ -1,0 +1,34 @@
+{
+    "name": "corrige",
+    "fields": [
+     
+    ],
+    "relationships": [
+      {
+        "relationshipType": "many-to-one",
+        "otherEntityName": "enseignant",
+        "otherEntityRelationshipName": "corrige",
+        "relationshipName": "enseignant",
+        "otherEntityField": "id"
+      },
+      {
+        "relationshipType": "many-to-one",
+        "otherEntityName": "enveloppe",
+        "otherEntityRelationshipName": "corrige",
+        "relationshipName": "enveloppe",
+        "otherEntityField": "id"
+      }
+    ],
+    
+    "entityTableName": "corrige",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+  }
+  

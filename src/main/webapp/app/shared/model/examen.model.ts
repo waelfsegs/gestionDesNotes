@@ -10,6 +10,7 @@ export interface IExamen {
   specialiteId?: number;
   enveloppeId?: number;
   cycleId?: number;
+  done?: boolean;
 }
 
 export class Examen implements IExamen {
