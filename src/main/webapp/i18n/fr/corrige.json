@@ -16,6 +16,8 @@
       "detail": {
         "title": "Corrige"
       },
+      "nbrecopieCorrige": "Nbrecopie Corrige",
+      "nbreCopieinenvloppe": "Nbre Copieinenvloppe",
       "enseignant": "Enseignant",
       "enveloppe": "Enveloppe"
     }

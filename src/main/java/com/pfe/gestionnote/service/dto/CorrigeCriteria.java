@@ -26,6 +26,10 @@ public class CorrigeCriteria implements Serializable, Criteria {
 
     private LongFilter id;
 
+    private IntegerFilter nbrecopieCorrige;
+
+    private IntegerFilter nbreCopieinenvloppe;
+
     private LongFilter enseignantId;
 
     private LongFilter enveloppeId;
@@ -35,6 +39,8 @@ public class CorrigeCriteria implements Serializable, Criteria {
 
     public CorrigeCriteria(CorrigeCriteria other) {
         this.id = other.id == null ? null : other.id.copy();
+        this.nbrecopieCorrige = other.nbrecopieCorrige == null ? null : other.nbrecopieCorrige.copy();
+        this.nbreCopieinenvloppe = other.nbreCopieinenvloppe == null ? null : other.nbreCopieinenvloppe.copy();
         this.enseignantId = other.enseignantId == null ? null : other.enseignantId.copy();
         this.enveloppeId = other.enveloppeId == null ? null : other.enveloppeId.copy();
     }
@@ -50,6 +56,22 @@ public class CorrigeCriteria implements Serializable, Criteria {
 
     public void setId(LongFilter id) {
         this.id = id;
+    }
+
+    public IntegerFilter getNbrecopieCorrige() {
+        return nbrecopieCorrige;
+    }
+
+    public void setNbrecopieCorrige(IntegerFilter nbrecopieCorrige) {
+        this.nbrecopieCorrige = nbrecopieCorrige;
+    }
+
+    public IntegerFilter getNbreCopieinenvloppe() {
+        return nbreCopieinenvloppe;
+    }
+
+    public void setNbreCopieinenvloppe(IntegerFilter nbreCopieinenvloppe) {
+        this.nbreCopieinenvloppe = nbreCopieinenvloppe;
     }
 
     public LongFilter getEnseignantId() {
@@ -80,6 +102,8 @@ public class CorrigeCriteria implements Serializable, Criteria {
         final CorrigeCriteria that = (CorrigeCriteria) o;
         return
             Objects.equals(id, that.id) &&
+            Objects.equals(nbrecopieCorrige, that.nbrecopieCorrige) &&
+            Objects.equals(nbreCopieinenvloppe, that.nbreCopieinenvloppe) &&
             Objects.equals(enseignantId, that.enseignantId) &&
             Objects.equals(enveloppeId, that.enveloppeId);
     }
@@ -88,6 +112,8 @@ public class CorrigeCriteria implements Serializable, Criteria {
     public int hashCode() {
         return Objects.hash(
         id,
+        nbrecopieCorrige,
+        nbreCopieinenvloppe,
         enseignantId,
         enveloppeId
         );
@@ -97,6 +123,8 @@ public class CorrigeCriteria implements Serializable, Criteria {
     public String toString() {
         return "CorrigeCriteria{" +
                 (id != null ? "id=" + id + ", " : "") +
+                (nbrecopieCorrige != null ? "nbrecopieCorrige=" + nbrecopieCorrige + ", " : "") +
+                (nbreCopieinenvloppe != null ? "nbreCopieinenvloppe=" + nbreCopieinenvloppe + ", " : "") +
                 (enseignantId != null ? "enseignantId=" + enseignantId + ", " : "") +
                 (enveloppeId != null ? "enveloppeId=" + enveloppeId + ", " : "") +
             "}";

@@ -22,6 +22,12 @@ public class Corrige implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nbrecopie_corrige")
+    private Integer nbrecopieCorrige;
+
+    @Column(name = "nbre_copieinenvloppe")
+    private Integer nbreCopieinenvloppe;
+
     @ManyToOne
     @JsonIgnoreProperties("corriges")
     private Enseignant enseignant;
@@ -37,6 +43,32 @@ public class Corrige implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getNbrecopieCorrige() {
+        return nbrecopieCorrige;
+    }
+
+    public Corrige nbrecopieCorrige(Integer nbrecopieCorrige) {
+        this.nbrecopieCorrige = nbrecopieCorrige;
+        return this;
+    }
+
+    public void setNbrecopieCorrige(Integer nbrecopieCorrige) {
+        this.nbrecopieCorrige = nbrecopieCorrige;
+    }
+
+    public Integer getNbreCopieinenvloppe() {
+        return nbreCopieinenvloppe;
+    }
+
+    public Corrige nbreCopieinenvloppe(Integer nbreCopieinenvloppe) {
+        this.nbreCopieinenvloppe = nbreCopieinenvloppe;
+        return this;
+    }
+
+    public void setNbreCopieinenvloppe(Integer nbreCopieinenvloppe) {
+        this.nbreCopieinenvloppe = nbreCopieinenvloppe;
     }
 
     public Enseignant getEnseignant() {
@@ -86,6 +118,8 @@ public class Corrige implements Serializable {
     public String toString() {
         return "Corrige{" +
             "id=" + getId() +
+            ", nbrecopieCorrige=" + getNbrecopieCorrige() +
+            ", nbreCopieinenvloppe=" + getNbreCopieinenvloppe() +
             "}";
     }
 }

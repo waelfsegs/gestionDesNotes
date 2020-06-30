@@ -1,7 +1,14 @@
 {
     "name": "corrige",
     "fields": [
-     
+      {
+        "fieldName": "nbrecopieCorrige",
+        "fieldType": "Integer"
+    },
+    {
+        "fieldName": "nbreCopieinenvloppe",
+        "fieldType": "Integer"
+    }
     ],
     "relationships": [
       {

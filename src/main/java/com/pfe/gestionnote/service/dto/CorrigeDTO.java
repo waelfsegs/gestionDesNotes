@@ -14,7 +14,9 @@ public class CorrigeDTO implements Serializable {
     private String enseignantNom;
     private String enseignantPrenom;
     private String enveloppenameenv;
+    private Integer nbrecopieCorrige;
 
+    private Integer nbreCopieinenvloppe;
     public Long getId() {
         return id;
     }
@@ -63,7 +65,8 @@ public class CorrigeDTO implements Serializable {
     @Override
     public String toString() {
         return "CorrigeDTO{" + "id=" + getId() + ", enseignantId=" + getEnseignantId() + ", enveloppeId="
-                + getEnveloppeId() + "}";
+                + getEnveloppeId()+", nbrecopieCorrige=" + getNbrecopieCorrige() +
+                ", nbreCopieinenvloppe=" + getNbreCopieinenvloppe() + "}";
     }
 
     public String getEnseignantNom() {
@@ -89,4 +92,22 @@ public class CorrigeDTO implements Serializable {
     public void setEnveloppenameenv(String enveloppenameenv) {
         this.enveloppenameenv = enveloppenameenv;
     }
+
+
+   public Integer getNbrecopieCorrige() {
+    return nbrecopieCorrige;
+}
+
+public void setNbrecopieCorrige(Integer nbrecopieCorrige) {
+    this.nbrecopieCorrige = nbrecopieCorrige;
+}
+
+public Integer getNbreCopieinenvloppe() {
+    return nbreCopieinenvloppe;
+}
+
+public void setNbreCopieinenvloppe(Integer nbreCopieinenvloppe) {
+    this.nbreCopieinenvloppe = nbreCopieinenvloppe;
+}
+
 }

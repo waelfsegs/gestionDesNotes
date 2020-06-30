@@ -91,6 +91,12 @@ public class CorrigeQueryService extends QueryService<Corrige> {
             if (criteria.getId() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getId(), Corrige_.id));
             }
+            if (criteria.getNbrecopieCorrige() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getNbrecopieCorrige(), Corrige_.nbrecopieCorrige));
+            }
+            if (criteria.getNbreCopieinenvloppe() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getNbreCopieinenvloppe(), Corrige_.nbreCopieinenvloppe));
+            }
             if (criteria.getEnseignantId() != null) {
                 specification = specification.and(buildSpecification(criteria.getEnseignantId(),
                     root -> root.join(Corrige_.enseignant, JoinType.LEFT).get(Enseignant_.id)));
