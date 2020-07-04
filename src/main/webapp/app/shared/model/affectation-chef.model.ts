@@ -6,6 +6,9 @@ export interface IAffectationChef {
   endDate?: Moment;
   departementId?: number;
   enseignantId?: number;
+  departementName?: string;
+  enseignantName?: string;
+  enseignantPrenom?: string;
 }
 
 export class AffectationChef implements IAffectationChef {
@@ -14,6 +17,9 @@ export class AffectationChef implements IAffectationChef {
     public startDate?: Moment,
     public endDate?: Moment,
     public departementId?: number,
-    public enseignantId?: number
+    public enseignantId?: number,
+    public departementName?: string,
+    public enseignantName?: string,
+    public enseignantPrenom?: string
   ) {}
 }

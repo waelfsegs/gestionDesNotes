@@ -23,6 +23,8 @@ public class InscriptionDTO implements Serializable {
 
     private Long semstreId;
     
+    private String matricule;
+    
     public Long getId() {
         return id;
     }
@@ -108,5 +110,13 @@ public class InscriptionDTO implements Serializable {
             ", groupeId=" + getGroupeId() +
             ", semstreId=" + getSemstreId() +
             "}";
+    }
+
+    public String getMatricule() {
+        return matricule;
+    }
+
+    public void setMatricule(String matricule) {
+        this.matricule = matricule;
     }
 }

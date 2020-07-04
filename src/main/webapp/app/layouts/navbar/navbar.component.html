@@ -137,6 +137,26 @@
                             <span jhiTranslate="global.menu.entities.typeEnseignement">Type Enseignement</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="enveloppe" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.enveloppe">Enveloppe</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="examen" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.examen">Examen</span>
+                        </a>
+                    </li>
+                    
+
+                    <li>
+                        <a class="dropdown-item" routerLink="corrige" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }"  *jhiHasAnyAuthority="'ROLE_Enseignant'" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.corrige">Corrige</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

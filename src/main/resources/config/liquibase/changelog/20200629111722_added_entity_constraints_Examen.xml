@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Examen.
+    -->
+    <changeSet id="20200629111722-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="matiere_id"
+                                 baseTableName="examen"
+                                 constraintName="fk_examen_matiere_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="matiere"/>
+
+        <addForeignKeyConstraint baseColumnNames="inscription_id"
+                                 baseTableName="examen"
+                                 constraintName="fk_examen_inscription_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inscription"/>
+
+        <addForeignKeyConstraint baseColumnNames="semstre_id"
+                                 baseTableName="examen"
+                                 constraintName="fk_examen_semstre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="semstre"/>
+
+        <addForeignKeyConstraint baseColumnNames="niveau_id"
+                                 baseTableName="examen"
+                                 constraintName="fk_examen_niveau_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="niveau"/>
+
+        <addForeignKeyConstraint baseColumnNames="specialite_id"
+                                 baseTableName="examen"
+                                 constraintName="fk_examen_specialite_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="specialite"/>
+
+        <addForeignKeyConstraint baseColumnNames="enveloppe_id"
+                                 baseTableName="examen"
+                                 constraintName="fk_examen_enveloppe_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="enveloppe"/>
+
+        <addForeignKeyConstraint baseColumnNames="cycle_id"
+                                 baseTableName="examen"
+                                 constraintName="fk_examen_cycle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cycle"/>
+
+    </changeSet>
+</databaseChangeLog>

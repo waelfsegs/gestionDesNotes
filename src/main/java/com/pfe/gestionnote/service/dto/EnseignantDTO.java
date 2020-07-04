@@ -21,7 +21,7 @@ public class EnseignantDTO implements Serializable {
     private Integer cin;
 
     private LocalDate dateEmbauchement;
-
+private  String departementName;
 
     private Long departementId;
     
@@ -106,18 +106,18 @@ public class EnseignantDTO implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
-        return "EnseignantDTO{" +
-            "id=" + getId() +
-            ", nom='" + getNom() + "'" +
-            ", pernom='" + getPernom() + "'" +
-            ", mail='" + getMail() + "'" +
-            ", matricule=" + getMatricule() +
-            ", cin=" + getCin() +
-            ", dateEmbauchement='" + getDateEmbauchement() + "'" +
-            ", departementId=" + getDepartementId() +
-            "}";
+        return "EnseignantDTO [cin=" + cin + ", dateEmbauchement=" + dateEmbauchement + ", departementId="
+                + departementId + ", departementName=" + departementName + ", id=" + id + ", mail=" + mail
+                + ", matricule=" + matricule + ", nom=" + nom + ", pernom=" + pernom + "]";
+    }
+
+    public String getDepartementName() {
+        return departementName;
+    }
+
+    public void setDepartementName(String departementName) {
+        this.departementName = departementName;
     }
 }

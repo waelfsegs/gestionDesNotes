@@ -12,6 +12,7 @@ export interface IInscription {
   classe?: string;
   group?: string;
   semstre?: number;
+  matricule?: number;
 }
 
 export class Inscription implements IInscription {

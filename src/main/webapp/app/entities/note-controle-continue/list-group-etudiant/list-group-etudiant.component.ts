@@ -107,12 +107,14 @@ export class ListGroupEtudiantComponent implements OnDestroy, OnInit {
     modelRef.componentInstance.matiereName = this.matiereName;
     modelRef.componentInstance.modalref = modelRef;
   }
+
   clear() {
     console.log('heloo');
     if (!this.matricule) {
       this.loadInscription();
     }
   }
+
   searchMat() {
     if (this.matricule) {
       let filterd: IEtudiantNote[] = [];

@@ -31,6 +31,9 @@
     <include file="config/liquibase/changelog/20200525002213_added_entity_Enseignement.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200525002313_added_entity_Regime.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200525002413_added_entity_TypeEnseignement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200629104341_added_entity_Enveloppe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200629111722_added_entity_Examen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200629113701_added_entity_Corrige.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20200525000913_added_entity_constraints_Classe.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200525001113_added_entity_constraints_Niveau.xml" relativeToChangelogFile="false"/>
@@ -40,5 +43,8 @@
     <include file="config/liquibase/changelog/20200525001813_added_entity_constraints_Enseignant.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200525001913_added_entity_constraints_AffectationChef.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200525002213_added_entity_constraints_Enseignement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200629104341_added_entity_constraints_Enveloppe.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200629111722_added_entity_constraints_Examen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200629113701_added_entity_constraints_Corrige.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

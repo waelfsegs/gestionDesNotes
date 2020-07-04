@@ -29,6 +29,8 @@
                     <th scope="col"  jhiSortBy="classeId"><span jhiTranslate="gestionNotesFsegsApp.inscription.classe">Classe</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="groupeId"><span jhiTranslate="gestionNotesFsegsApp.inscription.groupe">Groupe</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="semstreId"><span jhiTranslate="gestionNotesFsegsApp.inscription.semstre">Semstre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="semstreId"><span >matricule</span> <fa-icon icon="sort"></fa-icon></th>
+                   
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -57,6 +59,7 @@
                             <a [routerLink]="['/semstre', inscription.semstreId , 'view']" >{{ inscription.semstre }}</a>
                         </div>
                     </td>
+                    <td>{{inscription.matricule}}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

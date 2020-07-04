@@ -18,6 +18,9 @@ public class AffectationChefDTO implements Serializable {
     private Long departementId;
 
     private Long enseignantId;
+   private String departementName;
+   private String enseignantName;
+   private String enseignantPrenom;
     
     public Long getId() {
         return id;
@@ -75,7 +78,7 @@ public class AffectationChefDTO implements Serializable {
     public int hashCode() {
         return 31;
     }
-
+  
     // prettier-ignore
     @Override
     public String toString() {
@@ -85,6 +88,33 @@ public class AffectationChefDTO implements Serializable {
             ", endDate='" + getEndDate() + "'" +
             ", departementId=" + getDepartementId() +
             ", enseignantId=" + getEnseignantId() +
+            ", departementName=" + getDepartementName() +
+            ", enseignantName=" + getEnseignantName() +
+            ", enseignantPrenom=" + getEnseignantPrenom() +
             "}";
+    }
+
+    public String getDepartementName() {
+        return departementName;
+    }
+
+    public void setDepartementName(String departementName) {
+        this.departementName = departementName;
+    }
+
+    public String getEnseignantName() {
+        return enseignantName;
+    }
+
+    public void setEnseignantName(String enseignantName) {
+        this.enseignantName = enseignantName;
+    }
+
+    public String getEnseignantPrenom() {
+        return enseignantPrenom;
+    }
+
+    public void setEnseignantPrenom(String enseignantPrenom) {
+        this.enseignantPrenom = enseignantPrenom;
     }
 }

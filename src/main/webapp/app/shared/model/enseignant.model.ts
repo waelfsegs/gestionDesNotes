@@ -9,6 +9,7 @@ export interface IEnseignant {
   cin?: number;
   dateEmbauchement?: Moment;
   departementId?: number;
+  departementName?: String;
 }
 
 export class Enseignant implements IEnseignant {
@@ -20,6 +21,7 @@ export class Enseignant implements IEnseignant {
     public matricule?: number,
     public cin?: number,
     public dateEmbauchement?: Moment,
-    public departementId?: number
+    public departementId?: number,
+    public departementIName?: String
   ) {}
 }

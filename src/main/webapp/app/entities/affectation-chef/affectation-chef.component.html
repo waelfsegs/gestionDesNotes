@@ -37,12 +37,12 @@
                     <td>{{ affectationChef.endDate | date:'mediumDate' }}</td>
                     <td>
                         <div *ngIf="affectationChef.departementId">
-                            <a [routerLink]="['/departement', affectationChef.departementId , 'view']" >{{ affectationChef.departementId }}</a>
+                            <a [routerLink]="['/departement', affectationChef.departementId , 'view']" >{{ affectationChef.departementName }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="affectationChef.enseignantId">
-                            <a [routerLink]="['/enseignant', affectationChef.enseignantId , 'view']" >{{ affectationChef.enseignantId }}</a>
+                            <a [routerLink]="['/enseignant', affectationChef.enseignantId , 'view']" >{{ affectationChef.enseignantName }}</a>
                         </div>
                     </td>
                     <td class="text-right">

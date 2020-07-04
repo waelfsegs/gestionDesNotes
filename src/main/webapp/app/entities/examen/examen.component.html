@@ -1,0 +1,117 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gestionNotesFsegsApp.examen.home.title">Examen</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-examen" [routerLink]="['/examen/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gestionNotesFsegsApp.examen.home.createLabel">
+            Create a new Examen
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="examen?.length === 0">
+        <span jhiTranslate="gestionNotesFsegsApp.examen.home.notFound">No examen found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="examen?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="matricule"><span jhiTranslate="gestionNotesFsegsApp.examen.matricule">Matricule</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="session"><span jhiTranslate="gestionNotesFsegsApp.examen.session">Session</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numcomp"><span jhiTranslate="gestionNotesFsegsApp.examen.numcomp">Numcomp</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="matiereId"><span jhiTranslate="gestionNotesFsegsApp.examen.matiere">Matiere</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inscriptionId"><span jhiTranslate="gestionNotesFsegsApp.examen.inscription">Inscription</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="semstreId"><span jhiTranslate="gestionNotesFsegsApp.examen.semstre">Semstre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="niveauId"><span jhiTranslate="gestionNotesFsegsApp.examen.niveau">Niveau</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="specialiteId"><span jhiTranslate="gestionNotesFsegsApp.examen.specialite">Specialite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="enveloppeId"><span jhiTranslate="gestionNotesFsegsApp.examen.enveloppe">Enveloppe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cycleId"><span jhiTranslate="gestionNotesFsegsApp.examen.cycle">Cycle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let examen of examen ;trackBy: trackId">
+                    <td><a [routerLink]="['/examen', examen.id, 'view']">{{ examen.id }}</a></td>
+                    <td>{{ examen.matricule }}</td>
+                    <td>{{ examen.session }}</td>
+                    <td>{{ examen.numcomp }}</td>
+                    <td>
+                        <div *ngIf="examen.matiereId">
+                            <a [routerLink]="['/matiere', examen.matiereId , 'view']" >{{ examen.matiereId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="examen.inscriptionId">
+                            <a [routerLink]="['/inscription', examen.inscriptionId , 'view']" >{{ examen.inscriptionId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="examen.semstreId">
+                            <a [routerLink]="['/semstre', examen.semstreId , 'view']" >{{ examen.semstreId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="examen.niveauId">
+                            <a [routerLink]="['/niveau', examen.niveauId , 'view']" >{{ examen.niveauId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="examen.specialiteId">
+                            <a [routerLink]="['/specialite', examen.specialiteId , 'view']" >{{ examen.specialiteId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="examen.enveloppeId">
+                            <a [routerLink]="['/enveloppe', examen.enveloppeId , 'view']" >{{ examen.enveloppeId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="examen.cycleId">
+                            <a [routerLink]="['/cycle', examen.cycleId , 'view']" >{{ examen.cycleId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/examen', examen.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/examen', examen.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(examen)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="examen?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "gestionNotesFsegsApp": {
+    "corrige": {
+      "home": {
+        "title": "Corriges",
+        "createLabel": "Create a new Corrige",
+        "createOrEditLabel": "Create or edit a Corrige",
+        "notFound": "No Corriges found"
+      },
+      "created": "A new Corrige is created with identifier {{ param }}",
+      "updated": "A Corrige is updated with identifier {{ param }}",
+      "deleted": "A Corrige is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Corrige {{ id }}?"
+      },
+      "detail": {
+        "title": "Corrige"
+      },
+      "nbrecopieCorrige": "Nbrecopie Corrige",
+      "nbreCopieinenvloppe": "Nbre Copieinenvloppe",
+      "enseignant": "Enseignant",
+      "enveloppe": "Enveloppe"
+    }
+  }
+}
