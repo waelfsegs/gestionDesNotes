@@ -7,12 +7,12 @@
         <tr *ngFor="let examen of examens">
             <td>{{examen.numcomp}}
            </td>
-            <td *ngIf="examen.done">{{examen.matricule}}
+            <td *ngIf="examen.done">{{examen.note}}
                 <button class="btn btn-primary" (click)="modifier(examen)">edit</button>
          
             </td>
             <td *ngIf="!examen.done">
-                <input type="text" [(ngModel)]="examen.matricule" (keyup.enter)="edit(examen)">
+                <input type="text" [(ngModel)]="examen.note" (keyup.enter)="edit(examen)">
                 
             </td>
         </tr>

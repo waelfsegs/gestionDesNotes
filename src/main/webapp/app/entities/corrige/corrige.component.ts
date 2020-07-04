@@ -15,10 +15,12 @@ import { AccountService } from 'app/core/auth/account.service';
 
 @Component({
   selector: 'jhi-corrige',
-  templateUrl: './corrige.component.html'
+  templateUrl: './corrige.component.html',
+  styleUrls: ['/corrige.scss']
 })
 export class CorrigeComponent implements OnInit, OnDestroy {
   corriges?: ICorrige[];
+  corrige: ICorrige = {};
   eventSubscriber?: Subscription;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
@@ -113,8 +115,9 @@ export class CorrigeComponent implements OnInit, OnDestroy {
     });
     this.corriges = data || [];
   }
-  details(enveloppeId: number) {
+  details(enveloppeId: number, corrige: ICorrige) {
     this.envid = enveloppeId;
+    this.corrige = corrige;
   }
   protected onError(): void {
     this.ngbPaginationPage = this.page;

@@ -11,6 +11,8 @@ export interface IExamen {
   enveloppeId?: number;
   cycleId?: number;
   done?: boolean;
+  note?: number;
+  resultatid?: number;
 }
 
 export class Examen implements IExamen {

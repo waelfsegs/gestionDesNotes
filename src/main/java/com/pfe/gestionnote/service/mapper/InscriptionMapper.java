@@ -13,6 +13,9 @@ import org.mapstruct.*;
 public interface InscriptionMapper extends EntityMapper<InscriptionDTO, Inscription> {
 
     @Mapping(source = "etudiant.id", target = "etudiantId")
+    
+    @Mapping(source = "etudiant.matricule", target = "matricule")
+    
     @Mapping(source = "classe.id", target = "classeId")
     @Mapping(source = "groupe.id", target = "groupeId")
     @Mapping(source = "semstre.id", target = "semstreId")

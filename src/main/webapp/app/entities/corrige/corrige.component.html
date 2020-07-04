@@ -14,11 +14,15 @@
                         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                             <th scope="col"  jhiSortBy="enseignantId"><span jhiTranslate="gestionNotesFsegsApp.corrige.enseignant">Enseignant</span> <fa-icon icon="sort"></fa-icon></th>
                             <th scope="col"  jhiSortBy="enveloppeId"><span jhiTranslate="gestionNotesFsegsApp.corrige.enveloppe">Enveloppe</span> <fa-icon icon="sort"></fa-icon></th>
-                            <th scope="col"></th>
+                            <th scope="col">nbre copie corrige</th>
+                            <th scope="col">nbre totale de copie</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let corrige of corriges ;trackBy: trackId">
+                        <tr *ngFor="let corrige of corriges ;trackBy: trackId"
+                        [ngStyle]="{'background-color': corrige.nbrecopieCorrige==0  ? 'red' : (corrige.nbrecopieCorrige>0 &&corrige.nbrecopieCorrige<corrige.nbreCopieinenvloppe ? 'yellow' : 'green') }"
+  
+                       >
                             <td>
                                 <div *ngIf="corrige.enseignantId">
                                     <a [routerLink]="['/enseignant', corrige.enseignantId , 'view']" >{{ corrige.enseignantNom }} {{corrige.enseignantPrenom}}</a>
@@ -29,10 +33,20 @@
                                     <a [routerLink]="['/enveloppe', corrige.enveloppeId , 'view']" >{{ corrige.enveloppenameenv }}</a>
                                 </div>
                             </td>
+                            <td>
+                                <div >
+                                    {{ corrige.nbrecopieCorrige }}
+                                </div>
+                            </td>
+                            <td>
+                                <div >
+                                    {{ corrige.nbreCopieinenvloppe }}
+                                </div>
+                            </td>
                             <td class="text-right">
                                 <div class="btn-group">
                                     <button type="submit"
-                                    (click)="details(corrige.enveloppeId)"
+                                    (click)="details(corrige.enveloppeId,corrige)"
                                             class="btn btn-info btn-sm">
                                         <fa-icon icon="eye"></fa-icon>
                                   </button>
@@ -57,7 +71,7 @@
         </div>
      
     <div class="col-md-6">
-        <jhi-corrige-detail [idEnv]="envid"></jhi-corrige-detail>
+        <jhi-corrige-detail [idEnv]="envid" [corrige]="corrige" (ischange)="loadPage(ensgId)"></jhi-corrige-detail>
     </div>
     
        
