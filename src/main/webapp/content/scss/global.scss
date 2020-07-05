@@ -104,6 +104,8 @@ Generic styles
 
 .footer {
   border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #a5d6a7;
+  padding: 20px;
 }
 
 .hand,
@@ -191,5 +193,10 @@ ui bootstrap tweaks
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
+.bg-dark {
+  background-color: #a5d6a7 !important;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
 /* jhipster-needle-scss-add-main JHipster will add new css style */

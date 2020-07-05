@@ -132,6 +132,7 @@ public class UserService {
         newUser.setAuthorities(authorities); 
       }
         newUser.setEnsiegnent(userDTO.getEnsiegnent());
+        newUser.setEtudiant(userDTO.getEtudiant());
         userRepository.save(newUser);
         this.clearUserCaches(newUser);
         log.debug("Created Information for User: {}", newUser);
@@ -176,6 +177,7 @@ public class UserService {
             user.setAuthorities(authorities);
         }
         user.setEnsiegnent(userDTO.getEnsiegnent());
+        user.setEtudiant(userDTO.getEtudiant());
         userRepository.save(user);
         this.clearUserCaches(user);
         log.debug("Created Information for User: {}", user);
@@ -230,6 +232,7 @@ public class UserService {
                 user.setActivated(userDTO.isActivated());
                 user.setLangKey(userDTO.getLangKey());
                 user.setEnsiegnent(userDTO.getEnsiegnent());
+                user.setEtudiant(userDTO.getEtudiant());
                 Set<Authority> managedAuthorities = user.getAuthorities();
                 managedAuthorities.clear();
                 userDTO.getAuthorities().stream()

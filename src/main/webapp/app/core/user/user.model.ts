@@ -13,6 +13,7 @@ export interface IUser {
   lastModifiedDate?: Date;
   password?: string;
   ensiegnent?: number;
+  etudiant?: number;
 }
 
 export class User implements IUser {

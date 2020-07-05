@@ -13,12 +13,19 @@ import org.mapstruct.*;
 public interface InscriptionMapper extends EntityMapper<InscriptionDTO, Inscription> {
 
     @Mapping(source = "etudiant.id", target = "etudiantId")
-    
     @Mapping(source = "etudiant.matricule", target = "matricule")
+    @Mapping(source = "etudiant.cin", target = "cin")
+    @Mapping(source = "etudiant.nom", target = "nom")
+    @Mapping(source = "etudiant.prenom", target = "prenom")
+    @Mapping(source = "etudiant.tel", target = "tel")
+    @Mapping(source = "etudiant.dateNais", target = "dateNais")
     
     @Mapping(source = "classe.id", target = "classeId")
+    @Mapping(source = "classe.nom", target = "nomclass")
     @Mapping(source = "groupe.id", target = "groupeId")
+    @Mapping(source = "groupe.nomgroup", target = "nomgroup")
     @Mapping(source = "semstre.id", target = "semstreId")
+    @Mapping(source = "semstre.numSemstre", target = "numSemstre")
     InscriptionDTO toDto(Inscription inscription);
 
     @Mapping(source = "etudiantId", target = "etudiant")
