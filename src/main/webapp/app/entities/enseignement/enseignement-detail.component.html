@@ -32,6 +32,12 @@
                         <a [routerLink]="['/type-enseignement', enseignement.typeEnseignementId, 'view']">{{ enseignement.typeEnseignementId }}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.enseignement.classe">Classe</span></dt>
+                <dd>
+                    <div *ngIf="enseignement.classeId">
+                        <a [routerLink]="['/classe', enseignement.classeId, 'view']">{{ enseignement.classeId }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

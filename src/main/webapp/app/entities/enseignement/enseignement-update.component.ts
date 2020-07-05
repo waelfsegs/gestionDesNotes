@@ -15,12 +15,14 @@ import { IGroupe } from 'app/shared/model/groupe.model';
 import { GroupeService } from 'app/entities/groupe/groupe.service';
 import { ITypeEnseignement } from 'app/shared/model/type-enseignement.model';
 import { TypeEnseignementService } from 'app/entities/type-enseignement/type-enseignement.service';
+import { IClasse } from 'app/shared/model/classe.model';
+import { ClasseService } from 'app/entities/classe/classe.service';
 
-type SelectableEntity = IMatiere | IEnseignant | IGroupe | ITypeEnseignement;
+type SelectableEntity = IMatiere | IEnseignant | IGroupe | ITypeEnseignement | IClasse;
 
 @Component({
   selector: 'jhi-enseignement-update',
-  templateUrl: './enseignement-update.component.html',
+  templateUrl: './enseignement-update.component.html'
 })
 export class EnseignementUpdateComponent implements OnInit {
   isSaving = false;
@@ -28,6 +30,7 @@ export class EnseignementUpdateComponent implements OnInit {
   enseignants: IEnseignant[] = [];
   groupes: IGroupe[] = [];
   typeenseignements: ITypeEnseignement[] = [];
+  classes: IClasse[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -35,6 +38,7 @@ export class EnseignementUpdateComponent implements OnInit {
     enseignantId: [],
     groupeId: [],
     typeEnseignementId: [],
+    classeId: []
   });
 
   constructor(
@@ -43,6 +47,7 @@ export class EnseignementUpdateComponent implements OnInit {
     protected enseignantService: EnseignantService,
     protected groupeService: GroupeService,
     protected typeEnseignementService: TypeEnseignementService,
+    protected classeService: ClasseService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -58,6 +63,8 @@ export class EnseignementUpdateComponent implements OnInit {
       this.groupeService.query().subscribe((res: HttpResponse<IGroupe[]>) => (this.groupes = res.body || []));
 
       this.typeEnseignementService.query().subscribe((res: HttpResponse<ITypeEnseignement[]>) => (this.typeenseignements = res.body || []));
+
+      this.classeService.query().subscribe((res: HttpResponse<IClasse[]>) => (this.classes = res.body || []));
     });
   }
 
@@ -68,6 +75,7 @@ export class EnseignementUpdateComponent implements OnInit {
       enseignantId: enseignement.enseignantId,
       groupeId: enseignement.groupeId,
       typeEnseignementId: enseignement.typeEnseignementId,
+      classeId: enseignement.classeId
     });
   }
 
@@ -93,6 +101,7 @@ export class EnseignementUpdateComponent implements OnInit {
       enseignantId: this.editForm.get(['enseignantId'])!.value,
       groupeId: this.editForm.get(['groupeId'])!.value,
       typeEnseignementId: this.editForm.get(['typeEnseignementId'])!.value,
+      classeId: this.editForm.get(['classeId'])!.value
     };
   }
 

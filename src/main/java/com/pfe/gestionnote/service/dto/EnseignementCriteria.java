@@ -34,6 +34,8 @@ public class EnseignementCriteria implements Serializable, Criteria {
 
     private LongFilter typeEnseignementId;
 
+    private LongFilter classeId;
+
     public EnseignementCriteria() {
     }
 
@@ -43,6 +45,7 @@ public class EnseignementCriteria implements Serializable, Criteria {
         this.enseignantId = other.enseignantId == null ? null : other.enseignantId.copy();
         this.groupeId = other.groupeId == null ? null : other.groupeId.copy();
         this.typeEnseignementId = other.typeEnseignementId == null ? null : other.typeEnseignementId.copy();
+        this.classeId = other.classeId == null ? null : other.classeId.copy();
     }
 
     @Override
@@ -90,6 +93,14 @@ public class EnseignementCriteria implements Serializable, Criteria {
         this.typeEnseignementId = typeEnseignementId;
     }
 
+    public LongFilter getClasseId() {
+        return classeId;
+    }
+
+    public void setClasseId(LongFilter classeId) {
+        this.classeId = classeId;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -105,7 +116,8 @@ public class EnseignementCriteria implements Serializable, Criteria {
             Objects.equals(matiereId, that.matiereId) &&
             Objects.equals(enseignantId, that.enseignantId) &&
             Objects.equals(groupeId, that.groupeId) &&
-            Objects.equals(typeEnseignementId, that.typeEnseignementId);
+            Objects.equals(typeEnseignementId, that.typeEnseignementId) &&
+            Objects.equals(classeId, that.classeId);
     }
 
     @Override
@@ -115,11 +127,11 @@ public class EnseignementCriteria implements Serializable, Criteria {
         matiereId,
         enseignantId,
         groupeId,
-        typeEnseignementId
+        typeEnseignementId,
+        classeId
         );
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "EnseignementCriteria{" +
@@ -128,6 +140,7 @@ public class EnseignementCriteria implements Serializable, Criteria {
                 (enseignantId != null ? "enseignantId=" + enseignantId + ", " : "") +
                 (groupeId != null ? "groupeId=" + groupeId + ", " : "") +
                 (typeEnseignementId != null ? "typeEnseignementId=" + typeEnseignementId + ", " : "") +
+                (classeId != null ? "classeId=" + classeId + ", " : "") +
             "}";
     }
 
