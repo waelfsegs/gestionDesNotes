@@ -1,0 +1,23 @@
+{
+  "gestionNotesFsegsApp": {
+    "enveloppe": {
+      "home": {
+        "title": "Enveloppes",
+        "createLabel": "Créer un nouveau Enveloppe",
+        "createOrEditLabel": "Créer ou éditer un Enveloppe",
+        "notFound": "Aucun Enveloppe trouvé"
+      },
+      "created": "Un nouveau Enveloppe a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Enveloppe avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Enveloppe avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Enveloppe {{ id }} ?"
+      },
+      "detail": {
+        "title": "Enveloppe"
+      },
+      "nameenv": "Nameenv",
+      "maiere": "Maiere"
+    }
+  }
+}

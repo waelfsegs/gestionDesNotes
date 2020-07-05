@@ -29,6 +29,13 @@
       "otherEntityRelationshipName": "enseignement",
       "relationshipName": "typeEnseignement",
       "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "classe",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "classe",
+      "otherEntityField": "id"
     }
   ],
   "changelogDate": "20200525002213",

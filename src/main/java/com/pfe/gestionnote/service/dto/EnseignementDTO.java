@@ -1,12 +1,13 @@
 package com.pfe.gestionnote.service.dto;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * A DTO for the {@link com.pfe.gestionnote.domain.Enseignement} entity.
  */
 public class EnseignementDTO implements Serializable {
-    
+
     private Long id;
 
 
@@ -17,7 +18,9 @@ public class EnseignementDTO implements Serializable {
     private Long groupeId;
 
     private Long typeEnseignementId;
-    
+
+    private Long classeId;
+
     public Long getId() {
         return id;
     }
@@ -58,24 +61,35 @@ public class EnseignementDTO implements Serializable {
         this.typeEnseignementId = typeEnseignementId;
     }
 
+    public Long getClasseId() {
+        return classeId;
+    }
+
+    public void setClasseId(Long classeId) {
+        this.classeId = classeId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof EnseignementDTO)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return id != null && id.equals(((EnseignementDTO) o).id);
+        EnseignementDTO enseignementDTO = (EnseignementDTO) o;
+        if (enseignementDTO.getId() == null || getId() == null) {
+            return false;
+        }
+        return Objects.equals(getId(), enseignementDTO.getId());
     }
 
     @Override
     public int hashCode() {
-        return 31;
+        return Objects.hashCode(getId());
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "EnseignementDTO{" +
@@ -84,6 +98,7 @@ public class EnseignementDTO implements Serializable {
             ", enseignantId=" + getEnseignantId() +
             ", groupeId=" + getGroupeId() +
             ", typeEnseignementId=" + getTypeEnseignementId() +
+            ", classeId=" + getClasseId() +
             "}";
     }
 }

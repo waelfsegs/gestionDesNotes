@@ -137,7 +137,6 @@ public class EnseignementResource {
     @DeleteMapping("/enseignements/{id}")
     public ResponseEntity<Void> deleteEnseignement(@PathVariable Long id) {
         log.debug("REST request to delete Enseignement : {}", id);
-
         enseignementService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }

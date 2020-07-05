@@ -1,0 +1,80 @@
+<div class="modal-header">
+    <h2>corrige examen</h2>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-warning" id="no-result" *ngIf="corriges?.length === 0">
+                <span jhiTranslate="gestionNotesFsegsApp.corrige.home.notFound">No corriges found</span>
+            </div>
+        
+            <div class="table-responsive" id="entities" *ngIf="corriges?.length > 0">
+                <table class="table table-striped" aria-describedby="page-heading">
+                    <thead>
+                        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                            <th scope="col"  jhiSortBy="enseignantId"><span jhiTranslate="gestionNotesFsegsApp.corrige.enseignant">Enseignant</span> <fa-icon icon="sort"></fa-icon></th>
+                            <th scope="col"  jhiSortBy="enveloppeId"><span jhiTranslate="gestionNotesFsegsApp.corrige.enveloppe">Enveloppe</span> <fa-icon icon="sort"></fa-icon></th>
+                            <th scope="col">nbre copie corrige</th>
+                            <th scope="col">nbre totale de copie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let corrige of corriges ;trackBy: trackId"
+                        [ngStyle]="{'background-color': corrige.nbrecopieCorrige==0  ? 'red' : (corrige.nbrecopieCorrige>0 &&corrige.nbrecopieCorrige<corrige.nbreCopieinenvloppe ? 'yellow' : 'green') }"
+  
+                       >
+                            <td>
+                                <div *ngIf="corrige.enseignantId">
+                                    <a [routerLink]="['/enseignant', corrige.enseignantId , 'view']" >{{ corrige.enseignantNom }} {{corrige.enseignantPrenom}}</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div *ngIf="corrige.enveloppeId">
+                                    <a [routerLink]="['/enveloppe', corrige.enveloppeId , 'view']" >{{ corrige.enveloppenameenv }}</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div >
+                                    {{ corrige.nbrecopieCorrige }}
+                                </div>
+                            </td>
+                            <td>
+                                <div >
+                                    {{ corrige.nbreCopieinenvloppe }}
+                                </div>
+                            </td>
+                            <td class="text-right">
+                                <div class="btn-group">
+                                    <button type="submit"
+                                    (click)="details(corrige.enveloppeId,corrige)"
+                                            class="btn btn-info btn-sm">
+                                        <fa-icon icon="eye"></fa-icon>
+                                  </button>
+        
+                                    
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <div *ngIf="corriges?.length > 0">
+                <div class="row justify-content-center">
+                    <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+                </div>
+        
+                <div class="row justify-content-center">
+                    <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+                </div>
+            </div>
+        </div>
+     
+    <div class="col-md-6">
+        <jhi-corrige-detail [idEnv]="envid" [corrige]="corrige" (ischange)="loadPage(ensgId)"></jhi-corrige-detail>
+    </div>
+    
+       
+    </div>
+</div>
+

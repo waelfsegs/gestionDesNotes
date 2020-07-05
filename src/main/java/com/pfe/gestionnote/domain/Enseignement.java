@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "enseignement")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Enseignement implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -23,22 +23,26 @@ public class Enseignement implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "enseignements", allowSetters = true)
+    @JsonIgnoreProperties("enseignements")
     private Matiere matiere;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "enseignements", allowSetters = true)
+    @JsonIgnoreProperties("enseignements")
     private Enseignant enseignant;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "enseignements", allowSetters = true)
+    @JsonIgnoreProperties("enseignements")
     private Groupe groupe;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "enseignements", allowSetters = true)
+    @JsonIgnoreProperties("enseignements")
     private TypeEnseignement typeEnseignement;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    @ManyToOne
+    @JsonIgnoreProperties("inscriptions")
+    private Classe classe;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -98,7 +102,20 @@ public class Enseignement implements Serializable {
     public void setTypeEnseignement(TypeEnseignement typeEnseignement) {
         this.typeEnseignement = typeEnseignement;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+
+    public Classe getClasse() {
+        return classe;
+    }
+
+    public Enseignement classe(Classe classe) {
+        this.classe = classe;
+        return this;
+    }
+
+    public void setClasse(Classe classe) {
+        this.classe = classe;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -116,7 +133,6 @@ public class Enseignement implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "Enseignement{" +

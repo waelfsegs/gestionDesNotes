@@ -23,6 +23,21 @@ public class InscriptionDTO implements Serializable {
 
     private Long semstreId;
     
+    private String matricule;
+    private Integer cin;
+
+    private String nom;
+
+
+    private String prenom;
+
+    private Integer tel;
+    private LocalDate dateNais;
+
+    private String nomclass;
+	  private String nomgroup;
+	  private Integer numSemstre;
+    
     public Long getId() {
         return id;
     }
@@ -96,17 +111,88 @@ public class InscriptionDTO implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
+    
+
+    public String getMatricule() {
+        return matricule;
+    }
+
+    public void setMatricule(String matricule) {
+        this.matricule = matricule;
+    }
+
+    public Integer getCin() {
+        return cin;
+    }
+
+    public void setCin(Integer cin) {
+        this.cin = cin;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public Integer getTel() {
+        return tel;
+    }
+
+    public void setTel(Integer tel) {
+        this.tel = tel;
+    }
+
+    public String getNomclass() {
+        return nomclass;
+    }
+
+    public void setNomclass(String nomclass) {
+        this.nomclass = nomclass;
+    }
+
+    public String getNomgroup() {
+        return nomgroup;
+    }
+
+    public void setNomgroup(String nomgroup) {
+        this.nomgroup = nomgroup;
+    }
+
+    public Integer getNumSemstre() {
+        return numSemstre;
+    }
+
+    public void setNumSemstre(Integer numSemstre) {
+        this.numSemstre = numSemstre;
+    }
+
+  
+
+    public LocalDate getDateNais() {
+        return dateNais;
+    }
+
+    public void setDateNais(LocalDate dateNais) {
+        this.dateNais = dateNais;
+    }
+
     @Override
     public String toString() {
-        return "InscriptionDTO{" +
-            "id=" + getId() +
-            ", date='" + getDate() + "'" +
-            ", annee='" + getAnnee() + "'" +
-            ", etudiantId=" + getEtudiantId() +
-            ", classeId=" + getClasseId() +
-            ", groupeId=" + getGroupeId() +
-            ", semstreId=" + getSemstreId() +
-            "}";
+        return "InscriptionDTO [annee=" + annee + ", cin=" + cin + ", classeId=" + classeId + ", date=" + date
+                + ", dateNais=" + dateNais + ", etudiantId=" + etudiantId + ", groupeId=" + groupeId + ", id=" + id
+                + ", matricule=" + matricule + ", nom=" + nom + ", nomclass=" + nomclass + ", nomgroup=" + nomgroup
+                + ", numSemstre=" + numSemstre + ", prenom=" + prenom + ", semstreId=" + semstreId + ", tel=" + tel
+                + "]";
     }
 }

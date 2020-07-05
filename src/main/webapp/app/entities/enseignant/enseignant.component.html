@@ -44,7 +44,7 @@
                     <td>{{ enseignant.dateEmbauchement | date:'mediumDate' }}</td>
                     <td>
                         <div *ngIf="enseignant.departementId">
-                            <a [routerLink]="['/departement', enseignant.departementId , 'view']" >{{ enseignant.departementId }}</a>
+                            <a [routerLink]="['/departement', enseignant.departementId , 'view']" >{{ enseignant.departementName }}</a>
                         </div>
                     </td>
                     <td class="text-right">

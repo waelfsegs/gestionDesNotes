@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="examen">
+            <h2><span jhiTranslate="gestionNotesFsegsApp.examen.detail.title">Examen</span> {{ examen.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gestionNotesFsegsApp.examen.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{ examen.matricule }}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.examen.session">Session</span></dt>
+                <dd>
+                    <span>{{ examen.session }}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.examen.numcomp">Numcomp</span></dt>
+                <dd>
+                    <span>{{ examen.numcomp }}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.examen.matiere">Matiere</span></dt>
+                <dd>
+                    <div *ngIf="examen.matiereId">
+                        <a [routerLink]="['/matiere', examen.matiereId, 'view']">{{ examen.matiereId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.examen.inscription">Inscription</span></dt>
+                <dd>
+                    <div *ngIf="examen.inscriptionId">
+                        <a [routerLink]="['/inscription', examen.inscriptionId, 'view']">{{ examen.inscriptionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.examen.semstre">Semstre</span></dt>
+                <dd>
+                    <div *ngIf="examen.semstreId">
+                        <a [routerLink]="['/semstre', examen.semstreId, 'view']">{{ examen.semstreId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.examen.niveau">Niveau</span></dt>
+                <dd>
+                    <div *ngIf="examen.niveauId">
+                        <a [routerLink]="['/niveau', examen.niveauId, 'view']">{{ examen.niveauId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.examen.specialite">Specialite</span></dt>
+                <dd>
+                    <div *ngIf="examen.specialiteId">
+                        <a [routerLink]="['/specialite', examen.specialiteId, 'view']">{{ examen.specialiteId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.examen.enveloppe">Enveloppe</span></dt>
+                <dd>
+                    <div *ngIf="examen.enveloppeId">
+                        <a [routerLink]="['/enveloppe', examen.enveloppeId, 'view']">{{ examen.enveloppeId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.examen.cycle">Cycle</span></dt>
+                <dd>
+                    <div *ngIf="examen.cycleId">
+                        <a [routerLink]="['/cycle', examen.cycleId, 'view']">{{ examen.cycleId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/examen', examen.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

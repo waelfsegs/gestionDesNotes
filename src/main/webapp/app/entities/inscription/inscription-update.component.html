@@ -1,8 +1,58 @@
-<div class="row justify-content-center">
-    <div class="col-8">
-        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-inscription-heading" jhiTranslate="gestionNotesFsegsApp.inscription.home.createOrEditLabel">Create or edit a Inscription</h2>
 
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+        <h2 id="jhi-inscription-heading" jhiTranslate="gestionNotesFsegsApp.inscription.home.createOrEditLabel">Create or edit a Inscription</h2>
+
+        <div class="row ">    
+  
+    <div class="col-md-6">
+     
+            <div class="form-group" [hidden]="!editForm.get('idetudiant')!.value">
+                <label for="idetudiant" jhiTranslate="global.field.id">ID</label>
+                <input type="text" class="form-control" id="idetudiant" name="idetudiant" formControlName="idetudiant" readonly />
+            </div>
+
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.etudiant.cin" for="field_cin">Cin</label>
+                <input type="number" class="form-control" name="cin" id="field_cin"
+                       formControlName="cin"/>
+            </div>
+
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.etudiant.nom" for="field_nom">Nom</label>
+                <input type="text" class="form-control" name="nom" id="field_nom"
+                       formControlName="nom"/>
+            </div>
+
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.etudiant.matricule" for="field_matricule">Matricule</label>
+                <input type="text" class="form-control" name="matricule" id="field_matricule"
+                       formControlName="matricule"/>
+            </div>
+
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.etudiant.prenom" for="field_prenom">Prenom</label>
+                <input type="text" class="form-control" name="prenom" id="field_prenom"
+                       formControlName="prenom"/>
+            </div>
+
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.etudiant.tel" for="field_tel">Tel</label>
+                <input type="number" class="form-control" name="tel" id="field_tel"
+                       formControlName="tel"/>
+            </div>
+
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.etudiant.dateNais" for="field_dateNais">Date Nais</label>
+                <div class="input-group">
+                    <input id="field_dateNais" type="text" class="form-control" name="dateNais" ngbDatepicker #dateNaisDp="ngbDatepicker" formControlName="dateNais"/>
+                    <span class="input-group-append">
+                        <button type="button" class="btn btn-secondary" (click)="dateNaisDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+   
             <div>
                 <jhi-alert-error></jhi-alert-error>
 
@@ -31,13 +81,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.etudiant" for="field_etudiant">Etudiant</label>
-                    <select class="form-control" id="field_etudiant" name="etudiant" formControlName="etudiantId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="etudiantOption.id" *ngFor="let etudiantOption of etudiants; trackBy: trackById">{{ etudiantOption.nom }} {{ etudiantOption.prenom }}</option>
-                    </select>
-                </div>
+            
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.classe" for="field_classe">Classe</label>
@@ -73,6 +117,8 @@
                     <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
                 </button>
             </div>
-        </form>
+       
     </div>
-</div>
+    </div>
+</form>
+

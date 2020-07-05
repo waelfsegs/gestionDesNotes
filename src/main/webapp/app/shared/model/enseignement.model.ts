@@ -4,10 +4,11 @@ export interface IEnseignement {
   enseignantId?: number;
   groupeId?: number;
   typeEnseignementId?: number;
+  classeId?: number;
   matierenom?: string;
-  enseignantnom?: string;
   groupenom?: string;
   typeEnseignement?: string;
+  enseignantnom?: string;
 }
 
 export class Enseignement implements IEnseignement {
@@ -16,6 +17,7 @@ export class Enseignement implements IEnseignement {
     public matiereId?: number,
     public enseignantId?: number,
     public groupeId?: number,
-    public typeEnseignementId?: number
+    public typeEnseignementId?: number,
+    public classeId?: number
   ) {}
 }

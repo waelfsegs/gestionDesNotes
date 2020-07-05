@@ -50,7 +50,7 @@ public class UserDTO {
 
     private Set<String> authorities;
     private Integer ensiegnent ;
-
+private Integer etudiant;
 
     public UserDTO() {
         // Empty constructor needed for Jackson.
@@ -73,6 +73,7 @@ public class UserDTO {
             .map(Authority::getName)
             .collect(Collectors.toSet());
             this.ensiegnent=user.getEnsiegnent();
+            this.etudiant=user.getEtudiant();
     }
 
     public Long getId() {
@@ -179,24 +180,7 @@ public class UserDTO {
         this.authorities = authorities;
     }
 
-    @Override
-    public String toString() {
-        return "UserDTO{" +
-            "login='" + login + '\'' +
-            ", firstName='" + firstName + '\'' +
-            ", lastName='" + lastName + '\'' +
-            ", email='" + email + '\'' +
-            ", imageUrl='" + imageUrl + '\'' +
-            ", activated=" + activated +
-            ", langKey='" + langKey + '\'' +
-            ", createdBy=" + createdBy +
-            ", createdDate=" + createdDate +
-            ", lastModifiedBy='" + lastModifiedBy + '\'' +
-            ", lastModifiedDate=" + lastModifiedDate +
-            ", authorities=" + authorities +
-            ", ensiegnent ="+ensiegnent+
-            "}";
-    }
+   
 
     public Integer getEnsiegnent() {
         return ensiegnent;
@@ -204,5 +188,22 @@ public class UserDTO {
 
     public void setEnsiegnent(Integer ensiegnent) {
         this.ensiegnent = ensiegnent;
+    }
+
+    public Integer getEtudiant() {
+        return etudiant;
+    }
+
+    public void setEtudiant(Integer etudiant) {
+        this.etudiant = etudiant;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDTO [activated=" + activated + ", authorities=" + authorities + ", createdBy=" + createdBy
+                + ", createdDate=" + createdDate + ", email=" + email + ", ensiegnent=" + ensiegnent + ", etudiant="
+                + etudiant + ", firstName=" + firstName + ", id=" + id + ", imageUrl=" + imageUrl + ", langKey="
+                + langKey + ", lastModifiedBy=" + lastModifiedBy + ", lastModifiedDate=" + lastModifiedDate
+                + ", lastName=" + lastName + ", login=" + login + "]";
     }
 }

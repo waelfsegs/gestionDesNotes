@@ -1,0 +1,80 @@
+{
+    "name": "Examen",
+    "fields": [
+      {
+        "fieldName": "matricule",
+        "fieldType": "String"
+      },
+      {
+        "fieldName": "session",
+        "fieldType": "String"
+      },
+      {
+        "fieldName": "numcomp",
+        "fieldType": "Integer"
+      }
+    ],
+    "relationships": [
+      {
+        "relationshipType": "many-to-one",
+        "otherEntityName": "matiere",
+        "otherEntityRelationshipName": "examen",
+        "relationshipName": "matiere",
+        "otherEntityField": "id"
+      },
+      {
+        "relationshipType": "many-to-one",
+        "otherEntityName": "inscription",
+        "otherEntityRelationshipName": "examen",
+        "relationshipName": "inscription",
+        "otherEntityField": "id"
+      },
+      {
+        "relationshipType": "many-to-one",
+        "otherEntityName": "semstre",
+        "otherEntityRelationshipName": "examen",
+        "relationshipName": "semstre",
+        "otherEntityField": "id"
+      },
+      {
+        "relationshipType": "many-to-one",
+        "otherEntityName": "niveau",
+        "otherEntityRelationshipName": "examen",
+        "relationshipName": "niveau",
+        "otherEntityField": "id"
+      }, {
+        "relationshipType": "many-to-one",
+        "otherEntityName": "specialite",
+        "otherEntityRelationshipName": "examen",
+        "relationshipName": "specialite",
+        "otherEntityField": "id"
+      },
+      {
+        "relationshipType": "many-to-one",
+        "otherEntityName": "enveloppe",
+        "otherEntityRelationshipName": "examen",
+        "relationshipName": "enveloppe",
+        "otherEntityField": "id"
+      },
+      {
+        "relationshipType": "many-to-one",
+        "otherEntityName": "cycle",
+        "otherEntityRelationshipName": "examen",
+        "relationshipName": "cycle",
+        "otherEntityField": "id"
+      }
+
+    ],
+ 
+    "entityTableName": "examen",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+  }
+  

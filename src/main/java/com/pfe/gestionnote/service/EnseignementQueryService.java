@@ -107,6 +107,10 @@ public class EnseignementQueryService extends QueryService<Enseignement> {
                 specification = specification.and(buildSpecification(criteria.getTypeEnseignementId(),
                     root -> root.join(Enseignement_.typeEnseignement, JoinType.LEFT).get(TypeEnseignement_.id)));
             }
+            if (criteria.getClasseId() != null) {
+                specification = specification.and(buildSpecification(criteria.getClasseId(),
+                    root -> root.join(Enseignement_.classe, JoinType.LEFT).get(Classe_.id)));
+            }
         }
         return specification;
     }

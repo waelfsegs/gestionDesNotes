@@ -1,0 +1,4 @@
+<select class="form-control" (change)="SelectCycle()" [(ngModel)]="cycleid">
+    <option [ngValue]="null"></option>
+    <option [ngValue]="cycleOption.id" *ngFor="let cycleOption of cycle$| async">{{ cycleOption.nomcycle }}</option>
+</select>

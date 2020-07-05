@@ -9,6 +9,10 @@ import { RouterModule } from '@angular/router';
         loadChildren: () => import('./etudiant/etudiant.module').then(m => m.GestionNotesFsegsEtudiantModule)
       },
       {
+        path: 'examen',
+        loadChildren: () => import('./tbl-examen-affecter/examen.module').then(m => m.GestionNotesFsegsExamenModule)
+      },
+      {
         path: 'classe',
         loadChildren: () => import('./classe/classe.module').then(m => m.GestionNotesFsegsClasseModule)
       },
@@ -76,6 +80,14 @@ import { RouterModule } from '@angular/router';
         path: 'note-controle-continue',
         loadChildren: () =>
           import('./note-controle-continue/note-controle-continue.module').then(m => m.GestionNotesFsegSNoteControlContinueModule)
+      },
+      {
+        path: 'enveloppe',
+        loadChildren: () => import('./enveloppe/enveloppe.module').then(m => m.GestionNotesFsegsEnveloppeModule)
+      },
+      {
+        path: 'corrige',
+        loadChildren: () => import('./corrige/corrige.module').then(m => m.GestionNotesFsegsCorrigeModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])
