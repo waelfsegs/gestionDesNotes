@@ -12,7 +12,7 @@ export interface IInscription {
   classe?: string;
   group?: string;
   semstre?: number;
-  matricule?: number;
+  matricule?: string;
   cin?: number;
   nom?: string;
   prenom?: string;
@@ -20,6 +20,7 @@ export interface IInscription {
   nomclass?: string;
   nomgroup?: string;
   numSemstre?: number;
+  dateNais?: Moment;
 }
 
 export class Inscription implements IInscription {

@@ -84,6 +84,8 @@ public class User extends AbstractAuditingEntity implements Serializable {
     private Instant resetDate = null;
     @Column(name = "ensiegnent",nullable = true)
     private Integer ensiegnent ;
+    @Column(name = "etudiant",nullable = true)
+    private Integer etudiant ;
  
     @JsonIgnore
     @ManyToMany
@@ -236,5 +238,13 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setEnsiegnent(Integer ensiegnent) {
         this.ensiegnent = ensiegnent;
+    }
+
+    public Integer getEtudiant() {
+        return etudiant;
+    }
+
+    public void setEtudiant(Integer etudiant) {
+        this.etudiant = etudiant;
     }
 }

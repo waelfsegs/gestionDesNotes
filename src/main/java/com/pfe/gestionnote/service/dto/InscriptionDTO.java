@@ -32,6 +32,7 @@ public class InscriptionDTO implements Serializable {
     private String prenom;
 
     private Integer tel;
+    private LocalDate dateNais;
 
     private String nomclass;
 	  private String nomgroup;
@@ -176,11 +177,22 @@ public class InscriptionDTO implements Serializable {
         this.numSemstre = numSemstre;
     }
 
+  
+
+    public LocalDate getDateNais() {
+        return dateNais;
+    }
+
+    public void setDateNais(LocalDate dateNais) {
+        this.dateNais = dateNais;
+    }
+
     @Override
     public String toString() {
         return "InscriptionDTO [annee=" + annee + ", cin=" + cin + ", classeId=" + classeId + ", date=" + date
-                + ", etudiantId=" + etudiantId + ", groupeId=" + groupeId + ", id=" + id + ", matricule=" + matricule
-                + ", nom=" + nom + ", nomclass=" + nomclass + ", nomgroup=" + nomgroup + ", numSemstre=" + numSemstre
-                + ", prenom=" + prenom + ", semstreId=" + semstreId + ", tel=" + tel + "]";
+                + ", dateNais=" + dateNais + ", etudiantId=" + etudiantId + ", groupeId=" + groupeId + ", id=" + id
+                + ", matricule=" + matricule + ", nom=" + nom + ", nomclass=" + nomclass + ", nomgroup=" + nomgroup
+                + ", numSemstre=" + numSemstre + ", prenom=" + prenom + ", semstreId=" + semstreId + ", tel=" + tel
+                + "]";
     }
 }

@@ -18,6 +18,8 @@ public interface InscriptionMapper extends EntityMapper<InscriptionDTO, Inscript
     @Mapping(source = "etudiant.nom", target = "nom")
     @Mapping(source = "etudiant.prenom", target = "prenom")
     @Mapping(source = "etudiant.tel", target = "tel")
+    @Mapping(source = "etudiant.dateNais", target = "dateNais")
+    
     @Mapping(source = "classe.id", target = "classeId")
     @Mapping(source = "classe.nom", target = "nomclass")
     @Mapping(source = "groupe.id", target = "groupeId")
