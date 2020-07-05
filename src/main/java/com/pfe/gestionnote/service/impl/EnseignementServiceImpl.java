@@ -61,7 +61,6 @@ public class EnseignementServiceImpl implements EnseignementService {
             .map(enseignementMapper::toDto);
     }
 
-
     /**
      * Get one enseignement by id.
      *
@@ -84,7 +83,6 @@ public class EnseignementServiceImpl implements EnseignementService {
     @Override
     public void delete(Long id) {
         log.debug("Request to delete Enseignement : {}", id);
-
         enseignementRepository.deleteById(id);
     }
 }

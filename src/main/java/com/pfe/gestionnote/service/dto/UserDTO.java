@@ -73,6 +73,7 @@ private Integer etudiant;
             .map(Authority::getName)
             .collect(Collectors.toSet());
             this.ensiegnent=user.getEnsiegnent();
+            this.etudiant=user.getEtudiant();
     }
 
     public Long getId() {

@@ -164,7 +164,7 @@ export class InscriptionUpdateComponent implements OnInit {
               email: this.user.login + '@gmail.com',
               password: this.user.password,
               langKey: this.user.langKey,
-              ensiegnent: this.user.ensiegnent,
+              etudiant: this.user.etudiant,
               firstName: this.user.firstName,
               activated: true,
               lastName: this.user.lastName,

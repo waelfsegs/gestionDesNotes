@@ -19,7 +19,8 @@
       "matiere": "Matiere",
       "enseignant": "Enseignant",
       "groupe": "Groupe",
-      "typeEnseignement": "Type Enseignement"
+      "typeEnseignement": "Type Enseignement",
+      "classe": "Classe"
     }
   }
 }

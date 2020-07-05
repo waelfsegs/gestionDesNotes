@@ -28,7 +28,6 @@ public interface EnseignementService {
      */
     Page<EnseignementDTO> findAll(Pageable pageable);
 
-
     /**
      * Get the "id" enseignement.
      *
