@@ -42,7 +42,7 @@ export const enveloppeRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_Enseignant '],
+      authorities: ['ROLE_Enseignant'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.enveloppe.home.title'
     },
