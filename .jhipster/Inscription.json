@@ -39,6 +39,20 @@
       "relationshipName": "semstre",
       "otherEntityField": "id"
     }
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "niveau",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "niveau",
+      "otherEntityField": "id"
+    }
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "specialite",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "specialite",
+      "otherEntityField": "id"
+    }
   ],
   "changelogDate": "20200525001613",
   "entityTableName": "inscription",
