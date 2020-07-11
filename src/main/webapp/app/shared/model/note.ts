@@ -1,16 +1,13 @@
-export interface IMatiere {
-  id?: number;
+export interface Inote {
   coefficientMatiere?: number;
-  coefficientTp?: number;
-  coefficientDc?: number;
-  coefficientExem?: number;
-  designation?: string;
   nom?: string;
-  regimeId?: number;
   regime?: string;
+  notecc1?: number;
+  notecc2?: number;
+  examne?: number;
 }
 
-export class Matiere implements IMatiere {
+export class Note implements Inote {
   constructor(
     public id?: number,
     public coefficientMatiere?: number,

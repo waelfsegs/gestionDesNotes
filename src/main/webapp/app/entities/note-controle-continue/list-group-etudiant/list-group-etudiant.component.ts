@@ -91,7 +91,7 @@ export class ListGroupEtudiantComponent implements OnDestroy, OnInit {
     });
   }
   getNoteByInscription(idinscription: number, etudiantnote: IEtudiantNote) {
-    this.resultatService.query({ 'inscriptionId.equals': idinscription }).subscribe(resultat => {
+    this.resultatService.query({ 'inscriptionId.equals': idinscription, 'matiereId.equals': this.matiereid }).subscribe(resultat => {
       if (resultat.body && resultat.body.length > 0) {
         etudiantnote.notecc1 = resultat.body[0].notecc1;
         etudiantnote.notecc2 = resultat.body[0].notecc2;

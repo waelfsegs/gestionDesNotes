@@ -20,8 +20,8 @@ public class MatiereDTO implements Serializable {
     private String designation;
 
     private String nom;
-
-
+    
+    private String regime;
     private Long regimeId;
     
     public Long getId() {
@@ -106,17 +106,20 @@ public class MatiereDTO implements Serializable {
     }
 
     // prettier-ignore
+
+
+    public String getRegime() {
+        return regime;
+    }
+
+    public void setRegime(String regime) {
+        this.regime = regime;
+    }
+
     @Override
     public String toString() {
-        return "MatiereDTO{" +
-            "id=" + getId() +
-            ", coefficientMatiere=" + getCoefficientMatiere() +
-            ", coefficientTp=" + getCoefficientTp() +
-            ", coefficientDc=" + getCoefficientDc() +
-            ", coefficientExem=" + getCoefficientExem() +
-            ", designation='" + getDesignation() + "'" +
-            ", nom='" + getNom() + "'" +
-            ", regimeId=" + getRegimeId() +
-            "}";
+        return "MatiereDTO [coefficientDc=" + coefficientDc + ", coefficientExem=" + coefficientExem
+                + ", coefficientMatiere=" + coefficientMatiere + ", coefficientTp=" + coefficientTp + ", designation="
+                + designation + ", id=" + id + ", nom=" + nom + ", regime=" + regime + ", regimeId=" + regimeId + "]";
     }
 }

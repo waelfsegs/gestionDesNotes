@@ -13,6 +13,7 @@ import org.mapstruct.*;
 public interface MatiereMapper extends EntityMapper<MatiereDTO, Matiere> {
 
     @Mapping(source = "regime.id", target = "regimeId")
+    @Mapping(source = "regime.type", target = "regime")
     MatiereDTO toDto(Matiere matiere);
 
     @Mapping(source = "regimeId", target = "regime")

@@ -20,6 +20,7 @@ public class EnseignementDTO implements Serializable {
     private Long typeEnseignementId;
 
     private Long classeId;
+    private String nommatiere;
 
     public Long getId() {
         return id;
@@ -92,13 +93,10 @@ public class EnseignementDTO implements Serializable {
 
     @Override
     public String toString() {
-        return "EnseignementDTO{" +
-            "id=" + getId() +
-            ", matiereId=" + getMatiereId() +
-            ", enseignantId=" + getEnseignantId() +
-            ", groupeId=" + getGroupeId() +
-            ", typeEnseignementId=" + getTypeEnseignementId() +
-            ", classeId=" + getClasseId() +
-            "}";
+        return "EnseignementDTO [classeId=" + classeId + ", enseignantId=" + enseignantId + ", groupeId=" + groupeId
+                + ", id=" + id + ", matiereId=" + matiereId + ", nommatiere=" + nommatiere + ", typeEnseignementId="
+                + typeEnseignementId + "]";
     }
+
+   
 }
