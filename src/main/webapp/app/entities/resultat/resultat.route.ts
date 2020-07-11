@@ -38,11 +38,9 @@ export const resultatRoute: Routes = [
   {
     path: '',
     component: ResultatComponent,
-    resolve: {
-      pagingParams: JhiResolvePagingParams
-    },
+
     data: {
-      authorities: ['ROLE_Enseignant','ROLE_ETUDIANT'],
+      authorities: ['ROLE_Enseignant', 'ROLE_ETUDIANT'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.resultat.home.title'
     },
@@ -55,7 +53,7 @@ export const resultatRoute: Routes = [
       resultat: ResultatResolve
     },
     data: {
-      authorities: ['ROLE_Enseignant','ROLE_ETUDIANT'],
+      authorities: ['ROLE_Enseignant', 'ROLE_ETUDIANT'],
       pageTitle: 'gestionNotesFsegsApp.resultat.home.title'
     },
     canActivate: [UserRouteAccessService]
