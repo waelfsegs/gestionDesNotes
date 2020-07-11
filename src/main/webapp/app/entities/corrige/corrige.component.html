@@ -20,7 +20,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let corrige of corriges ;trackBy: trackId"
-                        [ngStyle]="{'background-color': corrige.nbrecopieCorrige==0  ? 'red' : (corrige.nbrecopieCorrige>0 &&corrige.nbrecopieCorrige<corrige.nbreCopieinenvloppe ? 'yellow' : 'green') }"
+                        [ngStyle]="{'background-color': corrige.nbrecopieCorrige==0  ? '#ff847c' : (corrige.nbrecopieCorrige>0 &&corrige.nbrecopieCorrige<corrige.nbreCopieinenvloppe ? '#fbd46d' : '#cceabb') }"
   
                        >
                             <td>
