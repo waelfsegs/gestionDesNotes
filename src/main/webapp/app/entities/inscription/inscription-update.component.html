@@ -17,16 +17,17 @@
                        formControlName="cin"/>
             </div>
 
-            <div class="form-group">
-                <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.etudiant.nom" for="field_nom">Nom</label>
-                <input type="text" class="form-control" name="nom" id="field_nom"
-                       formControlName="nom"/>
-            </div>
-
+           
             <div class="form-group">
                 <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.etudiant.matricule" for="field_matricule">Matricule</label>
                 <input type="text" class="form-control" name="matricule" id="field_matricule"
                        formControlName="matricule"/>
+            </div>
+
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.etudiant.nom" for="field_nom">Nom</label>
+                <input type="text" class="form-control" name="nom" id="field_nom"
+                       formControlName="nom"/>
             </div>
 
             <div class="form-group">
@@ -81,7 +82,16 @@
                     </div>
                 </div>
 
-            
+                <div class="form-group">
+                    <label class="form-control-label"  for="field_specialite">specialite</label>
+                    <input type="number" class="form-control" name="specialite" id="field_specialite"
+                           formControlName="specialite"/>
+
+                </div><div class="form-group">
+                    <label class="form-control-label" for="field_cin">niveau</label>
+                    <input type="number" class="form-control" name="niveau" id="field_niveau"
+                           formControlName="niveau"/>
+                </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.classe" for="field_classe">Classe</label>
