@@ -45,7 +45,7 @@
                             <span jhiTranslate="global.menu.entities.niveau">Niveau</span>
                         </a>
                     
-                        <a class="nav-link" routerLink="cycle" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_ChefDepartement'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="nav-link" routerLink="cycle" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_ADMIN'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.cycle">Cycle</span>
                         </a>
@@ -85,7 +85,7 @@
                             <span jhiTranslate="global.menu.entities.affectationChef">Affectation Chef</span>
                         </a>
                    
-                        <a class="nav-link" routerLink="departement" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_ChefDepartement']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="nav-link" routerLink="departement" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_ADMIN']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.departement">Departement</span>
                         </a>
@@ -100,7 +100,7 @@
                             <span jhiTranslate="global.menu.entities.enseignement">Enseignement</span>
                         </a>
                    
-                        <a class="nav-link" routerLink="regime" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_ChefDepartement'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="nav-link" routerLink="regime" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_ADMIN'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.regime">Regime</span>
                         </a>

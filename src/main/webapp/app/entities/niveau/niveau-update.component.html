@@ -21,7 +21,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.niveau.cycle" for="field_cycle">Cycle</label>
                     <select class="form-control" id="field_cycle" name="cycle" formControlName="cycleId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="cycleOption.id" *ngFor="let cycleOption of cycles; trackBy: trackById">{{ cycleOption.id }}</option>
+                        <option [ngValue]="cycleOption.id" *ngFor="let cycleOption of cycles; trackBy: trackById">{{ cycleOption.nomcycle }}</option>
                     </select>
                 </div>
             </div>

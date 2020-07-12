@@ -34,7 +34,7 @@
                     <td>{{ niveau.niveau }}</td>
                     <td>
                         <div *ngIf="niveau.cycleId">
-                            <a [routerLink]="['/cycle', niveau.cycleId , 'view']" >{{ niveau.cycleId }}</a>
+                            <a [routerLink]="['/cycle', niveau.cycleId , 'view']" >{{ niveau.nomcycle }}</a>
                         </div>
                     </td>
                     <td class="text-right">

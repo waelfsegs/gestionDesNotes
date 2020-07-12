@@ -41,7 +41,7 @@ export const cycleRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_ChefDepartement'],
+      authorities: ['ROLE_ADMIN'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.cycle.home.title'
     },
@@ -54,7 +54,7 @@ export const cycleRoute: Routes = [
       cycle: CycleResolve
     },
     data: {
-      authorities: ['ROLE_ChefDepartement'],
+      authorities: ['ROLE_ChefDepartement', 'ROLE_ADMIN'],
       pageTitle: 'gestionNotesFsegsApp.cycle.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -66,7 +66,7 @@ export const cycleRoute: Routes = [
       cycle: CycleResolve
     },
     data: {
-      authorities: ['ROLE_ChefDepartement'],
+      authorities: ['ROLE_ADMIN'],
       pageTitle: 'gestionNotesFsegsApp.cycle.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -78,7 +78,7 @@ export const cycleRoute: Routes = [
       cycle: CycleResolve
     },
     data: {
-      authorities: ['ROLE_ChefDepartement'],
+      authorities: ['ROLE_ADMIN'],
       pageTitle: 'gestionNotesFsegsApp.cycle.home.title'
     },
     canActivate: [UserRouteAccessService]

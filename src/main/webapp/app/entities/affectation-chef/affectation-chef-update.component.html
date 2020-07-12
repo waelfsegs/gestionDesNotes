@@ -14,40 +14,48 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.affectationChef.startDate" for="field_startDate">Start Date</label>
                     <div class="input-group">
-                        <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker #startDateDp="ngbDatepicker" formControlName="startDate"/>
+                        <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker #startDateDp="ngbDatepicker" (ngModelChange)="datestartchange($event)" formControlName="startDate"/>
                         <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
                         </span>
                     </div>
                 </div>
-
+                <div class="alert alert-danger" role="alert" *ngIf="messageerordatestart.length>0">
+               {{messageerordatestart}}
+                  </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.affectationChef.endDate" for="field_endDate">End Date</label>
                     <div class="input-group">
-                        <input id="field_endDate" type="text" class="form-control" name="endDate" ngbDatepicker #endDateDp="ngbDatepicker" formControlName="endDate"/>
+                        <input id="field_endDate" type="text" class="form-control" name="endDate" ngbDatepicker #endDateDp="ngbDatepicker" (ngModelChange)="dateendchange($event)" formControlName="endDate"/>
                         <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
                         </span>
                     </div>
                 </div>
-
+                <div class="alert alert-danger" role="alert" *ngIf="messageerordateend.length>0">
+                    {{messageerordateend}}
+                       </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.affectationChef.departement" for="field_departement">Departement</label>
-                    <select class="form-control" id="field_departement" name="departement" formControlName="departementId">
+                    <select class="form-control" id="field_departement" name="departement" formControlName="departementId" (ngModelChange)="departmentchange($event)">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="departementOption.id" *ngFor="let departementOption of departements; trackBy: trackById">{{ departementOption.nomDep }}</option>
                     </select>
                 </div>
-
+                <div class="alert alert-danger" role="alert" *ngIf="messagedepartmenteror.length>0">
+                    {{messagedepartmenteror}}
+                       </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.affectationChef.enseignant" for="field_enseignant">Enseignant</label>
-                    <select class="form-control" id="field_enseignant" name="enseignant" formControlName="enseignantId">
+                    <select class="form-control" id="field_enseignant" name="enseignant" formControlName="enseignantId" (ngModelChange)="ensiegnantchange($event)" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="enseignantOption.id" *ngFor="let enseignantOption of enseignants; trackBy: trackById">{{ enseignantOption.nom }} {{enseignantOption.pernom}}</option>
                     </select>
                 </div>
             </div>
-
+            <div class="alert alert-danger" role="alert" *ngIf="messageerorensiegnant.length>0">
+                {{messageerorensiegnant}}
+                   </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
                     <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>

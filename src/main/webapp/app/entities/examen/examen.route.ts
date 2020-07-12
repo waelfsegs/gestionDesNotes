@@ -42,7 +42,7 @@ export const examenRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_AGENT'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.examen.home.title'
     },
@@ -55,7 +55,7 @@ export const examenRoute: Routes = [
       examen: ExamenResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_AGENT'],
       pageTitle: 'gestionNotesFsegsApp.examen.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -67,7 +67,7 @@ export const examenRoute: Routes = [
       examen: ExamenResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_AGENT'],
       pageTitle: 'gestionNotesFsegsApp.examen.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -79,7 +79,7 @@ export const examenRoute: Routes = [
       examen: ExamenResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_AGENT'],
       pageTitle: 'gestionNotesFsegsApp.examen.home.title'
     },
     canActivate: [UserRouteAccessService]

@@ -11,12 +11,14 @@ import { IDepartement } from 'app/shared/model/departement.model';
 import { DepartementService } from 'app/entities/departement/departement.service';
 import { IEnseignant } from 'app/shared/model/enseignant.model';
 import { EnseignantService } from 'app/entities/enseignant/enseignant.service';
+import { Moment } from 'moment';
+import { filter, concatMap, map } from 'rxjs/operators';
 
 type SelectableEntity = IDepartement | IEnseignant;
 
 @Component({
   selector: 'jhi-affectation-chef-update',
-  templateUrl: './affectation-chef-update.component.html',
+  templateUrl: './affectation-chef-update.component.html'
 })
 export class AffectationChefUpdateComponent implements OnInit {
   isSaving = false;
@@ -24,13 +26,17 @@ export class AffectationChefUpdateComponent implements OnInit {
   enseignants: IEnseignant[] = [];
   startDateDp: any;
   endDateDp: any;
-
+  messageerordatestart: string = '';
+  messagedepartmenteror: string = '';
+  messageerordateend: string = '';
+  messageerorensiegnant: string = '';
+  deprtmentselected: boolean = false;
   editForm = this.fb.group({
     id: [],
-    startDate: [],
-    endDate: [],
-    departementId: [],
-    enseignantId: [],
+    startDate: ['', [Validators.required]],
+    endDate: ['', [Validators.required]],
+    departementId: ['', [Validators.required]],
+    enseignantId: ['', [Validators.required]]
   });
 
   constructor(
@@ -49,15 +55,91 @@ export class AffectationChefUpdateComponent implements OnInit {
 
       this.enseignantService.query().subscribe((res: HttpResponse<IEnseignant[]>) => (this.enseignants = res.body || []));
     });
-  }
+    this.editForm.valueChanges.pipe(filter(() => this.editForm.valid)).subscribe(res => {
+      let startDate = this.editForm.get(['startDate'])!.value;
+      let endDate = this.editForm.get(['endDate'])!.value;
+      if (startDate.isAfter(endDate)) {
+        this.isSaving = true;
+        console.log('hi');
+      } else {
+        this.affectationChefService
+          .count({ 'departementId.equals': this.editForm.get(['departementId'])!.value, 'enseignantId.specified': true })
+          .pipe(map(res => res.body))
+          .subscribe(nbredemaprtment => {
+            if (nbredemaprtment) {
+              if (nbredemaprtment > 0) {
+                this.isSaving = true;
+              } else {
+                this.isSaving = false;
+              }
+            } else {
+              this.isSaving = false;
+            }
+          });
 
+        console.log(res);
+      }
+    });
+  }
+  departmentchange(departmentid: number) {
+    this.messagedepartmenteror = '';
+    if (departmentid) {
+      this.affectationChefService
+        .count({ 'departementId.equals': departmentid, 'enseignantId.specified': true })
+        .pipe(map(res => res.body))
+        .subscribe(nbredemaprtment => {
+          if (nbredemaprtment) {
+            if (nbredemaprtment > 0) {
+              this.messagedepartmenteror = 'Ce département a déjà un chef ';
+            } else {
+              this.deprtmentselected = true;
+            }
+          }
+        });
+    }
+  }
+  ensiegnantchange(ensignantid: number) {
+    this.messageerorensiegnant = '';
+    if (ensignantid && this.editForm.get(['departementId'])!.value) {
+      this.affectationChefService
+        .count({ 'departementId.equals': this.editForm.get(['departementId'])!.value, 'enseignantId.equals': ensignantid })
+        .pipe(map(res => res.body))
+        .subscribe(nbredemaprtment => {
+          if (nbredemaprtment) {
+            if (nbredemaprtment > 0) {
+              this.messageerorensiegnant = 'Ce ensiegnant  est déjà un chef de département  ';
+            }
+          }
+        });
+    }
+  }
+  datestartchange(datestart: Moment) {
+    this.messageerordatestart = '';
+    if (this.editForm.get(['endDate'])!.value) {
+      if (datestart.isAfter(this.editForm.get(['endDate'])!.value)) {
+        this.messageerordatestart = 'date debut doit etre inferieur a date fin svp';
+        console.log('hello');
+        this.isSaving = true;
+      }
+    }
+  }
+  dateendchange(dateend: Moment) {
+    this.messageerordateend = '';
+    if (this.editForm.get(['startDate'])!.value) {
+      if (dateend.isBefore(this.editForm.get(['startDate'])!.value)) {
+        this.messageerordateend = 'date fin doit etre suprieur a date debut svp';
+        console.log('hello');
+        this.isSaving = true;
+      }
+    }
+  }
   updateForm(affectationChef: IAffectationChef): void {
     this.editForm.patchValue({
       id: affectationChef.id,
       startDate: affectationChef.startDate,
       endDate: affectationChef.endDate,
       departementId: affectationChef.departementId,
-      enseignantId: affectationChef.enseignantId,
+      enseignantId: affectationChef.enseignantId
     });
   }
 
@@ -82,7 +164,7 @@ export class AffectationChefUpdateComponent implements OnInit {
       startDate: this.editForm.get(['startDate'])!.value,
       endDate: this.editForm.get(['endDate'])!.value,
       departementId: this.editForm.get(['departementId'])!.value,
-      enseignantId: this.editForm.get(['enseignantId'])!.value,
+      enseignantId: this.editForm.get(['enseignantId'])!.value
     };
   }
 
