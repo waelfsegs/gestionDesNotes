@@ -1,7 +1,10 @@
 {
-  "name": "spicialiteMatiere",
+  "name": "SpicialiteMatiere",
   "fields": [
-  
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
   ],
   "relationships": [
     {

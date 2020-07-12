@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="spicialitematiere">
+            <h2><span jhiTranslate="gestionNotesFsegsApp.spicialitematiere.detail.title">Spicialitematiere</span> {{ spicialitematiere.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gestionNotesFsegsApp.spicialitematiere.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ spicialitematiere.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.spicialitematiere.matiere">Matiere</span></dt>
+                <dd>
+                    <div *ngIf="spicialitematiere.matiereId">
+                        <a [routerLink]="['/matiere', spicialitematiere.matiereId, 'view']">{{ spicialitematiere.matiereId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.spicialitematiere.specialite">Specialite</span></dt>
+                <dd>
+                    <div *ngIf="spicialitematiere.specialiteId">
+                        <a [routerLink]="['/specialite', spicialitematiere.specialiteId, 'view']">{{ spicialitematiere.specialiteId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/spicialitematiere', spicialitematiere.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
