@@ -58,13 +58,14 @@ export class CorrigeDetailComponent implements OnChanges {
   }
   edit(examen: IExamen) {
     console.log(examen.resultatid);
+    let resultat: IResultat = {};
+    let corrige: Corrige = this.corrige;
     if (examen.resultatid) {
       this.resultatService.find(examen.resultatid).subscribe(res => {
         if (res.body) {
-          let resultat: IResultat = {};
           resultat = res.body;
           resultat.noteexmen = examen.note;
-          let corrige: Corrige = this.corrige;
+
           this.resultatService.update(resultat).subscribe(res => {
             if (this.corrige.nbrecopieCorrige != undefined && this.corrige.nbrecopieCorrige >= 0) {
               console.log('if', this.corrige.nbrecopieCorrige);
@@ -79,6 +80,23 @@ export class CorrigeDetailComponent implements OnChanges {
             });
           });
         }
+      });
+    } else {
+      resultat.inscriptionId = examen.inscriptionId;
+      resultat.matiereId = examen.matiereId;
+      resultat.noteexmen = examen.note;
+      this.resultatService.create(resultat).subscribe(res => {
+        if (this.corrige.nbrecopieCorrige != undefined && this.corrige.nbrecopieCorrige >= 0) {
+          console.log('if', this.corrige.nbrecopieCorrige);
+          corrige.nbrecopieCorrige = this.corrige.nbrecopieCorrige + 1;
+        } else {
+          console.log('else', this.corrige.nbrecopieCorrige);
+          corrige.nbrecopieCorrige = 1;
+        }
+        this.corrigeService.update(corrige).subscribe(res => {
+          examen.done = true;
+          this.ischange.emit();
+        });
       });
     }
   }
