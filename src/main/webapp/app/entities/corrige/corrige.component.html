@@ -22,6 +22,8 @@
 
                         <tr *ngFor="let corrige of corriges ;trackBy: trackId" class="text-white"
                         [ngStyle]="{'background-color': corrige.nbrecopieCorrige==0  ? '#EF5350' : (corrige.nbrecopieCorrige>0 &&corrige.nbrecopieCorrige<corrige.nbreCopieinenvloppe ? '#D4E157' : '#66BB6A') }"
+  
+                       >
 
   
                        

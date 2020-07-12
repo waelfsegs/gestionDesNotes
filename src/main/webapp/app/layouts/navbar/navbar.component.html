@@ -6,7 +6,7 @@
     <a class="navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
         <fa-icon icon="bars"></fa-icon>
     </a>
-    <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()" *jhiHasAnyAuthority="['ROLE_ADMIN']" >
+    <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()"  >
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
@@ -18,7 +18,7 @@
             </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             
-                        <a class="nav-link" routerLink="etudiant" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_AGENT','ROLE_Enseignant','ROLE_ADMIN']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="nav-link" routerLink="etudiant" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_AGENT']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.etudiant">Etudiant</span>
                         </a>
@@ -30,7 +30,7 @@
                         </a>
                     
                      
-                        <a class="nav-link" routerLink="classe" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_AGENT']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="nav-link" routerLink="classe" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_AGENT']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.classe">Classe</span>
                         </a>
@@ -40,7 +40,7 @@
                             <span jhiTranslate="global.menu.entities.specialite">Specialite</span>
                         </a>
                     
-                        <a class="nav-link" routerLink="niveau" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_ChefDepartement'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="nav-link" routerLink="niveau" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_ADMIN'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.niveau">Niveau</span>
                         </a>
@@ -50,7 +50,7 @@
                             <span jhiTranslate="global.menu.entities.cycle">Cycle</span>
                         </a>
                     
-                        <a class="nav-link" routerLink="resultat" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_ADMIN','ROLE_ETUDIANT','ROLE_Enseignant']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="nav-link" routerLink="resultat" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_ETUDIANT']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.resultat">Resultat</span>
                         </a>
@@ -60,12 +60,12 @@
                             <span jhiTranslate="global.menu.entities.matiere">Matiere</span>
                         </a>
                     
-                        <a class="nav-link" routerLink="groupe" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_ADMIN'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="nav-link" routerLink="groupe" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_AGENT'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.groupe">Groupe</span>
                         </a>
                  
-                        <a class="nav-link" routerLink="inscription" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_ADMIN'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="nav-link" routerLink="inscription" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_AGENT'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.inscription">Inscription</span>
                         </a>
@@ -95,7 +95,7 @@
                             <span jhiTranslate="global.menu.entities.uniteEnseignement">Unite Enseignement</span>
                         </a>
                     
-                        <a class="nav-link" routerLink="enseignement" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_ADMIN'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="nav-link" routerLink="enseignement" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_ChefDepartement'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.enseignement">Enseignement</span>
                         </a>
@@ -110,12 +110,12 @@
                             <span jhiTranslate="global.menu.entities.typeEnseignement">Type Enseignement</span>
                         </a>
                     
-                        <a class="nav-link" routerLink="enveloppe" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="nav-link" routerLink="enveloppe" routerLinkActive="active" hidden [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.enveloppe">Enveloppe</span>
                         </a>
                     
-                        <a class="nav-link" routerLink="examen" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="nav-link" routerLink="examen" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_AGENT'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.examen">Examen</span>
                         </a>
@@ -135,7 +135,7 @@
                         <span jhiTranslate="global.menu.admin.main">Administration</span>
                     </span>
                 </a>
-                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="admin-menu">
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="admin-menu">hi
                     <li>
                         <a class="dropdown-item" routerLink="admin/user-management" routerLinkActive="active" (click)="collapseNavbar()">
                             <fa-icon icon="user" fixedWidth="true"></fa-icon>
