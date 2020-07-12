@@ -98,6 +98,10 @@ public class NiveauQueryService extends QueryService<Niveau> {
                 specification = specification.and(buildSpecification(criteria.getCycleId(),
                     root -> root.join(Niveau_.cycle, JoinType.LEFT).get(Cycle_.id)));
             }
+            if (criteria.getSpecialiteId() != null) {
+                specification = specification.and(buildSpecification(criteria.getSpecialiteId(),
+                    root -> root.join(Niveau_.specialite, JoinType.LEFT).get(Specialite_.id)));
+            }
         }
         return specification;
     }

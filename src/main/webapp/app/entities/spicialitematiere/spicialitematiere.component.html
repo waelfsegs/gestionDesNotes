@@ -1,11 +1,11 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="gestionNotesFsegsApp.niveau.home.title">Niveaus</span>
+        <span jhiTranslate="gestionNotesFsegsApp.spicialitematiere.home.title">Spicialitematieres</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-niveau" [routerLink]="['/niveau/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-spicialitematiere" [routerLink]="['/spicialitematiere/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="gestionNotesFsegsApp.niveau.home.createLabel">
-            Create a new Niveau
+            <span  jhiTranslate="gestionNotesFsegsApp.spicialitematiere.home.createLabel">
+            Create a new Spicialitematiere
             </span>
         </button>
     </h2>
@@ -14,54 +14,52 @@
 
     <jhi-alert></jhi-alert>
 
-    <div class="alert alert-warning" id="no-result" *ngIf="niveaus?.length === 0">
-        <span jhiTranslate="gestionNotesFsegsApp.niveau.home.notFound">No niveaus found</span>
+    <div class="alert alert-warning" id="no-result" *ngIf="spicialitematieres?.length === 0">
+        <span jhiTranslate="gestionNotesFsegsApp.spicialitematiere.home.notFound">No spicialitematieres found</span>
     </div>
 
-    <div class="table-responsive" id="entities" *ngIf="niveaus && niveaus.length > 0">
+    <div class="table-responsive" id="entities" *ngIf="spicialitematieres?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="niveau"><span jhiTranslate="gestionNotesFsegsApp.niveau.niveau">Niveau</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="cycleId"><span jhiTranslate="gestionNotesFsegsApp.niveau.cycle">Cycle</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col" ><span >spcialite</span> <fa-icon icon="sort"></fa-icon></th>
-                   
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="gestionNotesFsegsApp.spicialitematiere.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="matiereId"><span jhiTranslate="gestionNotesFsegsApp.spicialitematiere.matiere">Matiere</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="specialiteId"><span jhiTranslate="gestionNotesFsegsApp.spicialitematiere.specialite">Specialite</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let niveau of niveaus ;trackBy: trackId">
-                    <td><a [routerLink]="['/niveau', niveau.id, 'view']">{{ niveau.id }}</a></td>
-                    <td>{{ niveau.niveau }}</td>
+                <tr *ngFor="let spicialitematiere of spicialitematieres ;trackBy: trackId">
+                    <td><a [routerLink]="['/spicialitematiere', spicialitematiere.id, 'view']">{{ spicialitematiere.id }}</a></td>
+                    <td>{{ spicialitematiere.libelle }}</td>
                     <td>
-                        <div *ngIf="niveau.cycleId">
-                            <a [routerLink]="['/cycle', niveau.cycleId , 'view']" >{{ niveau.nomcycle }}</a>
+                        <div *ngIf="spicialitematiere.matiereId">
+                            <a [routerLink]="['/matiere', spicialitematiere.matiereId , 'view']" >{{ spicialitematiere.matiereId }}</a>
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="niveau.specialiteId">
-                            <a [routerLink]="['/specialite', niveau.specialiteId , 'view']" >{{ niveau.specialiteNom }}</a>
+                        <div *ngIf="spicialitematiere.specialiteId">
+                            <a [routerLink]="['/specialite', spicialitematiere.specialiteId , 'view']" >{{ spicialitematiere.specialiteId }}</a>
                         </div>
                     </td>
-					
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/niveau', niveau.id, 'view']"
+                                    [routerLink]="['/spicialitematiere', spicialitematiere.id, 'view']"
                                     class="btn btn-info btn-sm">
                                 <fa-icon icon="eye"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/niveau', niveau.id, 'edit']"
+                                    [routerLink]="['/spicialitematiere', spicialitematiere.id, 'edit']"
                                     class="btn btn-primary btn-sm">
                                 <fa-icon icon="pencil-alt"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                             </button>
 
-                            <button type="submit" (click)="delete(niveau)"
+                            <button type="submit" (click)="delete(spicialitematiere)"
                                     class="btn btn-danger btn-sm">
                                 <fa-icon icon="times"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
@@ -73,7 +71,7 @@
         </table>
     </div>
 
-    <div *ngIf="niveaus && niveaus.length > 0">
+    <div *ngIf="spicialitematieres?.length > 0">
         <div class="row justify-content-center">
             <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
         </div>

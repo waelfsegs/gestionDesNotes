@@ -11,9 +11,12 @@ public class NiveauDTO implements Serializable {
 
     private String niveau;
     private String nomcycle;
-
+   
+	
 
     private Long cycleId;
+    private Long specialiteId;
+    private String specialiteNom;
     
     public Long getId() {
         return id;
@@ -38,7 +41,13 @@ public class NiveauDTO implements Serializable {
     public void setCycleId(Long cycleId) {
         this.cycleId = cycleId;
     }
+    public Long getSpecialiteId() {
+        return specialiteId;
+    }
 
+    public void setSpecialiteId(Long specialiteId) {
+        this.specialiteId = specialiteId;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -60,10 +69,7 @@ public class NiveauDTO implements Serializable {
 
   
 
-    @Override
-    public String toString() {
-        return "NiveauDTO [cycleId=" + cycleId + ", id=" + id + ", niveau=" + niveau + ", nomcycle=" + nomcycle + "]";
-    }
+  
 
     public String getNomcycle() {
         return nomcycle;
@@ -71,5 +77,23 @@ public class NiveauDTO implements Serializable {
 
     public void setNomcycle(String nomcycle) {
         this.nomcycle = nomcycle;
+    }
+
+  
+
+   
+
+    @Override
+    public String toString() {
+        return "NiveauDTO [cycleId=" + cycleId + ", id=" + id + ", niveau=" + niveau + ", nomcycle=" + nomcycle
+                + ", specialiteINom=" + specialiteNom + ", specialiteId=" + specialiteId + "]";
+    }
+
+    public String getSpecialiteNom() {
+        return specialiteNom;
+    }
+
+    public void setSpecialiteNom(String specialiteNom) {
+        this.specialiteNom = specialiteNom;
     }
 }

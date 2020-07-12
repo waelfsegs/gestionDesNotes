@@ -1,29 +1,29 @@
 {
-  "name": "Niveau",
+  "name": "SpicialiteMatiere",
   "fields": [
     {
-      "fieldName": "niveau",
+      "fieldName": "libelle",
       "fieldType": "String"
     }
   ],
   "relationships": [
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "cycle",
-      "otherEntityRelationshipName": "niveau",
-      "relationshipName": "cycle",
+      "otherEntityName": "matiere",
+      "otherEntityRelationshipName": "examen",
+      "relationshipName": "matiere",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "specialite",
-      "otherEntityRelationshipName": "niveau",
+      "otherEntityRelationshipName": "spicialiteMatiere",
       "relationshipName": "specialite",
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200525001113",
-  "entityTableName": "niveau",
+
+  "entityTableName": "spicialiteMatiere",
   "dto": "mapstruct",
   "pagination": "pagination",
   "service": "serviceImpl",

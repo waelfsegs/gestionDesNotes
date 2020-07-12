@@ -12,39 +12,39 @@ import io.github.jhipster.service.filter.LongFilter;
 import io.github.jhipster.service.filter.StringFilter;
 
 /**
- * Criteria class for the {@link com.pfe.gestionnote.domain.Niveau} entity. This class is used
- * in {@link com.pfe.gestionnote.web.rest.NiveauResource} to receive all the possible filtering options from
+ * Criteria class for the {@link com.pfe.gestionnote.domain.Spicialitematiere} entity. This class is used
+ * in {@link com.pfe.gestionnote.web.rest.SpicialitematiereResource} to receive all the possible filtering options from
  * the Http GET request parameters.
  * For example the following could be a valid request:
- * {@code /niveaus?id.greaterThan=5&attr1.contains=something&attr2.specified=false}
+ * {@code /spicialitematieres?id.greaterThan=5&attr1.contains=something&attr2.specified=false}
  * As Spring is unable to properly convert the types, unless specific {@link Filter} class are used, we need to use
  * fix type specific filters.
  */
-public class NiveauCriteria implements Serializable, Criteria {
+public class SpicialitematiereCriteria implements Serializable, Criteria {
 
     private static final long serialVersionUID = 1L;
 
     private LongFilter id;
 
-    private StringFilter niveau;
+    private StringFilter libelle;
 
-    private LongFilter cycleId;
+    private LongFilter matiereId;
 
     private LongFilter specialiteId;
 
-    public NiveauCriteria() {
+    public SpicialitematiereCriteria() {
     }
 
-    public NiveauCriteria(NiveauCriteria other) {
+    public SpicialitematiereCriteria(SpicialitematiereCriteria other) {
         this.id = other.id == null ? null : other.id.copy();
-        this.niveau = other.niveau == null ? null : other.niveau.copy();
-        this.cycleId = other.cycleId == null ? null : other.cycleId.copy();
+        this.libelle = other.libelle == null ? null : other.libelle.copy();
+        this.matiereId = other.matiereId == null ? null : other.matiereId.copy();
         this.specialiteId = other.specialiteId == null ? null : other.specialiteId.copy();
     }
 
     @Override
-    public NiveauCriteria copy() {
-        return new NiveauCriteria(this);
+    public SpicialitematiereCriteria copy() {
+        return new SpicialitematiereCriteria(this);
     }
 
     public LongFilter getId() {
@@ -55,20 +55,20 @@ public class NiveauCriteria implements Serializable, Criteria {
         this.id = id;
     }
 
-    public StringFilter getNiveau() {
-        return niveau;
+    public StringFilter getLibelle() {
+        return libelle;
     }
 
-    public void setNiveau(StringFilter niveau) {
-        this.niveau = niveau;
+    public void setLibelle(StringFilter libelle) {
+        this.libelle = libelle;
     }
 
-    public LongFilter getCycleId() {
-        return cycleId;
+    public LongFilter getMatiereId() {
+        return matiereId;
     }
 
-    public void setCycleId(LongFilter cycleId) {
-        this.cycleId = cycleId;
+    public void setMatiereId(LongFilter matiereId) {
+        this.matiereId = matiereId;
     }
 
     public LongFilter getSpecialiteId() {
@@ -88,11 +88,11 @@ public class NiveauCriteria implements Serializable, Criteria {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        final NiveauCriteria that = (NiveauCriteria) o;
+        final SpicialitematiereCriteria that = (SpicialitematiereCriteria) o;
         return
             Objects.equals(id, that.id) &&
-            Objects.equals(niveau, that.niveau) &&
-            Objects.equals(cycleId, that.cycleId) &&
+            Objects.equals(libelle, that.libelle) &&
+            Objects.equals(matiereId, that.matiereId) &&
             Objects.equals(specialiteId, that.specialiteId);
     }
 
@@ -100,18 +100,18 @@ public class NiveauCriteria implements Serializable, Criteria {
     public int hashCode() {
         return Objects.hash(
         id,
-        niveau,
-        cycleId,
+        libelle,
+        matiereId,
         specialiteId
         );
     }
 
     @Override
     public String toString() {
-        return "NiveauCriteria{" +
+        return "SpicialitematiereCriteria{" +
                 (id != null ? "id=" + id + ", " : "") +
-                (niveau != null ? "niveau=" + niveau + ", " : "") +
-                (cycleId != null ? "cycleId=" + cycleId + ", " : "") +
+                (libelle != null ? "libelle=" + libelle + ", " : "") +
+                (matiereId != null ? "matiereId=" + matiereId + ", " : "") +
                 (specialiteId != null ? "specialiteId=" + specialiteId + ", " : "") +
             "}";
     }

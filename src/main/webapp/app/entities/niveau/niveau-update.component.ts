@@ -9,24 +9,31 @@ import { INiveau, Niveau } from 'app/shared/model/niveau.model';
 import { NiveauService } from './niveau.service';
 import { ICycle } from 'app/shared/model/cycle.model';
 import { CycleService } from 'app/entities/cycle/cycle.service';
+import { ISpecialite } from 'app/shared/model/specialite.model';
+import { SpecialiteService } from 'app/entities/specialite/specialite.service';
+
+type SelectableEntity = ICycle | ISpecialite;
 
 @Component({
   selector: 'jhi-niveau-update',
-  templateUrl: './niveau-update.component.html',
+  templateUrl: './niveau-update.component.html'
 })
 export class NiveauUpdateComponent implements OnInit {
   isSaving = false;
   cycles: ICycle[] = [];
+  specialites: ISpecialite[] = [];
 
   editForm = this.fb.group({
     id: [],
     niveau: [],
     cycleId: [],
+    specialiteId: []
   });
 
   constructor(
     protected niveauService: NiveauService,
     protected cycleService: CycleService,
+    protected specialiteService: SpecialiteService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -36,6 +43,8 @@ export class NiveauUpdateComponent implements OnInit {
       this.updateForm(niveau);
 
       this.cycleService.query().subscribe((res: HttpResponse<ICycle[]>) => (this.cycles = res.body || []));
+
+      this.specialiteService.query().subscribe((res: HttpResponse<ISpecialite[]>) => (this.specialites = res.body || []));
     });
   }
 
@@ -44,6 +53,7 @@ export class NiveauUpdateComponent implements OnInit {
       id: niveau.id,
       niveau: niveau.niveau,
       cycleId: niveau.cycleId,
+      specialiteId: niveau.specialiteId
     });
   }
 
@@ -67,6 +77,7 @@ export class NiveauUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       niveau: this.editForm.get(['niveau'])!.value,
       cycleId: this.editForm.get(['cycleId'])!.value,
+      specialiteId: this.editForm.get(['specialiteId'])!.value
     };
   }
 
@@ -86,7 +97,7 @@ export class NiveauUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: ICycle): any {
+  trackById(index: number, item: SelectableEntity): any {
     return item.id;
   }
 }

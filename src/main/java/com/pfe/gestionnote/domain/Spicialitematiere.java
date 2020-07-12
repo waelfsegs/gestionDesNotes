@@ -9,12 +9,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * A Niveau.
+ * A Spicialitematiere.
  */
 @Entity
-@Table(name = "niveau")
+@Table(name = "spicialitematiere")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Niveau implements Serializable {
+public class Spicialitematiere implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -22,15 +22,15 @@ public class Niveau implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "niveau")
-    private String niveau;
+    @Column(name = "libelle")
+    private String libelle;
 
     @ManyToOne
-    @JsonIgnoreProperties("niveaus")
-    private Cycle cycle;
+    @JsonIgnoreProperties("examen")
+    private Matiere matiere;
 
     @ManyToOne
-    @JsonIgnoreProperties("niveaus")
+    @JsonIgnoreProperties("spicialiteMatieres")
     private Specialite specialite;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -42,37 +42,37 @@ public class Niveau implements Serializable {
         this.id = id;
     }
 
-    public String getNiveau() {
-        return niveau;
+    public String getLibelle() {
+        return libelle;
     }
 
-    public Niveau niveau(String niveau) {
-        this.niveau = niveau;
+    public Spicialitematiere libelle(String libelle) {
+        this.libelle = libelle;
         return this;
     }
 
-    public void setNiveau(String niveau) {
-        this.niveau = niveau;
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
 
-    public Cycle getCycle() {
-        return cycle;
+    public Matiere getMatiere() {
+        return matiere;
     }
 
-    public Niveau cycle(Cycle cycle) {
-        this.cycle = cycle;
+    public Spicialitematiere matiere(Matiere matiere) {
+        this.matiere = matiere;
         return this;
     }
 
-    public void setCycle(Cycle cycle) {
-        this.cycle = cycle;
+    public void setMatiere(Matiere matiere) {
+        this.matiere = matiere;
     }
 
     public Specialite getSpecialite() {
         return specialite;
     }
 
-    public Niveau specialite(Specialite specialite) {
+    public Spicialitematiere specialite(Specialite specialite) {
         this.specialite = specialite;
         return this;
     }
@@ -87,10 +87,10 @@ public class Niveau implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Niveau)) {
+        if (!(o instanceof Spicialitematiere)) {
             return false;
         }
-        return id != null && id.equals(((Niveau) o).id);
+        return id != null && id.equals(((Spicialitematiere) o).id);
     }
 
     @Override
@@ -100,9 +100,9 @@ public class Niveau implements Serializable {
 
     @Override
     public String toString() {
-        return "Niveau{" +
+        return "Spicialitematiere{" +
             "id=" + getId() +
-            ", niveau='" + getNiveau() + "'" +
+            ", libelle='" + getLibelle() + "'" +
             "}";
     }
 }

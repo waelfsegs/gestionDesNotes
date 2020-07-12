@@ -28,7 +28,6 @@ public interface NiveauService {
      */
     Page<NiveauDTO> findAll(Pageable pageable);
 
-
     /**
      * Get the "id" niveau.
      *

@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-niveau-heading" jhiTranslate="gestionNotesFsegsApp.niveau.home.createOrEditLabel">Create or edit a Niveau</h2>
+            <h2 id="jhi-spicialitematiere-heading" jhiTranslate="gestionNotesFsegsApp.spicialitematiere.home.createOrEditLabel">Create or edit a Spicialitematiere</h2>
 
             <div>
                 <jhi-alert-error></jhi-alert-error>
@@ -12,27 +12,26 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.niveau.niveau" for="field_niveau">Niveau</label>
-                    <input type="text" class="form-control" name="niveau" id="field_niveau"
-                           formControlName="niveau"/>
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.spicialitematiere.libelle" for="field_libelle">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" id="field_libelle"
+                           formControlName="libelle"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.niveau.cycle" for="field_cycle">Cycle</label>
-                    <select class="form-control" id="field_cycle" name="cycle" formControlName="cycleId">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.spicialitematiere.matiere" for="field_matiere">Matiere</label>
+                    <select class="form-control" id="field_matiere" name="matiere" formControlName="matiereId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="cycleOption.id" *ngFor="let cycleOption of cycles; trackBy: trackById">{{ cycleOption.nomcycle }}</option>
+                        <option [ngValue]="matiereOption.id" *ngFor="let matiereOption of matieres; trackBy: trackById">{{ matiereOption.id }}</option>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.niveau.specialite"
-                        for="field_specialite">Specialite</label>
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.spicialitematiere.specialite" for="field_specialite">Specialite</label>
                     <select class="form-control" id="field_specialite" name="specialite" formControlName="specialiteId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="specialiteOption.id" *ngFor="let specialiteOption of specialites; trackBy: trackById">{{ specialiteOption.libelle}}</option>
+                        <option [ngValue]="specialiteOption.id" *ngFor="let specialiteOption of specialites; trackBy: trackById">{{ specialiteOption.id }}</option>
                     </select>
                 </div>
-            
             </div>
 
             <div>

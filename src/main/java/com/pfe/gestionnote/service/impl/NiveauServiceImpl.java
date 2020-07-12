@@ -61,7 +61,6 @@ public class NiveauServiceImpl implements NiveauService {
             .map(niveauMapper::toDto);
     }
 
-
     /**
      * Get one niveau by id.
      *
@@ -84,7 +83,6 @@ public class NiveauServiceImpl implements NiveauService {
     @Override
     public void delete(Long id) {
         log.debug("Request to delete Niveau : {}", id);
-
         niveauRepository.deleteById(id);
     }
 }

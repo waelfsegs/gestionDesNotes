@@ -17,7 +17,8 @@
         "title": "Niveau"
       },
       "niveau": "Niveau",
-      "cycle": "Cycle"
+      "cycle": "Cycle",
+      "specialite": "Specialite"
     }
   }
 }

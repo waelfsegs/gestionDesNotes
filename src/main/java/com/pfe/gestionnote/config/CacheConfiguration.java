@@ -65,6 +65,7 @@ public class CacheConfiguration {
             createCache(cm, com.pfe.gestionnote.domain.Enveloppe.class.getName());
             createCache(cm, com.pfe.gestionnote.domain.Examen.class.getName());
             createCache(cm, com.pfe.gestionnote.domain.Corrige.class.getName());
+            createCache(cm, com.pfe.gestionnote.domain.Spicialitematiere.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

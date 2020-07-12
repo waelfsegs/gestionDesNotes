@@ -88,6 +88,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'corrige',
         loadChildren: () => import('./corrige/corrige.module').then(m => m.GestionNotesFsegsCorrigeModule)
+      },
+      {
+        path: 'spicialitematiere',
+        loadChildren: () => import('./spicialitematiere/spicialitematiere.module').then(m => m.GestionNotesFsegsSpicialitematiereModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

@@ -137,7 +137,6 @@ public class NiveauResource {
     @DeleteMapping("/niveaus/{id}")
     public ResponseEntity<Void> deleteNiveau(@PathVariable Long id) {
         log.debug("REST request to delete Niveau : {}", id);
-
         niveauService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }

@@ -4,19 +4,19 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
     <!--
-        Added the constraints for entity Niveau.
+        Added the constraints for entity Spicialitematiere.
     -->
-    <changeSet id="20200525001113-2" author="jhipster">
+    <changeSet id="20200712184331-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="cycle_id"
-                                 baseTableName="niveau"
-                                 constraintName="fk_niveau_cycle_id"
+        <addForeignKeyConstraint baseColumnNames="matiere_id"
+                                 baseTableName="spicialiteMatiere"
+                                 constraintName="fk_spicialite_matiere_matiere_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="cycle"/>
+                                 referencedTableName="matiere"/>
 
         <addForeignKeyConstraint baseColumnNames="specialite_id"
-                                 baseTableName="niveau"
-                                 constraintName="fk_niveau_specialite_id"
+                                 baseTableName="spicialiteMatiere"
+                                 constraintName="fk_spicialite_matiere_specialite_id"
                                  referencedColumnNames="id"
                                  referencedTableName="specialite"/>
 

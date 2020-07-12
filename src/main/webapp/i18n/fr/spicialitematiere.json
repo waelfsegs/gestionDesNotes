@@ -1,0 +1,24 @@
+{
+  "gestionNotesFsegsApp": {
+    "spicialitematiere": {
+      "home": {
+        "title": "Spicialitematieres",
+        "createLabel": "Créer un nouveau Spicialitematiere",
+        "createOrEditLabel": "Créer ou éditer un Spicialitematiere",
+        "notFound": "Aucun Spicialitematiere trouvé"
+      },
+      "created": "Un nouveau Spicialitematiere a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Spicialitematiere avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Spicialitematiere avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Spicialitematiere {{ id }} ?"
+      },
+      "detail": {
+        "title": "Spicialitematiere"
+      },
+      "libelle": "Libelle",
+      "matiere": "Matiere",
+      "specialite": "Specialite"
+    }
+  }
+}

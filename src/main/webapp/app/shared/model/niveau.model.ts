@@ -3,6 +3,8 @@ export interface INiveau {
   niveau?: string;
   cycleId?: number;
   nomcycle?: string;
+  specialiteId?: number;
+  specialiteNom?: string;
 }
 
 export class Niveau implements INiveau {
