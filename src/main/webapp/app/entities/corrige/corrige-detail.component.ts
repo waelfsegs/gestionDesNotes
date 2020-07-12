@@ -41,6 +41,7 @@ export class CorrigeDetailComponent implements OnChanges {
           'matiereId.equals': element.matiereId
         })
         .subscribe(res => {
+          this.examens = [];
           if (res.body && res.body[0]) {
             element.resultatid = res.body[0].id;
 
