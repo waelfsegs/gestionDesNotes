@@ -24,6 +24,15 @@
                         <option [ngValue]="cycleOption.id" *ngFor="let cycleOption of cycles; trackBy: trackById">{{ cycleOption.nomcycle }}</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.niveau.specialite"
+                        for="field_specialite">Specialite</label>
+                    <select class="form-control" id="field_specialite" name="specialite" formControlName="specialiteId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="specialiteOption.id" *ngFor="let specialiteOption of specialites; trackBy: trackById">{{ specialiteOption.libelle}}</option>
+                    </select>
+                </div>
+            
             </div>
 
             <div>

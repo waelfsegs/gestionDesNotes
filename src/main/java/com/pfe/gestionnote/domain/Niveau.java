@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "niveau")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Niveau implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -26,10 +26,14 @@ public class Niveau implements Serializable {
     private String niveau;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "niveaus", allowSetters = true)
+    @JsonIgnoreProperties("niveaus")
     private Cycle cycle;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    @ManyToOne
+    @JsonIgnoreProperties("niveaus")
+    private Specialite specialite;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -63,7 +67,20 @@ public class Niveau implements Serializable {
     public void setCycle(Cycle cycle) {
         this.cycle = cycle;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+
+    public Specialite getSpecialite() {
+        return specialite;
+    }
+
+    public Niveau specialite(Specialite specialite) {
+        this.specialite = specialite;
+        return this;
+    }
+
+    public void setSpecialite(Specialite specialite) {
+        this.specialite = specialite;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -81,7 +98,6 @@ public class Niveau implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "Niveau{" +

@@ -30,6 +30,8 @@ public class NiveauCriteria implements Serializable, Criteria {
 
     private LongFilter cycleId;
 
+    private LongFilter specialiteId;
+
     public NiveauCriteria() {
     }
 
@@ -37,6 +39,7 @@ public class NiveauCriteria implements Serializable, Criteria {
         this.id = other.id == null ? null : other.id.copy();
         this.niveau = other.niveau == null ? null : other.niveau.copy();
         this.cycleId = other.cycleId == null ? null : other.cycleId.copy();
+        this.specialiteId = other.specialiteId == null ? null : other.specialiteId.copy();
     }
 
     @Override
@@ -68,6 +71,14 @@ public class NiveauCriteria implements Serializable, Criteria {
         this.cycleId = cycleId;
     }
 
+    public LongFilter getSpecialiteId() {
+        return specialiteId;
+    }
+
+    public void setSpecialiteId(LongFilter specialiteId) {
+        this.specialiteId = specialiteId;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -81,7 +92,8 @@ public class NiveauCriteria implements Serializable, Criteria {
         return
             Objects.equals(id, that.id) &&
             Objects.equals(niveau, that.niveau) &&
-            Objects.equals(cycleId, that.cycleId);
+            Objects.equals(cycleId, that.cycleId) &&
+            Objects.equals(specialiteId, that.specialiteId);
     }
 
     @Override
@@ -89,17 +101,18 @@ public class NiveauCriteria implements Serializable, Criteria {
         return Objects.hash(
         id,
         niveau,
-        cycleId
+        cycleId,
+        specialiteId
         );
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "NiveauCriteria{" +
                 (id != null ? "id=" + id + ", " : "") +
                 (niveau != null ? "niveau=" + niveau + ", " : "") +
                 (cycleId != null ? "cycleId=" + cycleId + ", " : "") +
+                (specialiteId != null ? "specialiteId=" + specialiteId + ", " : "") +
             "}";
     }
 
