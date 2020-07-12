@@ -10,6 +10,7 @@ public class NiveauDTO implements Serializable {
     private Long id;
 
     private String niveau;
+    private String nomcycle;
 
 
     private Long cycleId;
@@ -55,13 +56,20 @@ public class NiveauDTO implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
+  
+
+  
+
     @Override
     public String toString() {
-        return "NiveauDTO{" +
-            "id=" + getId() +
-            ", niveau='" + getNiveau() + "'" +
-            ", cycleId=" + getCycleId() +
-            "}";
+        return "NiveauDTO [cycleId=" + cycleId + ", id=" + id + ", niveau=" + niveau + ", nomcycle=" + nomcycle + "]";
+    }
+
+    public String getNomcycle() {
+        return nomcycle;
+    }
+
+    public void setNomcycle(String nomcycle) {
+        this.nomcycle = nomcycle;
     }
 }

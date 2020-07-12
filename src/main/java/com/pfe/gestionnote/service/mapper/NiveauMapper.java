@@ -13,6 +13,9 @@ import org.mapstruct.*;
 public interface NiveauMapper extends EntityMapper<NiveauDTO, Niveau> {
 
     @Mapping(source = "cycle.id", target = "cycleId")
+    
+    @Mapping(source = "cycle.nomcycle", target = "nomcycle")
+    
     NiveauDTO toDto(Niveau niveau);
 
     @Mapping(source = "cycleId", target = "cycle")

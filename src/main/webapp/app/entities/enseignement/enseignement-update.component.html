@@ -15,7 +15,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.enseignement.matiere" for="field_matiere">Matiere</label>
                     <select class="form-control" id="field_matiere" name="matiere" formControlName="matiereId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="matiereOption.id" *ngFor="let matiereOption of matieres; trackBy: trackById">{{ matiereOption.id }}</option>
+                        <option [ngValue]="matiereOption.id" *ngFor="let matiereOption of matieres; trackBy: trackById">{{ matiereOption.nom }}</option>
                     </select>
                 </div>
 
@@ -23,7 +23,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.enseignement.enseignant" for="field_enseignant">Enseignant</label>
                     <select class="form-control" id="field_enseignant" name="enseignant" formControlName="enseignantId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="enseignantOption.id" *ngFor="let enseignantOption of enseignants; trackBy: trackById">{{ enseignantOption.id }}</option>
+                        <option [ngValue]="enseignantOption.id" *ngFor="let enseignantOption of enseignants; trackBy: trackById">{{ enseignantOption.nom }}</option>
                     </select>
                 </div>
 
@@ -31,7 +31,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.enseignement.groupe" for="field_groupe">Groupe</label>
                     <select class="form-control" id="field_groupe" name="groupe" formControlName="groupeId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="groupeOption.id" *ngFor="let groupeOption of groupes; trackBy: trackById">{{ groupeOption.id }}</option>
+                        <option [ngValue]="groupeOption.id" *ngFor="let groupeOption of groupes; trackBy: trackById">{{ groupeOption.nomgroup }}</option>
                     </select>
                 </div>
 
@@ -39,7 +39,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.enseignement.typeEnseignement" for="field_typeEnseignement">Type Enseignement</label>
                     <select class="form-control" id="field_typeEnseignement" name="typeEnseignement" formControlName="typeEnseignementId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="typeEnseignementOption.id" *ngFor="let typeEnseignementOption of typeenseignements; trackBy: trackById">{{ typeEnseignementOption.id }}</option>
+                        <option [ngValue]="typeEnseignementOption.id" *ngFor="let typeEnseignementOption of typeenseignements; trackBy: trackById">{{ typeEnseignementOption.type }}</option>
                     </select>
                 </div>
 
@@ -47,7 +47,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.enseignement.classe" for="field_classe">Classe</label>
                     <select class="form-control" id="field_classe" name="classe" formControlName="classeId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="classeOption.id" *ngFor="let classeOption of classes; trackBy: trackById">{{ classeOption.id }}</option>
+                        <option [ngValue]="classeOption.id" *ngFor="let classeOption of classes; trackBy: trackById">{{ classeOption.nom }}</option>
                     </select>
                 </div>
             </div>

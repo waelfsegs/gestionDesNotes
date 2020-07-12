@@ -11,7 +11,7 @@ export const exmanRoute: Routes = [
     component: ExamenComponent,
 
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_AGENT'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.etudiant.home.title'
     },

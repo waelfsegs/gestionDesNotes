@@ -22,7 +22,10 @@ export class DepartementService {
   update(departement: IDepartement): Observable<EntityResponseType> {
     return this.http.put<IDepartement>(this.resourceUrl, departement, { observe: 'response' });
   }
-
+  count(req?: any): Observable<HttpResponse<number>> {
+    const options = createRequestOption(req);
+    return this.http.get<number>(this.resourceUrl + '/count', { params: options, observe: 'response' });
+  }
   find(id: number): Observable<EntityResponseType> {
     return this.http.get<IDepartement>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }

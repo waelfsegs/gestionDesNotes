@@ -44,6 +44,10 @@ export class AffectationChefService {
       .get<IAffectationChef[]>(this.resourceUrl, { params: options, observe: 'response' })
       .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
   }
+  count(req?: any): Observable<HttpResponse<number>> {
+    const options = createRequestOption(req);
+    return this.http.get<number>(this.resourceUrl + '/count', { params: options, observe: 'response' });
+  }
 
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
@@ -53,7 +57,7 @@ export class AffectationChefService {
     const copy: IAffectationChef = Object.assign({}, affectationChef, {
       startDate:
         affectationChef.startDate && affectationChef.startDate.isValid() ? affectationChef.startDate.format(DATE_FORMAT) : undefined,
-      endDate: affectationChef.endDate && affectationChef.endDate.isValid() ? affectationChef.endDate.format(DATE_FORMAT) : undefined,
+      endDate: affectationChef.endDate && affectationChef.endDate.isValid() ? affectationChef.endDate.format(DATE_FORMAT) : undefined
     });
     return copy;
   }
