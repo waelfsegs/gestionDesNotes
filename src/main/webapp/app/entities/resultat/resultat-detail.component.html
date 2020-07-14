@@ -16,11 +16,11 @@
                 <dd>
                     <span>{{ resultat.notecc2 }}</span>
                 </dd>
-                <dt><span jhiTranslate="gestionNotesFsegsApp.resultat.noteexmen">Noteexmen</span></dt>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.resultat.noteexmen">NoteExamen</span></dt>
                 <dd>
                     <span>{{ resultat.noteexmen }}</span>
                 </dd>
-                <dt><span jhiTranslate="gestionNotesFsegsApp.resultat.matiere">Matiere</span></dt>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.resultat.matiere">Matière</span></dt>
                 <dd>
                     <div *ngIf="resultat.matiereId">
                         <a [routerLink]="['/matiere', resultat.matiereId, 'view']">{{ resultat.matiereId }}</a>

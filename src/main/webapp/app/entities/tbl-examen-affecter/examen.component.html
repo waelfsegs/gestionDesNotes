@@ -4,7 +4,7 @@
 <div class="modal-body">
     <div class="row justify-content-center">
         <div class="col-md-4">
-            <h6>session</h6>
+            <h6>Session</h6>
             <select class="form-control"  [(ngModel)]="examen.session">
                 <option ngValue="control">control</option> 
                 <option ngValue="principal">principal</option> 
@@ -12,29 +12,29 @@
              </select>
         </div>
         <div class="col-md-4">
-            <h6>semester</h6>
+            <h6>Semester</h6>
             <select-semester (selectSemestre)="selectSmestre($event)"></select-semester>
         </div>
     </div>
     <br>
     <div class="row justify-content-center">
         <div class="col-md-4">
-            <h6>cycle</h6>
+            <h6>Cycle</h6>
             <select-cycle (selectCycle)="selectcycle($event)"></select-cycle>
         </div>
         <div class="col-md-4">
-            <h6>niveau</h6>
+            <h6>Niveau</h6>
             <select-niveau (selectNiveau)="selectNiveau($event)"></select-niveau>
         </div>
     </div>
     <br>
     <div class="row justify-content-center">
         <div class="col-md-4">
-            <h6>speciality</h6>
+            <h6>Filière</h6>
             <select-speciality (selectSpecialite)="selectspeciality($event)"></select-speciality>
         </div>
         <div class="col-md-4">
-            <h6>matiere</h6>
+            <h6>Matière</h6>
             <select-matiere (selectMatiere)="selectMatiere($event)"></select-matiere>
         </div>
     </div>
@@ -51,22 +51,23 @@
         </div>
    
       <div class="col-md-4">
-          <h6> envoloppe</h6>
+          <h6> Envoloppe</h6>
           <input type="number" [(ngModel)]="enveloppe.nameenv">
       </div>
   </div> 
   <br>
     <div class="row justify-content-center">
-        de 
+        De 
         <div class="col-md-2">
           <input type="number" [(ngModel)]="start">
         </div>
-        <div class="col-md-1">jusqu a</div>
+        <div class="col-md-1">
+            Jusqu'à</div>
         <div class="col-md-2">
             <input type="number" [(ngModel)]="end">
         </div>
         <div class="col-md-2">
-            <button class="btn btn-primary" (click)="valid()">valid</button>
+            <button class="btn btn-primary" (click)="valid()">Valider</button>
         </div>
     </div> 
     <br>
@@ -75,8 +76,8 @@
     <div class="col-md-8">
         <table class="table table-bordered">
             <thead>
-                <th>numSeq</th>
-                <th>matricule</th>
+                <th>Numéro  Compostage </th>
+                <th>Matricule</th>
             </thead>
             <tbody>
                 <tr *ngFor="let row of tblNumCompose">

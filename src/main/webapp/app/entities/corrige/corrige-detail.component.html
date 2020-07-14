@@ -1,6 +1,6 @@
 <table class="table table-bordered">
     <thead>
-        <th>numSeq</th>
+        <th>numCompostage</th>
         <th>noteExamen</th>
     </thead>
     <tbody>
@@ -8,7 +8,7 @@
             <td>{{examen.numcomp}}
            </td>
             <td *ngIf="examen.done">{{examen.note}}
-                <button class="btn btn-primary" (click)="modifier(examen)">edit</button>
+                <button class="btn btn-primary" (click)="modifier(examen)">editer</button>
          
             </td>
             <td *ngIf="!examen.done">
