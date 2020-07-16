@@ -14,6 +14,7 @@ public class EnveloppeDTO implements Serializable {
 
 
     private Long maiereId;
+    private String maiere;
 
     public Long getId() {
         return id;
@@ -67,5 +68,13 @@ public class EnveloppeDTO implements Serializable {
             ", nameenv='" + getNameenv() + "'" +
             ", maiereId=" + getMaiereId() +
             "}";
+    }
+
+    public String getMaiere() {
+        return maiere;
+    }
+
+    public void setMaiere(String maiere) {
+        this.maiere = maiere;
     }
 }

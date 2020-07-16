@@ -13,6 +13,7 @@ import org.mapstruct.*;
 public interface EnveloppeMapper extends EntityMapper<EnveloppeDTO, Enveloppe> {
 
     @Mapping(source = "maiere.id", target = "maiereId")
+    @Mapping(source = "maiere.nom", target = "maiere")
     EnveloppeDTO toDto(Enveloppe enveloppe);
 
     @Mapping(source = "maiereId", target = "maiere")

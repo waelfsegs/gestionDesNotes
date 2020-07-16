@@ -14,6 +14,7 @@
                         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                             <th scope="col"  jhiSortBy="enseignantId"><span jhiTranslate="gestionNotesFsegsApp.corrige.enseignant">Enseignant</span> <fa-icon icon="sort"></fa-icon></th>
                             <th scope="col"  jhiSortBy="enveloppeId"><span jhiTranslate="gestionNotesFsegsApp.corrige.enveloppe">Enveloppe</span> <fa-icon icon="sort"></fa-icon></th>
+                            <th>matiere</th>
                             <th scope="col">nbre copie corrige</th>
                             <th scope="col">nbre totale de copie</th>
                         </tr>
@@ -21,12 +22,7 @@
                     <tbody>
 
                         <tr *ngFor="let corrige of corriges ;trackBy: trackId" class="text-white"
-                        [ngStyle]="{'background-color': corrige.nbrecopieCorrige==0  ? '#EF5350' : (corrige.nbrecopieCorrige>0 &&corrige.nbrecopieCorrige<corrige.nbreCopieinenvloppe ? '#D4E157' : '#66BB6A') }"
-  
-                       >
-
-  
-                       
+                        [ngStyle]="{'background-color': corrige.nbrecopieCorrige==0  ? '#EF5350' : (corrige.nbrecopieCorrige>0 &&corrige.nbrecopieCorrige<corrige.nbreCopieinenvloppe ? '#D4E157' : '#66BB6A') }" >
                             <td>
                                 <div *ngIf="corrige.enseignantId">
                                     <a class="text-white" [routerLink]="['/enseignant', corrige.enseignantId , 'view']" >{{ corrige.enseignantNom }} {{corrige.enseignantPrenom}}</a>
@@ -36,6 +32,11 @@
                                 <div *ngIf="corrige.enveloppeId">
                                     <a class="text-white" [routerLink]="['/enveloppe', corrige.enveloppeId , 'view']" >{{ corrige.enveloppenameenv }}</a>
                                 </div>
+                            </td>
+                            <td>
+                                
+                                 {{ corrige.matiere }}
+                           
                             </td>
                             <td>
                                 <div >

@@ -17,7 +17,7 @@ export class CorrigeDetailComponent implements OnChanges {
   @Input('idEnv') idEnv: number = 0;
   @Input('corrige') corrige: Corrige = {};
   @Output('ischange') ischange = new EventEmitter();
-
+  message: string = '';
   examens: IExamen[] = [];
   constructor(
     protected examenService: TblExamenService,
@@ -32,6 +32,7 @@ export class CorrigeDetailComponent implements OnChanges {
     }
   }
   loadExamen(examens: IExamen[]) {
+    this.examens = [];
     examens.forEach(element => {
       console.log('matiere', element.matiereId);
       console.log('ins', element.inscriptionId);
@@ -41,7 +42,6 @@ export class CorrigeDetailComponent implements OnChanges {
           'matiereId.equals': element.matiereId
         })
         .subscribe(res => {
-          this.examens = [];
           if (res.body && res.body[0]) {
             element.resultatid = res.body[0].id;
 
@@ -55,50 +55,74 @@ export class CorrigeDetailComponent implements OnChanges {
     });
   }
   modifier(examen: IExamen) {
-    examen.done = false;
+    examen.forEdit = true;
   }
   edit(examen: IExamen) {
-    console.log(examen.resultatid);
-    let resultat: IResultat = {};
-    let corrige: Corrige = this.corrige;
-    if (examen.resultatid) {
-      this.resultatService.find(examen.resultatid).subscribe(res => {
-        if (res.body) {
-          resultat = res.body;
-          resultat.noteexmen = examen.note;
+    this.message = '';
+    if (examen.note && examen.note > -1 && examen.note < 21) {
+      console.log(examen.resultatid);
+      let resultat: IResultat = {};
+      let corrige: Corrige = this.corrige;
+      if (examen.resultatid) {
+        this.resultatService.find(examen.resultatid).subscribe(res => {
+          if (res.body) {
+            resultat = res.body;
+            resultat.noteexmen = examen.note;
 
-          this.resultatService.update(resultat).subscribe(res => {
-            if (this.corrige.nbrecopieCorrige != undefined && this.corrige.nbrecopieCorrige >= 0) {
-              console.log('if', this.corrige.nbrecopieCorrige);
-              corrige.nbrecopieCorrige = this.corrige.nbrecopieCorrige + 1;
-            } else {
-              console.log('else', this.corrige.nbrecopieCorrige);
-              corrige.nbrecopieCorrige = 1;
-            }
-            this.corrigeService.update(corrige).subscribe(res => {
-              examen.done = true;
-              this.ischange.emit();
+            this.resultatService.update(resultat).subscribe(res => {
+              if (this.corrige.nbrecopieCorrige != undefined && this.corrige.nbrecopieCorrige >= 0) {
+                console.log('if', this.corrige.nbrecopieCorrige);
+                corrige.nbrecopieCorrige = this.corrige.nbrecopieCorrige + 1;
+              } else {
+                console.log('else', this.corrige.nbrecopieCorrige);
+                corrige.nbrecopieCorrige = 1;
+              }
+              this.corrigeService.update(corrige).subscribe(res => {
+                examen.done = true;
+                this.ischange.emit();
+              });
             });
-          });
-        }
-      });
-    } else {
-      resultat.inscriptionId = examen.inscriptionId;
-      resultat.matiereId = examen.matiereId;
-      resultat.noteexmen = examen.note;
-      this.resultatService.create(resultat).subscribe(res => {
-        if (this.corrige.nbrecopieCorrige != undefined && this.corrige.nbrecopieCorrige >= 0) {
-          console.log('if', this.corrige.nbrecopieCorrige);
-          corrige.nbrecopieCorrige = this.corrige.nbrecopieCorrige + 1;
-        } else {
-          console.log('else', this.corrige.nbrecopieCorrige);
-          corrige.nbrecopieCorrige = 1;
-        }
-        this.corrigeService.update(corrige).subscribe(res => {
-          examen.done = true;
-          this.ischange.emit();
+          }
         });
-      });
+      } else {
+        resultat.inscriptionId = examen.inscriptionId;
+        resultat.matiereId = examen.matiereId;
+        resultat.noteexmen = examen.note;
+        this.resultatService.create(resultat).subscribe(res => {
+          if (this.corrige.nbrecopieCorrige != undefined && this.corrige.nbrecopieCorrige >= 0) {
+            console.log('if', this.corrige.nbrecopieCorrige);
+            corrige.nbrecopieCorrige = this.corrige.nbrecopieCorrige + 1;
+          } else {
+            console.log('else', this.corrige.nbrecopieCorrige);
+            corrige.nbrecopieCorrige = 1;
+          }
+          this.corrigeService.update(corrige).subscribe(res => {
+            examen.done = true;
+            this.ischange.emit();
+          });
+        });
+      }
+    } else {
+      this.message = 'les note doit etre entre 0 et 20';
+    }
+  }
+  editnote(examen: IExamen) {
+    this.message = '';
+    if (examen.note && examen.note > -1 && examen.note < 21) {
+      console.log(examen.resultatid);
+      let resultat: IResultat = {};
+      let corrige: Corrige = this.corrige;
+      if (examen.resultatid) {
+        this.resultatService.find(examen.resultatid).subscribe(res => {
+          if (res.body) {
+            resultat = res.body;
+            resultat.noteexmen = examen.note;
+            this.resultatService.update(resultat).subscribe(res => (examen.forEdit = false));
+          }
+        });
+      }
+    } else {
+      this.message = 'les note doit etre entre 0 et 20';
     }
   }
 }

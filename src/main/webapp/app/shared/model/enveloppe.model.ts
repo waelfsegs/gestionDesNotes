@@ -2,6 +2,7 @@ export interface IEnveloppe {
   id?: number;
   nameenv?: string;
   maiereId?: number;
+  maiere?: string;
 }
 
 export class Enveloppe implements IEnveloppe {

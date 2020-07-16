@@ -1,3 +1,6 @@
+import { map } from 'rxjs/operators';
+import { EnveloppeService } from 'app/entities/enveloppe/enveloppe.service';
+import { MatiereService } from './../matiere/matiere.service';
 import { Account } from './../../core/user/account.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
@@ -37,7 +40,9 @@ export class CorrigeComponent implements OnInit, OnDestroy {
     protected router: Router,
     protected eventManager: JhiEventManager,
     protected modalService: NgbModal,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private matiereService: MatiereService,
+    private enveloppeService: EnveloppeService
   ) {}
 
   ngOnInit(): void {
@@ -114,6 +119,26 @@ export class CorrigeComponent implements OnInit, OnDestroy {
       }
     });
     this.corriges = data || [];
+    this.corriges.forEach(element => {
+      console.log('hi');
+      let matierid: number;
+      if (element.enveloppeId) {
+        console.log('enveloppeId', element.enveloppeId);
+        this.enveloppeService
+          .find(element.enveloppeId)
+          .pipe(
+            map(envlope => {
+              console.log('envlope.body', envlope.body);
+              if (envlope && envlope.body) {
+                if (envlope.body.maiere) {
+                  element.matiere = envlope.body.maiere;
+                }
+              }
+            })
+          )
+          .subscribe();
+      }
+    });
   }
   details(enveloppeId: number, corrige: ICorrige) {
     this.envid = enveloppeId;

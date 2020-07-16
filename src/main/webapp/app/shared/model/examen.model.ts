@@ -13,6 +13,7 @@ export interface IExamen {
   done?: boolean;
   note?: number;
   resultatid?: number;
+  forEdit?: boolean;
 }
 
 export class Examen implements IExamen {

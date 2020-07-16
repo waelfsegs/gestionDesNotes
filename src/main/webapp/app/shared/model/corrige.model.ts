@@ -7,6 +7,7 @@ export interface ICorrige {
   enveloppenameenv?: string;
   nbrecopieCorrige?: number;
   nbreCopieinenvloppe?: number;
+  matiere?: string;
 }
 
 export class Corrige implements ICorrige {
