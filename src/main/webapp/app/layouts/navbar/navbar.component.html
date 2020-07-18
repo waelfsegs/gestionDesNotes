@@ -54,7 +54,10 @@
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.resultat">Resultat</span>
                         </a>
-                    
+                        <a class="nav-link" routerLink="resultat/agent" routerLinkActive="active" *jhiHasAnyAuthority="['ROLE_AGENT']" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.resultat">Resultat</span>
+                        </a>
                         <a class="nav-link" routerLink="matiere" routerLinkActive="active" *jhiHasAnyAuthority="'ROLE_ChefDepartement'" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.matiere">Matiere</span>

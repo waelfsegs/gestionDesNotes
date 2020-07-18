@@ -11,6 +11,7 @@ import { ResultatService } from './resultat.service';
 import { ResultatComponent } from './resultat.component';
 import { ResultatDetailComponent } from './resultat-detail.component';
 import { ResultatUpdateComponent } from './resultat-update.component';
+import { resultatAgentComponent } from './resultat-agent/resultat-agent.component';
 
 @Injectable({ providedIn: 'root' })
 export class ResultatResolve implements Resolve<IResultat> {
@@ -41,6 +42,17 @@ export const resultatRoute: Routes = [
 
     data: {
       authorities: ['ROLE_Enseignant', 'ROLE_ETUDIANT'],
+      defaultSort: 'id,asc',
+      pageTitle: 'gestionNotesFsegsApp.resultat.home.title'
+    },
+    canActivate: [UserRouteAccessService]
+  },
+  {
+    path: 'agent',
+    component: resultatAgentComponent,
+
+    data: {
+      authorities: ['ROLE_AGENT'],
       defaultSort: 'id,asc',
       pageTitle: 'gestionNotesFsegsApp.resultat.home.title'
     },
