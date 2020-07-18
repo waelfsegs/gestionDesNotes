@@ -26,6 +26,7 @@ Navbar
 
   a.nav-link {
     font-weight: 400;
+    color: #f1f3f4;
   }
 }
 
@@ -38,5 +39,122 @@ Logo styles
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/iconFSEGS.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logo-enseignent {
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/checklist.png') no-repeat center center;
+  background-size: contain;
+}
+.logo-NCC {
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/test.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logo-enseignement {
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/training.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logo-student {
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/student.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logo-classe {
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/classroom.png') no-repeat center center;
+  background-size: contain;
+}
+.logo-groupe {
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/graduate.png') no-repeat center center;
+  background-size: contain;
+}
+.logo-inscrit {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/inscrit.png') no-repeat center center;
+  background-size: contain;
+}
+.logo-lang {
+  height: 18px;
+  width: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/language.png') no-repeat center center;
+  background-size: contain;
+}
+.logo-home {
+  height: 20px;
+  width: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/home.png') no-repeat center center;
+  background-size: contain;
+}
+.logo-matiere {
+  height: 20px;
+  width: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/mathematics.png') no-repeat center center;
+  background-size: contain;
+}
+.logo-filiere {
+  height: 20px;
+  width: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/book-pile.png') no-repeat center center;
+  background-size: contain;
+}
+.logo-enseignan {
+  height: 20px;
+  width: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/teacher.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logo-type_ensg {
+  height: 20px;
+  width: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/design-tool.png') no-repeat center center;
+  background-size: contain;
+}
+.logo-enseignement {
+  height: 20px;
+  width: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/online-learning.png') no-repeat center center;
   background-size: contain;
 }
