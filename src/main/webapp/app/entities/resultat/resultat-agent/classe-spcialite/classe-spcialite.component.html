@@ -1,0 +1,9 @@
+
+<ng-container *ngFor="let classe of class$ |async">
+    <div class="header text-center">
+<h6>classe : {{classe.nom}}</h6>
+    </div>
+<div class="body">
+    <inscription-class [calsseid]="classe.id"></inscription-class>
+</div>
+</ng-container>

@@ -10,6 +10,7 @@ import { resultatRoute } from './resultat.route';
 import { resultatClasseComponent } from './resultat-agent/resultat-classe/resultat-classe.component';
 import { resultatAgentComponent } from './resultat-agent/resultat-agent.component';
 import { ClasseSpcialiteComponent } from './resultat-agent/classe-spcialite/classe-spcialite.component';
+import { InscriptionClasseComponent } from './resultat-agent/inscription-class/inscription-class.component';
 
 @NgModule({
   imports: [GestionNotesFsegsSharedModule, RouterModule.forChild(resultatRoute)],
@@ -20,7 +21,8 @@ import { ClasseSpcialiteComponent } from './resultat-agent/classe-spcialite/clas
     ResultatDeleteDialogComponent,
     resultatClasseComponent,
     resultatAgentComponent,
-    ClasseSpcialiteComponent
+    ClasseSpcialiteComponent,
+    InscriptionClasseComponent
   ],
   entryComponents: [ResultatDeleteDialogComponent]
 })
