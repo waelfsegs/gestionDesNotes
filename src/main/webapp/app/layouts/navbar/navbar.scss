@@ -69,8 +69,8 @@ Logo styles
 }
 
 .logo-student {
-  height: 18px;
-  width: 18px;
+  height: 35px;
+  width: 35px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/student.png') no-repeat center center;
@@ -78,32 +78,32 @@ Logo styles
 }
 
 .logo-classe {
-  height: 18px;
-  width: 18px;
+  height: 35px;
+  width: 35px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/classroom.png') no-repeat center center;
   background-size: contain;
 }
 .logo-groupe {
-  height: 18px;
-  width: 18px;
+  height: 35px;
+  width: 35px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/graduate.png') no-repeat center center;
   background-size: contain;
 }
 .logo-inscrit {
-  height: 20px;
-  width: 20px;
+  height: 35px;
+  width: 35px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/inscrit.png') no-repeat center center;
   background-size: contain;
 }
 .logo-lang {
-  height: 18px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/language.png') no-repeat center center;
@@ -111,7 +111,7 @@ Logo styles
 }
 .logo-home {
   height: 20px;
-  width: 18px;
+  width: 20px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/home.png') no-repeat center center;
@@ -172,12 +172,12 @@ Logo styles
   width: 40px;
   display: inline-block;
   vertical-align: middle;
-  background: url('../../../content/images/theater.png') no-repeat center center;
+  background: url('../../../content/images/user.png') no-repeat center center;
   background-size: contain;
 }
 .logo-departement {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/container.png') no-repeat center center;
@@ -192,16 +192,16 @@ Logo styles
   background-size: contain;
 }
 .logo-niveau {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/numbered.png') no-repeat center center;
   background-size: contain;
 }
 .logo-aff_chef {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/lecture.png') no-repeat center center;
@@ -209,8 +209,8 @@ Logo styles
 }
 
 .logo-semester {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/numbering.png') no-repeat center center;
@@ -218,16 +218,16 @@ Logo styles
 }
 
 .logo-cycle {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/book.png') no-repeat center center;
   background-size: contain;
 }
 .logo-regim {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/copyright.png') no-repeat center center;
@@ -239,5 +239,57 @@ Logo styles
   display: inline-block;
   vertical-align: middle;
   background: url('../../../content/images/score.png') no-repeat center center;
+  background-size: contain;
+}
+.logo-exmm {
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/letter.png') no-repeat center center;
+  background-size: contain;
+}
+.logo-admin {
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/admin.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logo-api {
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/api.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logo-stat {
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/stats.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logo-diagnostic {
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/diagnostic.png') no-repeat center center;
+  background-size: contain;
+}
+
+.logo-setting {
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/settings.png') no-repeat center center;
   background-size: contain;
 }
