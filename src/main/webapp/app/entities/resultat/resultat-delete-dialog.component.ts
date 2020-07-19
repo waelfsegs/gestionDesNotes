@@ -6,7 +6,7 @@ import { IResultat } from 'app/shared/model/resultat.model';
 import { ResultatService } from './resultat.service';
 
 @Component({
-  templateUrl: './resultat-delete-dialog.component.html',
+  templateUrl: './resultat-delete-dialog.component.html'
 })
 export class ResultatDeleteDialogComponent {
   resultat?: IResultat;

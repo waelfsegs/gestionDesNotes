@@ -5,7 +5,7 @@ import { IMatiere } from 'app/shared/model/matiere.model';
 
 @Component({
   selector: 'jhi-matiere-detail',
-  templateUrl: './matiere-detail.component.html',
+  templateUrl: './matiere-detail.component.html'
 })
 export class MatiereDetailComponent implements OnInit {
   matiere: IMatiere | null = null;

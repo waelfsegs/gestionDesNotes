@@ -11,6 +11,6 @@ import { niveauRoute } from './niveau.route';
 @NgModule({
   imports: [GestionNotesFsegsSharedModule, RouterModule.forChild(niveauRoute)],
   declarations: [NiveauComponent, NiveauDetailComponent, NiveauUpdateComponent, NiveauDeleteDialogComponent],
-  entryComponents: [NiveauDeleteDialogComponent],
+  entryComponents: [NiveauDeleteDialogComponent]
 })
 export class GestionNotesFsegsNiveauModule {}

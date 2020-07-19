@@ -10,7 +10,7 @@ import { EtudiantService } from './etudiant.service';
 
 @Component({
   selector: 'jhi-etudiant-update',
-  templateUrl: './etudiant-update.component.html',
+  templateUrl: './etudiant-update.component.html'
 })
 export class EtudiantUpdateComponent implements OnInit {
   isSaving = false;
@@ -23,7 +23,7 @@ export class EtudiantUpdateComponent implements OnInit {
     matricule: [],
     prenom: [],
     tel: [],
-    dateNais: [],
+    dateNais: []
   });
 
   constructor(protected etudiantService: EtudiantService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -42,7 +42,7 @@ export class EtudiantUpdateComponent implements OnInit {
       matricule: etudiant.matricule,
       prenom: etudiant.prenom,
       tel: etudiant.tel,
-      dateNais: etudiant.dateNais,
+      dateNais: etudiant.dateNais
     });
   }
 
@@ -69,7 +69,7 @@ export class EtudiantUpdateComponent implements OnInit {
       matricule: this.editForm.get(['matricule'])!.value,
       prenom: this.editForm.get(['prenom'])!.value,
       tel: this.editForm.get(['tel'])!.value,
-      dateNais: this.editForm.get(['dateNais'])!.value,
+      dateNais: this.editForm.get(['dateNais'])!.value
     };
   }
 

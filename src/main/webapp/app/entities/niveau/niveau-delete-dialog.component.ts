@@ -6,7 +6,7 @@ import { INiveau } from 'app/shared/model/niveau.model';
 import { NiveauService } from './niveau.service';
 
 @Component({
-  templateUrl: './niveau-delete-dialog.component.html',
+  templateUrl: './niveau-delete-dialog.component.html'
 })
 export class NiveauDeleteDialogComponent {
   niveau?: INiveau;

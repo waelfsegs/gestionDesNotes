@@ -6,7 +6,7 @@ import { IGroupe } from 'app/shared/model/groupe.model';
 import { GroupeService } from './groupe.service';
 
 @Component({
-  templateUrl: './groupe-delete-dialog.component.html',
+  templateUrl: './groupe-delete-dialog.component.html'
 })
 export class GroupeDeleteDialogComponent {
   groupe?: IGroupe;

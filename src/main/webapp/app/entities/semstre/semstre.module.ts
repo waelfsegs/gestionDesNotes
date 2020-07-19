@@ -11,6 +11,6 @@ import { semstreRoute } from './semstre.route';
 @NgModule({
   imports: [GestionNotesFsegsSharedModule, RouterModule.forChild(semstreRoute)],
   declarations: [SemstreComponent, SemstreDetailComponent, SemstreUpdateComponent, SemstreDeleteDialogComponent],
-  entryComponents: [SemstreDeleteDialogComponent],
+  entryComponents: [SemstreDeleteDialogComponent]
 })
 export class GestionNotesFsegsSemstreModule {}

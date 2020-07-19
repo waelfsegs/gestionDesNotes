@@ -21,7 +21,7 @@ public interface NiveauMapper extends EntityMapper<NiveauDTO, Niveau> {
 
     @Mapping(source = "cycleId", target = "cycle")
     @Mapping(source = "specialiteId", target = "specialite")
-	
+
     Niveau toEntity(NiveauDTO niveauDTO);
 
     default Niveau fromId(Long id) {

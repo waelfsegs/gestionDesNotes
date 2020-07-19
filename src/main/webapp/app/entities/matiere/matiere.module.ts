@@ -11,6 +11,6 @@ import { matiereRoute } from './matiere.route';
 @NgModule({
   imports: [GestionNotesFsegsSharedModule, RouterModule.forChild(matiereRoute)],
   declarations: [MatiereComponent, MatiereDetailComponent, MatiereUpdateComponent, MatiereDeleteDialogComponent],
-  entryComponents: [MatiereDeleteDialogComponent],
+  entryComponents: [MatiereDeleteDialogComponent]
 })
 export class GestionNotesFsegsMatiereModule {}

@@ -6,7 +6,7 @@ import { IUniteEnseignement } from 'app/shared/model/unite-enseignement.model';
 import { UniteEnseignementService } from './unite-enseignement.service';
 
 @Component({
-  templateUrl: './unite-enseignement-delete-dialog.component.html',
+  templateUrl: './unite-enseignement-delete-dialog.component.html'
 })
 export class UniteEnseignementDeleteDialogComponent {
   uniteEnseignement?: IUniteEnseignement;

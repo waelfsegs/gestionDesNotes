@@ -10,14 +10,14 @@ import { SpecialiteService } from './specialite.service';
 
 @Component({
   selector: 'jhi-specialite-update',
-  templateUrl: './specialite-update.component.html',
+  templateUrl: './specialite-update.component.html'
 })
 export class SpecialiteUpdateComponent implements OnInit {
   isSaving = false;
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: []
   });
 
   constructor(protected specialiteService: SpecialiteService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -31,7 +31,7 @@ export class SpecialiteUpdateComponent implements OnInit {
   updateForm(specialite: ISpecialite): void {
     this.editForm.patchValue({
       id: specialite.id,
-      libelle: specialite.libelle,
+      libelle: specialite.libelle
     });
   }
 
@@ -53,7 +53,7 @@ export class SpecialiteUpdateComponent implements OnInit {
     return {
       ...new Specialite(),
       id: this.editForm.get(['id'])!.value,
-      libelle: this.editForm.get(['libelle'])!.value,
+      libelle: this.editForm.get(['libelle'])!.value
     };
   }
 

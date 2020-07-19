@@ -5,7 +5,7 @@ import { IRegime } from 'app/shared/model/regime.model';
 
 @Component({
   selector: 'jhi-regime-detail',
-  templateUrl: './regime-detail.component.html',
+  templateUrl: './regime-detail.component.html'
 })
 export class RegimeDetailComponent implements OnInit {
   regime: IRegime | null = null;

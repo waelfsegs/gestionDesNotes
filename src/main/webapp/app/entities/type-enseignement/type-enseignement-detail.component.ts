@@ -5,7 +5,7 @@ import { ITypeEnseignement } from 'app/shared/model/type-enseignement.model';
 
 @Component({
   selector: 'jhi-type-enseignement-detail',
-  templateUrl: './type-enseignement-detail.component.html',
+  templateUrl: './type-enseignement-detail.component.html'
 })
 export class TypeEnseignementDetailComponent implements OnInit {
   typeEnseignement: ITypeEnseignement | null = null;

@@ -14,8 +14,8 @@ import { uniteEnseignementRoute } from './unite-enseignement.route';
     UniteEnseignementComponent,
     UniteEnseignementDetailComponent,
     UniteEnseignementUpdateComponent,
-    UniteEnseignementDeleteDialogComponent,
+    UniteEnseignementDeleteDialogComponent
   ],
-  entryComponents: [UniteEnseignementDeleteDialogComponent],
+  entryComponents: [UniteEnseignementDeleteDialogComponent]
 })
 export class GestionNotesFsegsUniteEnseignementModule {}

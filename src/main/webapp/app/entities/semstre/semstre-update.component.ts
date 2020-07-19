@@ -10,7 +10,7 @@ import { SemstreService } from './semstre.service';
 
 @Component({
   selector: 'jhi-semstre-update',
-  templateUrl: './semstre-update.component.html',
+  templateUrl: './semstre-update.component.html'
 })
 export class SemstreUpdateComponent implements OnInit {
   isSaving = false;
@@ -18,7 +18,7 @@ export class SemstreUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     annee: [],
-    numSemstre: [],
+    numSemstre: []
   });
 
   constructor(protected semstreService: SemstreService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -33,7 +33,7 @@ export class SemstreUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: semstre.id,
       annee: semstre.annee,
-      numSemstre: semstre.numSemstre,
+      numSemstre: semstre.numSemstre
     });
   }
 
@@ -56,7 +56,7 @@ export class SemstreUpdateComponent implements OnInit {
       ...new Semstre(),
       id: this.editForm.get(['id'])!.value,
       annee: this.editForm.get(['annee'])!.value,
-      numSemstre: this.editForm.get(['numSemstre'])!.value,
+      numSemstre: this.editForm.get(['numSemstre'])!.value
     };
   }
 

@@ -14,8 +14,8 @@ import { affectationChefRoute } from './affectation-chef.route';
     AffectationChefComponent,
     AffectationChefDetailComponent,
     AffectationChefUpdateComponent,
-    AffectationChefDeleteDialogComponent,
+    AffectationChefDeleteDialogComponent
   ],
-  entryComponents: [AffectationChefDeleteDialogComponent],
+  entryComponents: [AffectationChefDeleteDialogComponent]
 })
 export class GestionNotesFsegsAffectationChefModule {}

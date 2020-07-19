@@ -3,6 +3,7 @@ export interface ISpicialitematiere {
   libelle?: string;
   matiereId?: number;
   specialiteId?: number;
+  matiereNom?: string;
 }
 
 export class Spicialitematiere implements ISpicialitematiere {

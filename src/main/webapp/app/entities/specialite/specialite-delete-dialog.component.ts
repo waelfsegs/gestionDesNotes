@@ -6,7 +6,7 @@ import { ISpecialite } from 'app/shared/model/specialite.model';
 import { SpecialiteService } from './specialite.service';
 
 @Component({
-  templateUrl: './specialite-delete-dialog.component.html',
+  templateUrl: './specialite-delete-dialog.component.html'
 })
 export class SpecialiteDeleteDialogComponent {
   specialite?: ISpecialite;

@@ -11,6 +11,6 @@ import { groupeRoute } from './groupe.route';
 @NgModule({
   imports: [GestionNotesFsegsSharedModule, RouterModule.forChild(groupeRoute)],
   declarations: [GroupeComponent, GroupeDetailComponent, GroupeUpdateComponent, GroupeDeleteDialogComponent],
-  entryComponents: [GroupeDeleteDialogComponent],
+  entryComponents: [GroupeDeleteDialogComponent]
 })
 export class GestionNotesFsegsGroupeModule {}

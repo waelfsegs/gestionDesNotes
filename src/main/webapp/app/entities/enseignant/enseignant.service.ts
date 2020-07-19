@@ -52,7 +52,7 @@ export class EnseignantService {
   protected convertDateFromClient(enseignant: IEnseignant): IEnseignant {
     const copy: IEnseignant = Object.assign({}, enseignant, {
       dateEmbauchement:
-        enseignant.dateEmbauchement && enseignant.dateEmbauchement.isValid() ? enseignant.dateEmbauchement.format(DATE_FORMAT) : undefined,
+        enseignant.dateEmbauchement && enseignant.dateEmbauchement.isValid() ? enseignant.dateEmbauchement.format(DATE_FORMAT) : undefined
     });
     return copy;
   }

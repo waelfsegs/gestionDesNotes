@@ -6,7 +6,7 @@ import { IRegime } from 'app/shared/model/regime.model';
 import { RegimeService } from './regime.service';
 
 @Component({
-  templateUrl: './regime-delete-dialog.component.html',
+  templateUrl: './regime-delete-dialog.component.html'
 })
 export class RegimeDeleteDialogComponent {
   regime?: IRegime;

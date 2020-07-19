@@ -16,7 +16,7 @@ type SelectableEntity = ISpecialite | INiveau;
 
 @Component({
   selector: 'jhi-classe-update',
-  templateUrl: './classe-update.component.html',
+  templateUrl: './classe-update.component.html'
 })
 export class ClasseUpdateComponent implements OnInit {
   isSaving = false;
@@ -27,7 +27,7 @@ export class ClasseUpdateComponent implements OnInit {
     id: [],
     nom: [],
     specialiteId: [],
-    niveauId: [],
+    niveauId: []
   });
 
   constructor(
@@ -53,7 +53,7 @@ export class ClasseUpdateComponent implements OnInit {
       id: classe.id,
       nom: classe.nom,
       specialiteId: classe.specialiteId,
-      niveauId: classe.niveauId,
+      niveauId: classe.niveauId
     });
   }
 
@@ -77,7 +77,7 @@ export class ClasseUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       nom: this.editForm.get(['nom'])!.value,
       specialiteId: this.editForm.get(['specialiteId'])!.value,
-      niveauId: this.editForm.get(['niveauId'])!.value,
+      niveauId: this.editForm.get(['niveauId'])!.value
     };
   }
 

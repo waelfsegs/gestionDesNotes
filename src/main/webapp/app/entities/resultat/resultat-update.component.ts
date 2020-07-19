@@ -16,7 +16,7 @@ type SelectableEntity = IMatiere | IInscription;
 
 @Component({
   selector: 'jhi-resultat-update',
-  templateUrl: './resultat-update.component.html',
+  templateUrl: './resultat-update.component.html'
 })
 export class ResultatUpdateComponent implements OnInit {
   isSaving = false;
@@ -29,7 +29,7 @@ export class ResultatUpdateComponent implements OnInit {
     notecc2: [],
     noteexmen: [],
     matiereId: [],
-    inscriptionId: [],
+    inscriptionId: []
   });
 
   constructor(
@@ -57,7 +57,7 @@ export class ResultatUpdateComponent implements OnInit {
       notecc2: resultat.notecc2,
       noteexmen: resultat.noteexmen,
       matiereId: resultat.matiereId,
-      inscriptionId: resultat.inscriptionId,
+      inscriptionId: resultat.inscriptionId
     });
   }
 
@@ -83,7 +83,7 @@ export class ResultatUpdateComponent implements OnInit {
       notecc2: this.editForm.get(['notecc2'])!.value,
       noteexmen: this.editForm.get(['noteexmen'])!.value,
       matiereId: this.editForm.get(['matiereId'])!.value,
-      inscriptionId: this.editForm.get(['inscriptionId'])!.value,
+      inscriptionId: this.editForm.get(['inscriptionId'])!.value
     };
   }
 

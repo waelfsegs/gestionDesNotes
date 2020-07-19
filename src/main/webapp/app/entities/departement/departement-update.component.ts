@@ -10,7 +10,7 @@ import { DepartementService } from './departement.service';
 
 @Component({
   selector: 'jhi-departement-update',
-  templateUrl: './departement-update.component.html',
+  templateUrl: './departement-update.component.html'
 })
 export class DepartementUpdateComponent implements OnInit {
   isSaving = false;
@@ -18,7 +18,7 @@ export class DepartementUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     nomDep: [],
-    designiation: [],
+    designiation: []
   });
 
   constructor(protected departementService: DepartementService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -33,7 +33,7 @@ export class DepartementUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: departement.id,
       nomDep: departement.nomDep,
-      designiation: departement.designiation,
+      designiation: departement.designiation
     });
   }
 
@@ -56,7 +56,7 @@ export class DepartementUpdateComponent implements OnInit {
       ...new Departement(),
       id: this.editForm.get(['id'])!.value,
       nomDep: this.editForm.get(['nomDep'])!.value,
-      designiation: this.editForm.get(['designiation'])!.value,
+      designiation: this.editForm.get(['designiation'])!.value
     };
   }
 

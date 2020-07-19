@@ -5,7 +5,7 @@ import { IClasse } from 'app/shared/model/classe.model';
 
 @Component({
   selector: 'jhi-classe-detail',
-  templateUrl: './classe-detail.component.html',
+  templateUrl: './classe-detail.component.html'
 })
 export class ClasseDetailComponent implements OnInit {
   classe: IClasse | null = null;

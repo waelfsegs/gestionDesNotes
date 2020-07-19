@@ -1,4 +1,4 @@
 <select class="form-control"  [(ngModel)]="matiereid" (change)="SelectMatiere()">
     <option [ngValue]="null"></option>
-    <option [ngValue]="matiereOption.id" *ngFor="let matiereOption of matieres$ |async">{{ matiereOption.nom }}</option>
+    <option [ngValue]="matiereOption.matiereId" *ngFor="let matiereOption of matieres$ |async">{{ matiereOption.matiereNom }}</option>
 </select>

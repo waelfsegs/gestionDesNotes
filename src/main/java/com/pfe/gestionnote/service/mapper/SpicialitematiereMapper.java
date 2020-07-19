@@ -14,6 +14,7 @@ public interface SpicialitematiereMapper extends EntityMapper<SpicialitematiereD
 
     @Mapping(source = "matiere.id", target = "matiereId")
     @Mapping(source = "specialite.id", target = "specialiteId")
+    @Mapping(source = "matiere.nom", target = "matiereNom")
     SpicialitematiereDTO toDto(Spicialitematiere spicialitematiere);
 
     @Mapping(source = "matiereId", target = "matiere")

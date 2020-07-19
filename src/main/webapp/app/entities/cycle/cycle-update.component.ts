@@ -10,14 +10,14 @@ import { CycleService } from './cycle.service';
 
 @Component({
   selector: 'jhi-cycle-update',
-  templateUrl: './cycle-update.component.html',
+  templateUrl: './cycle-update.component.html'
 })
 export class CycleUpdateComponent implements OnInit {
   isSaving = false;
 
   editForm = this.fb.group({
     id: [],
-    nomcycle: [],
+    nomcycle: []
   });
 
   constructor(protected cycleService: CycleService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -31,7 +31,7 @@ export class CycleUpdateComponent implements OnInit {
   updateForm(cycle: ICycle): void {
     this.editForm.patchValue({
       id: cycle.id,
-      nomcycle: cycle.nomcycle,
+      nomcycle: cycle.nomcycle
     });
   }
 
@@ -53,7 +53,7 @@ export class CycleUpdateComponent implements OnInit {
     return {
       ...new Cycle(),
       id: this.editForm.get(['id'])!.value,
-      nomcycle: this.editForm.get(['nomcycle'])!.value,
+      nomcycle: this.editForm.get(['nomcycle'])!.value
     };
   }
 

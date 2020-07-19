@@ -10,14 +10,14 @@ import { GroupeService } from './groupe.service';
 
 @Component({
   selector: 'jhi-groupe-update',
-  templateUrl: './groupe-update.component.html',
+  templateUrl: './groupe-update.component.html'
 })
 export class GroupeUpdateComponent implements OnInit {
   isSaving = false;
 
   editForm = this.fb.group({
     id: [],
-    nomgroup: [],
+    nomgroup: []
   });
 
   constructor(protected groupeService: GroupeService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -31,7 +31,7 @@ export class GroupeUpdateComponent implements OnInit {
   updateForm(groupe: IGroupe): void {
     this.editForm.patchValue({
       id: groupe.id,
-      nomgroup: groupe.nomgroup,
+      nomgroup: groupe.nomgroup
     });
   }
 
@@ -53,7 +53,7 @@ export class GroupeUpdateComponent implements OnInit {
     return {
       ...new Groupe(),
       id: this.editForm.get(['id'])!.value,
-      nomgroup: this.editForm.get(['nomgroup'])!.value,
+      nomgroup: this.editForm.get(['nomgroup'])!.value
     };
   }
 

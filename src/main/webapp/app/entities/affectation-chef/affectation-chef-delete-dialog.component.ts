@@ -6,7 +6,7 @@ import { IAffectationChef } from 'app/shared/model/affectation-chef.model';
 import { AffectationChefService } from './affectation-chef.service';
 
 @Component({
-  templateUrl: './affectation-chef-delete-dialog.component.html',
+  templateUrl: './affectation-chef-delete-dialog.component.html'
 })
 export class AffectationChefDeleteDialogComponent {
   affectationChef?: IAffectationChef;

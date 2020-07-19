@@ -11,6 +11,6 @@ import { departementRoute } from './departement.route';
 @NgModule({
   imports: [GestionNotesFsegsSharedModule, RouterModule.forChild(departementRoute)],
   declarations: [DepartementComponent, DepartementDetailComponent, DepartementUpdateComponent, DepartementDeleteDialogComponent],
-  entryComponents: [DepartementDeleteDialogComponent],
+  entryComponents: [DepartementDeleteDialogComponent]
 })
 export class GestionNotesFsegsDepartementModule {}

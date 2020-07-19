@@ -1,22 +1,29 @@
+import { ISpicialitematiere } from './../../shared/model/spicialitematiere.model';
+import { SpicialitematiereService } from './../spicialitematiere/spicialitematiere.service';
+import { map } from 'rxjs/operators';
+import { ISpecialite } from './../../shared/model/specialite.model';
+import { SpecialiteService } from './../specialite/specialite.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import { IMatiere, Matiere } from 'app/shared/model/matiere.model';
 import { MatiereService } from './matiere.service';
 import { IRegime } from 'app/shared/model/regime.model';
 import { RegimeService } from 'app/entities/regime/regime.service';
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'jhi-matiere-update',
-  templateUrl: './matiere-update.component.html',
+  templateUrl: './matiere-update.component.html'
 })
 export class MatiereUpdateComponent implements OnInit {
   isSaving = false;
   regimes: IRegime[] = [];
+  spicailite$: Observable<ISpecialite[] | null> = of([]);
 
   editForm = this.fb.group({
     id: [],
@@ -27,18 +34,24 @@ export class MatiereUpdateComponent implements OnInit {
     designation: [],
     nom: [],
     regimeId: [],
+    checkArray: this.fb.array([])
   });
+  matier: any;
 
   constructor(
     protected matiereService: MatiereService,
     protected regimeService: RegimeService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private spcialiteSercice: SpecialiteService,
+    private fb: FormBuilder,
+    private spicialitematiereService: SpicialitematiereService
   ) {}
 
   ngOnInit(): void {
+    this.spicailite$ = this.spcialiteSercice.query().pipe(map(res => res.body));
     this.activatedRoute.data.subscribe(({ matiere }) => {
       this.updateForm(matiere);
+      this.matier=matiere
 
       this.regimeService.query().subscribe((res: HttpResponse<IRegime[]>) => (this.regimes = res.body || []));
     });
@@ -53,7 +66,7 @@ export class MatiereUpdateComponent implements OnInit {
       coefficientExem: matiere.coefficientExem,
       designation: matiere.designation,
       nom: matiere.nom,
-      regimeId: matiere.regimeId,
+      regimeId: matiere.regimeId
     });
   }
 
@@ -65,7 +78,7 @@ export class MatiereUpdateComponent implements OnInit {
     this.isSaving = true;
     const matiere = this.createFromForm();
     if (matiere.id !== undefined) {
-      this.subscribeToSaveResponse(this.matiereService.update(matiere));
+      this.subscribeToUpdateResponse(this.matiereService.update(matiere));
     } else {
       this.subscribeToSaveResponse(this.matiereService.create(matiere));
     }
@@ -81,13 +94,30 @@ export class MatiereUpdateComponent implements OnInit {
       coefficientExem: this.editForm.get(['coefficientExem'])!.value,
       designation: this.editForm.get(['designation'])!.value,
       nom: this.editForm.get(['nom'])!.value,
-      regimeId: this.editForm.get(['regimeId'])!.value,
+      regimeId: this.editForm.get(['regimeId'])!.value
     };
   }
-
-  protected subscribeToSaveResponse(result: Observable<HttpResponse<IMatiere>>): void {
+  protected subscribeToUpdateResponse(result: Observable<HttpResponse<IMatiere>>): void {
     result.subscribe(
       () => this.onSaveSuccess(),
+      () => this.onSaveError()
+    );
+  }
+  protected subscribeToSaveResponse(result: Observable<HttpResponse<IMatiere>>): void {
+    result.subscribe(
+      res => {
+        const checkArray: FormArray = this.editForm.get('checkArray') as FormArray;
+        let selectedvalues: any[] = checkArray.value;
+        selectedvalues.forEach(element => {
+          let spciatiltematire: ISpicialitematiere = {};
+          spciatiltematire.libelle = this.editForm.get(['nom'])!.value;
+          if (res.body) spciatiltematire.matiereId = res.body.id;
+          spciatiltematire.specialiteId = Number(element);
+          this.spicialitematiereService.create(spciatiltematire).subscribe(res => {
+            this.onSaveSuccess();
+          });
+        });
+      },
       () => this.onSaveError()
     );
   }
@@ -100,7 +130,22 @@ export class MatiereUpdateComponent implements OnInit {
   protected onSaveError(): void {
     this.isSaving = false;
   }
+  onCheckboxChange(e: any) {
+    const checkArray: FormArray = this.editForm.get('checkArray') as FormArray;
 
+    if (e.target.checked) {
+      checkArray.push(new FormControl(e.target.value));
+    } else {
+      let i: number = 0;
+      checkArray.controls.forEach(item => {
+        if (item.value == e.target.value) {
+          checkArray.removeAt(i);
+          return;
+        }
+        i++;
+      });
+    }
+  }
   trackById(index: number, item: IRegime): any {
     return item.id;
   }

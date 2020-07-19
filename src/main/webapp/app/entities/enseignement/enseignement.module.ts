@@ -11,6 +11,6 @@ import { enseignementRoute } from './enseignement.route';
 @NgModule({
   imports: [GestionNotesFsegsSharedModule, RouterModule.forChild(enseignementRoute)],
   declarations: [EnseignementComponent, EnseignementDetailComponent, EnseignementUpdateComponent, EnseignementDeleteDialogComponent],
-  entryComponents: [EnseignementDeleteDialogComponent],
+  entryComponents: [EnseignementDeleteDialogComponent]
 })
 export class GestionNotesFsegsEnseignementModule {}

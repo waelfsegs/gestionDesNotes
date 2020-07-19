@@ -5,7 +5,7 @@ import { IResultat } from 'app/shared/model/resultat.model';
 
 @Component({
   selector: 'jhi-resultat-detail',
-  templateUrl: './resultat-detail.component.html',
+  templateUrl: './resultat-detail.component.html'
 })
 export class ResultatDetailComponent implements OnInit {
   resultat: IResultat | null = null;

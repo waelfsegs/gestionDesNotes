@@ -5,7 +5,7 @@ import { IInscription } from 'app/shared/model/inscription.model';
 
 @Component({
   selector: 'jhi-inscription-detail',
-  templateUrl: './inscription-detail.component.html',
+  templateUrl: './inscription-detail.component.html'
 })
 export class InscriptionDetailComponent implements OnInit {
   inscription: IInscription | null = null;

@@ -5,7 +5,7 @@ import { IUniteEnseignement } from 'app/shared/model/unite-enseignement.model';
 
 @Component({
   selector: 'jhi-unite-enseignement-detail',
-  templateUrl: './unite-enseignement-detail.component.html',
+  templateUrl: './unite-enseignement-detail.component.html'
 })
 export class UniteEnseignementDetailComponent implements OnInit {
   uniteEnseignement: IUniteEnseignement | null = null;
