@@ -52,7 +52,7 @@ export class InscriptionService {
   protected convertDateFromClient(inscription: IInscription): IInscription {
     const copy: IInscription = Object.assign({}, inscription, {
       date: inscription.date && inscription.date.isValid() ? inscription.date.format(DATE_FORMAT) : undefined,
-      annee: inscription.annee && inscription.annee.isValid() ? inscription.annee.format(DATE_FORMAT) : undefined,
+      annee: inscription.annee && inscription.annee.isValid() ? inscription.annee.format(DATE_FORMAT) : undefined
     });
     return copy;
   }

@@ -11,6 +11,6 @@ import { regimeRoute } from './regime.route';
 @NgModule({
   imports: [GestionNotesFsegsSharedModule, RouterModule.forChild(regimeRoute)],
   declarations: [RegimeComponent, RegimeDetailComponent, RegimeUpdateComponent, RegimeDeleteDialogComponent],
-  entryComponents: [RegimeDeleteDialogComponent],
+  entryComponents: [RegimeDeleteDialogComponent]
 })
 export class GestionNotesFsegsRegimeModule {}

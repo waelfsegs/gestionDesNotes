@@ -5,7 +5,7 @@ import { IAffectationChef } from 'app/shared/model/affectation-chef.model';
 
 @Component({
   selector: 'jhi-affectation-chef-detail',
-  templateUrl: './affectation-chef-detail.component.html',
+  templateUrl: './affectation-chef-detail.component.html'
 })
 export class AffectationChefDetailComponent implements OnInit {
   affectationChef: IAffectationChef | null = null;

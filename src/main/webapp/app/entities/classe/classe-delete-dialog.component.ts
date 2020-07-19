@@ -6,7 +6,7 @@ import { IClasse } from 'app/shared/model/classe.model';
 import { ClasseService } from './classe.service';
 
 @Component({
-  templateUrl: './classe-delete-dialog.component.html',
+  templateUrl: './classe-delete-dialog.component.html'
 })
 export class ClasseDeleteDialogComponent {
   classe?: IClasse;

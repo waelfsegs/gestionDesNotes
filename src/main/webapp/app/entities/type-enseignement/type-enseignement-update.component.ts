@@ -10,14 +10,14 @@ import { TypeEnseignementService } from './type-enseignement.service';
 
 @Component({
   selector: 'jhi-type-enseignement-update',
-  templateUrl: './type-enseignement-update.component.html',
+  templateUrl: './type-enseignement-update.component.html'
 })
 export class TypeEnseignementUpdateComponent implements OnInit {
   isSaving = false;
 
   editForm = this.fb.group({
     id: [],
-    type: [],
+    type: []
   });
 
   constructor(
@@ -35,7 +35,7 @@ export class TypeEnseignementUpdateComponent implements OnInit {
   updateForm(typeEnseignement: ITypeEnseignement): void {
     this.editForm.patchValue({
       id: typeEnseignement.id,
-      type: typeEnseignement.type,
+      type: typeEnseignement.type
     });
   }
 
@@ -57,7 +57,7 @@ export class TypeEnseignementUpdateComponent implements OnInit {
     return {
       ...new TypeEnseignement(),
       id: this.editForm.get(['id'])!.value,
-      type: this.editForm.get(['type'])!.value,
+      type: this.editForm.get(['type'])!.value
     };
   }
 

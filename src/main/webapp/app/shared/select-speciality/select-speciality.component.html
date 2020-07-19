@@ -1,5 +1,5 @@
 <select class="form-control" (change)="SelectSpecialite()" [(ngModel)]="spcialiteid">
   
     <option [ngValue]="null"></option>
-    <option [ngValue]="Specialite.id" *ngFor="let Specialite of  spcialite$ | async">{{ Specialite.libelle }}</option>
+    <option [ngValue]="Specialite.specialiteId" *ngFor="let Specialite of  spcialite$ | async">{{ Specialite.specialiteNom }}</option>
 </select>

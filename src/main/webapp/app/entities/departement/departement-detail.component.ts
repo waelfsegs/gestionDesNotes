@@ -5,7 +5,7 @@ import { IDepartement } from 'app/shared/model/departement.model';
 
 @Component({
   selector: 'jhi-departement-detail',
-  templateUrl: './departement-detail.component.html',
+  templateUrl: './departement-detail.component.html'
 })
 export class DepartementDetailComponent implements OnInit {
   departement: IDepartement | null = null;

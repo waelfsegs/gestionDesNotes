@@ -6,7 +6,7 @@ import { ICycle } from 'app/shared/model/cycle.model';
 import { CycleService } from './cycle.service';
 
 @Component({
-  templateUrl: './cycle-delete-dialog.component.html',
+  templateUrl: './cycle-delete-dialog.component.html'
 })
 export class CycleDeleteDialogComponent {
   cycle?: ICycle;

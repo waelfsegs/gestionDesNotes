@@ -10,7 +10,7 @@ import { UniteEnseignementService } from './unite-enseignement.service';
 
 @Component({
   selector: 'jhi-unite-enseignement-update',
-  templateUrl: './unite-enseignement-update.component.html',
+  templateUrl: './unite-enseignement-update.component.html'
 })
 export class UniteEnseignementUpdateComponent implements OnInit {
   isSaving = false;
@@ -19,7 +19,7 @@ export class UniteEnseignementUpdateComponent implements OnInit {
     id: [],
     nomUE: [],
     desgnationUE: [],
-    coefficientUE: [],
+    coefficientUE: []
   });
 
   constructor(
@@ -39,7 +39,7 @@ export class UniteEnseignementUpdateComponent implements OnInit {
       id: uniteEnseignement.id,
       nomUE: uniteEnseignement.nomUE,
       desgnationUE: uniteEnseignement.desgnationUE,
-      coefficientUE: uniteEnseignement.coefficientUE,
+      coefficientUE: uniteEnseignement.coefficientUE
     });
   }
 
@@ -63,7 +63,7 @@ export class UniteEnseignementUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       nomUE: this.editForm.get(['nomUE'])!.value,
       desgnationUE: this.editForm.get(['desgnationUE'])!.value,
-      coefficientUE: this.editForm.get(['coefficientUE'])!.value,
+      coefficientUE: this.editForm.get(['coefficientUE'])!.value
     };
   }
 

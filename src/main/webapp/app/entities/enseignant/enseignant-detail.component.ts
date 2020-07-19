@@ -5,7 +5,7 @@ import { IEnseignant } from 'app/shared/model/enseignant.model';
 
 @Component({
   selector: 'jhi-enseignant-detail',
-  templateUrl: './enseignant-detail.component.html',
+  templateUrl: './enseignant-detail.component.html'
 })
 export class EnseignantDetailComponent implements OnInit {
   enseignant: IEnseignant | null = null;

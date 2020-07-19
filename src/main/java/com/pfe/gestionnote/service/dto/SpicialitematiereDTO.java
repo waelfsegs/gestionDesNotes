@@ -16,6 +16,7 @@ public class SpicialitematiereDTO implements Serializable {
     private Long matiereId;
 
     private Long specialiteId;
+    private String matiereNom;
 
     public Long getId() {
         return id;
@@ -70,13 +71,19 @@ public class SpicialitematiereDTO implements Serializable {
         return Objects.hashCode(getId());
     }
 
+   
+
+    public String getMatiereNom() {
+        return matiereNom;
+    }
+
+    public void setMatiereNom(String matiereNom) {
+        this.matiereNom = matiereNom;
+    }
+
     @Override
     public String toString() {
-        return "SpicialitematiereDTO{" +
-            "id=" + getId() +
-            ", libelle='" + getLibelle() + "'" +
-            ", matiereId=" + getMatiereId() +
-            ", specialiteId=" + getSpecialiteId() +
-            "}";
+        return "SpicialitematiereDTO [id=" + id + ", libelle=" + libelle + ", matiereId=" + matiereId + ", matiereNom="
+                + matiereNom + ", specialiteId=" + specialiteId + "]";
     }
 }

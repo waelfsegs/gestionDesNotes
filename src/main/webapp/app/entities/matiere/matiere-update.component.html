@@ -18,13 +18,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.matiere.coefficientTp" for="field_coefficientTp">Coefficient Tp</label>
+                    <label class="form-control-label"  for="field_coefficientTp">Coefficient CC1</label>
                     <input type="number" class="form-control" name="coefficientTp" id="field_coefficientTp"
                            formControlName="coefficientTp"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.matiere.coefficientDc" for="field_coefficientDc">Coefficient Dc</label>
+                    <label class="form-control-label" y for="field_coefficientDc">Coefficient CC2</label>
                     <input type="number" class="form-control" name="coefficientDc" id="field_coefficientDc"
                            formControlName="coefficientDc"/>
                 </div>
@@ -55,7 +55,21 @@
                     </select>
                 </div>
             </div>
-
+            <div class="card">
+                <div class="card-header">
+                    <h6>Filière</h6>
+                </div>
+                <div class="card-body">
+                    <div *ngFor="let data of spicailite$ |async; let i=index">
+                        <label>
+                          <input type="checkbox" [value]="data.id" (change)="onCheckboxChange($event)" />
+                          {{data.libelle}}
+                        </label>
+                      </div>
+                </div>
+               
+            </div>
+           <br>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
                     <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>

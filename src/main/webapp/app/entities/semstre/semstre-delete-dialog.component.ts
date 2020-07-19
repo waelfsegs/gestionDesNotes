@@ -6,7 +6,7 @@ import { ISemstre } from 'app/shared/model/semstre.model';
 import { SemstreService } from './semstre.service';
 
 @Component({
-  templateUrl: './semstre-delete-dialog.component.html',
+  templateUrl: './semstre-delete-dialog.component.html'
 })
 export class SemstreDeleteDialogComponent {
   semstre?: ISemstre;

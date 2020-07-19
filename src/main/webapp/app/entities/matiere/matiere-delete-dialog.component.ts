@@ -6,7 +6,7 @@ import { IMatiere } from 'app/shared/model/matiere.model';
 import { MatiereService } from './matiere.service';
 
 @Component({
-  templateUrl: './matiere-delete-dialog.component.html',
+  templateUrl: './matiere-delete-dialog.component.html'
 })
 export class MatiereDeleteDialogComponent {
   matiere?: IMatiere;

@@ -24,18 +24,18 @@
         </div>
         <div class="col-md-4">
             <h6>Niveau</h6>
-            <select-niveau (selectNiveau)="selectNiveau($event)"></select-niveau>
+            <select-niveau [cycleId]="examen.cycleId" (selectNiveau)="selectNiveau($event)"></select-niveau>
         </div>
     </div>
     <br>
     <div class="row justify-content-center">
         <div class="col-md-4">
             <h6>Filière</h6>
-            <select-speciality (selectSpecialite)="selectspeciality($event)"></select-speciality>
+            <select-speciality [cycleId]="examen.cycleId" (selectSpecialite)="selectspeciality($event)"></select-speciality>
         </div>
         <div class="col-md-4">
             <h6>Matière</h6>
-            <select-matiere (selectMatiere)="selectMatiere($event)"></select-matiere>
+            <select-matiere [spcialiteid]="examen.specialiteId" (selectMatiere)="selectMatiere($event)"></select-matiere>
         </div>
     </div>
     <br>

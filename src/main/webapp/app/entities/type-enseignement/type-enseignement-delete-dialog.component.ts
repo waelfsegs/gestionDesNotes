@@ -6,7 +6,7 @@ import { ITypeEnseignement } from 'app/shared/model/type-enseignement.model';
 import { TypeEnseignementService } from './type-enseignement.service';
 
 @Component({
-  templateUrl: './type-enseignement-delete-dialog.component.html',
+  templateUrl: './type-enseignement-delete-dialog.component.html'
 })
 export class TypeEnseignementDeleteDialogComponent {
   typeEnseignement?: ITypeEnseignement;

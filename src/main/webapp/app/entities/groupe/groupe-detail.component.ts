@@ -5,7 +5,7 @@ import { IGroupe } from 'app/shared/model/groupe.model';
 
 @Component({
   selector: 'jhi-groupe-detail',
-  templateUrl: './groupe-detail.component.html',
+  templateUrl: './groupe-detail.component.html'
 })
 export class GroupeDetailComponent implements OnInit {
   groupe: IGroupe | null = null;

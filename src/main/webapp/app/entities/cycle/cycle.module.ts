@@ -11,6 +11,6 @@ import { cycleRoute } from './cycle.route';
 @NgModule({
   imports: [GestionNotesFsegsSharedModule, RouterModule.forChild(cycleRoute)],
   declarations: [CycleComponent, CycleDetailComponent, CycleUpdateComponent, CycleDeleteDialogComponent],
-  entryComponents: [CycleDeleteDialogComponent],
+  entryComponents: [CycleDeleteDialogComponent]
 })
 export class GestionNotesFsegsCycleModule {}

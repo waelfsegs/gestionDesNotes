@@ -11,6 +11,6 @@ import { specialiteRoute } from './specialite.route';
 @NgModule({
   imports: [GestionNotesFsegsSharedModule, RouterModule.forChild(specialiteRoute)],
   declarations: [SpecialiteComponent, SpecialiteDetailComponent, SpecialiteUpdateComponent, SpecialiteDeleteDialogComponent],
-  entryComponents: [SpecialiteDeleteDialogComponent],
+  entryComponents: [SpecialiteDeleteDialogComponent]
 })
 export class GestionNotesFsegsSpecialiteModule {}

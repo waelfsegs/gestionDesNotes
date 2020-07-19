@@ -14,8 +14,8 @@ import { typeEnseignementRoute } from './type-enseignement.route';
     TypeEnseignementComponent,
     TypeEnseignementDetailComponent,
     TypeEnseignementUpdateComponent,
-    TypeEnseignementDeleteDialogComponent,
+    TypeEnseignementDeleteDialogComponent
   ],
-  entryComponents: [TypeEnseignementDeleteDialogComponent],
+  entryComponents: [TypeEnseignementDeleteDialogComponent]
 })
 export class GestionNotesFsegsTypeEnseignementModule {}

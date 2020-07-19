@@ -6,7 +6,7 @@ import { IInscription } from 'app/shared/model/inscription.model';
 import { InscriptionService } from './inscription.service';
 
 @Component({
-  templateUrl: './inscription-delete-dialog.component.html',
+  templateUrl: './inscription-delete-dialog.component.html'
 })
 export class InscriptionDeleteDialogComponent {
   inscription?: IInscription;

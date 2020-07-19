@@ -6,7 +6,7 @@ import { IDepartement } from 'app/shared/model/departement.model';
 import { DepartementService } from './departement.service';
 
 @Component({
-  templateUrl: './departement-delete-dialog.component.html',
+  templateUrl: './departement-delete-dialog.component.html'
 })
 export class DepartementDeleteDialogComponent {
   departement?: IDepartement;

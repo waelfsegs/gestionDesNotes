@@ -11,6 +11,6 @@ import { inscriptionRoute } from './inscription.route';
 @NgModule({
   imports: [GestionNotesFsegsSharedModule, RouterModule.forChild(inscriptionRoute)],
   declarations: [InscriptionComponent, InscriptionDetailComponent, InscriptionUpdateComponent, InscriptionDeleteDialogComponent],
-  entryComponents: [InscriptionDeleteDialogComponent],
+  entryComponents: [InscriptionDeleteDialogComponent]
 })
 export class GestionNotesFsegsInscriptionModule {}

@@ -6,7 +6,7 @@ import { IEnseignant } from 'app/shared/model/enseignant.model';
 import { EnseignantService } from './enseignant.service';
 
 @Component({
-  templateUrl: './enseignant-delete-dialog.component.html',
+  templateUrl: './enseignant-delete-dialog.component.html'
 })
 export class EnseignantDeleteDialogComponent {
   enseignant?: IEnseignant;

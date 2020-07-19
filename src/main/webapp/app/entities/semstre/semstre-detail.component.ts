@@ -5,7 +5,7 @@ import { ISemstre } from 'app/shared/model/semstre.model';
 
 @Component({
   selector: 'jhi-semstre-detail',
-  templateUrl: './semstre-detail.component.html',
+  templateUrl: './semstre-detail.component.html'
 })
 export class SemstreDetailComponent implements OnInit {
   semstre: ISemstre | null = null;

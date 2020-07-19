@@ -10,14 +10,14 @@ import { RegimeService } from './regime.service';
 
 @Component({
   selector: 'jhi-regime-update',
-  templateUrl: './regime-update.component.html',
+  templateUrl: './regime-update.component.html'
 })
 export class RegimeUpdateComponent implements OnInit {
   isSaving = false;
 
   editForm = this.fb.group({
     id: [],
-    type: [],
+    type: []
   });
 
   constructor(protected regimeService: RegimeService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -31,7 +31,7 @@ export class RegimeUpdateComponent implements OnInit {
   updateForm(regime: IRegime): void {
     this.editForm.patchValue({
       id: regime.id,
-      type: regime.type,
+      type: regime.type
     });
   }
 
@@ -53,7 +53,7 @@ export class RegimeUpdateComponent implements OnInit {
     return {
       ...new Regime(),
       id: this.editForm.get(['id'])!.value,
-      type: this.editForm.get(['type'])!.value,
+      type: this.editForm.get(['type'])!.value
     };
   }
 

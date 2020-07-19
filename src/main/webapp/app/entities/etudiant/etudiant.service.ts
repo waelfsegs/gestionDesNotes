@@ -51,7 +51,7 @@ export class EtudiantService {
 
   protected convertDateFromClient(etudiant: IEtudiant): IEtudiant {
     const copy: IEtudiant = Object.assign({}, etudiant, {
-      dateNais: etudiant.dateNais && etudiant.dateNais.isValid() ? etudiant.dateNais.format(DATE_FORMAT) : undefined,
+      dateNais: etudiant.dateNais && etudiant.dateNais.isValid() ? etudiant.dateNais.format(DATE_FORMAT) : undefined
     });
     return copy;
   }
