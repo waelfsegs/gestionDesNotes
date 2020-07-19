@@ -4,20 +4,20 @@
             <div class="col-md-4">
                 <h6>nom etudiant :{{inscription.nom}}</h6>
             </div>
-            
+
             <div class="col-md-4">
-                
-<h6>prenom etudiant :{{inscription.prenom}}</h6>
+
+                <h6>prenom etudiant :{{inscription.prenom}}</h6>
             </div>
-            
+
             <div class="col-md-4">
-                
-<h6>matricule  :{{inscription.matricule}}</h6>
+
+                <h6>matricule :{{inscription.matricule}}</h6>
             </div>
         </div>
 
     </div>
-<div class="body">
-    <resultat-classe [classid]="calsseid" [inscriptionid]="inscription.id"></resultat-classe>
-</div>
+    <div class="body">
+        <resultat-classe [classid]="calsseid" [inscriptionid]="inscription.id"></resultat-classe>
+    </div>
 </ng-container>

@@ -1,10 +1,14 @@
-<div>
 
-
+    <div >
+    <button class="border float-right" (click)="exportexcel()">
+        <span class="logo-excel"></span>
+       </button>
+   
+    <div>
     <div class="alert alert-warning" id="no-result" *ngIf="notes?.length === 0">
         <span jhiTranslate="gestionNotesFsegsApp.resultat.home.notFound">No resultats found</span>
     </div>
-<button class="btn btn-primary" (click)="exportexcel()">export excet</button>
+
     <div class="table-responsive" id="entities" *ngIf="notes && notes.length > 0">
         <table class="table table-bordered" aria-describedby="page-heading">
             <thead>
@@ -36,4 +40,5 @@
     </div>
 
   
+</div>
 </div>

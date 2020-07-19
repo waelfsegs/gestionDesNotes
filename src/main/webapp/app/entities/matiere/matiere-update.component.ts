@@ -36,6 +36,7 @@ export class MatiereUpdateComponent implements OnInit {
     regimeId: [],
     checkArray: this.fb.array([])
   });
+  matier: any;
 
   constructor(
     protected matiereService: MatiereService,
@@ -50,6 +51,7 @@ export class MatiereUpdateComponent implements OnInit {
     this.spicailite$ = this.spcialiteSercice.query().pipe(map(res => res.body));
     this.activatedRoute.data.subscribe(({ matiere }) => {
       this.updateForm(matiere);
+      this.matier=matiere
 
       this.regimeService.query().subscribe((res: HttpResponse<IRegime[]>) => (this.regimes = res.body || []));
     });
