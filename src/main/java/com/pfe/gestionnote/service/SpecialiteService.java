@@ -28,7 +28,6 @@ public interface SpecialiteService {
      */
     Page<SpecialiteDTO> findAll(Pageable pageable);
 
-
     /**
      * Get the "id" specialite.
      *

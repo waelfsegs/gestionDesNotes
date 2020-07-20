@@ -12,6 +12,12 @@
                 <dd>
                     <span>{{ specialite.libelle }}</span>
                 </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.specialite.cycle">Cycle</span></dt>
+                <dd>
+                    <div *ngIf="specialite.cycleId">
+                        <a [routerLink]="['/cycle', specialite.cycleId, 'view']">{{ specialite.cycleId }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

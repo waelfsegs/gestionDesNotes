@@ -94,6 +94,10 @@ public class SpecialiteQueryService extends QueryService<Specialite> {
             if (criteria.getLibelle() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getLibelle(), Specialite_.libelle));
             }
+            if (criteria.getCycleId() != null) {
+                specification = specification.and(buildSpecification(criteria.getCycleId(),
+                    root -> root.join(Specialite_.cycle, JoinType.LEFT).get(Cycle_.id)));
+            }
         }
         return specification;
     }

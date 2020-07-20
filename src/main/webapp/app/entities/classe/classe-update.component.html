@@ -21,7 +21,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.classe.specialite" for="field_specialite">Specialite</label>
                     <select class="form-control" id="field_specialite" name="specialite" formControlName="specialiteId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="specialiteOption.id" *ngFor="let specialiteOption of specialites; trackBy: trackById">{{ specialiteOption.id }}</option>
+                        <option [ngValue]="specialiteOption.id" *ngFor="let specialiteOption of specialites; trackBy: trackById">{{ specialiteOption.libelle }}</option>
                     </select>
                 </div>
 
@@ -29,7 +29,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.classe.niveau" for="field_niveau">Niveau</label>
                     <select class="form-control" id="field_niveau" name="niveau" formControlName="niveauId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="niveauOption.id" *ngFor="let niveauOption of niveaus; trackBy: trackById">{{ niveauOption.id }}</option>
+                        <option [ngValue]="niveauOption.id" *ngFor="let niveauOption of niveaus; trackBy: trackById">{{ niveauOption.niveau }}</option>
                     </select>
                 </div>
             </div>

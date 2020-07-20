@@ -61,7 +61,6 @@ public class SpecialiteServiceImpl implements SpecialiteService {
             .map(specialiteMapper::toDto);
     }
 
-
     /**
      * Get one specialite by id.
      *
@@ -84,7 +83,6 @@ public class SpecialiteServiceImpl implements SpecialiteService {
     @Override
     public void delete(Long id) {
         log.debug("Request to delete Specialite : {}", id);
-
         specialiteRepository.deleteById(id);
     }
 }

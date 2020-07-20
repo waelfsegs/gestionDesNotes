@@ -16,6 +16,14 @@
                     <input type="text" class="form-control" name="libelle" id="field_libelle"
                            formControlName="libelle"/>
                 </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.specialite.cycle" for="field_cycle">Cycle</label>
+                    <select class="form-control" id="field_cycle" name="cycle" formControlName="cycleId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cycleOption.id" *ngFor="let cycleOption of cycles; trackBy: trackById">{{ cycleOption.nomcycle }}</option>
+                    </select>
+                </div>
             </div>
 
             <div>

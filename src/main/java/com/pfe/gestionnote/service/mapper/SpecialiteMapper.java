@@ -9,10 +9,16 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Specialite} and its DTO {@link SpecialiteDTO}.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {CycleMapper.class})
 public interface SpecialiteMapper extends EntityMapper<SpecialiteDTO, Specialite> {
 
+    @Mapping(source = "cycle.id", target = "cycleId")
+    @Mapping(source = "cycle.nomcycle", target = "nomcycle")
+    
+    SpecialiteDTO toDto(Specialite specialite);
 
+    @Mapping(source = "cycleId", target = "cycle")
+    Specialite toEntity(SpecialiteDTO specialiteDTO);
 
     default Specialite fromId(Long id) {
         if (id == null) {

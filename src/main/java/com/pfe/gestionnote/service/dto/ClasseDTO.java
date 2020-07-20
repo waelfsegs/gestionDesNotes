@@ -15,6 +15,8 @@ public class ClasseDTO implements Serializable {
     private Long specialiteId;
 
     private Long niveauId;
+    public String specialitelibelle;
+    public String niveau;
     
     public Long getId() {
         return id;

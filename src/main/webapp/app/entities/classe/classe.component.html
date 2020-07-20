@@ -35,12 +35,12 @@
                     <td>{{ classe.nom }}</td>
                     <td>
                         <div *ngIf="classe.specialiteId">
-                            <a [routerLink]="['/specialite', classe.specialiteId , 'view']" >{{ classe.specialiteId }}</a>
+                            <a [routerLink]="['/specialite', classe.specialiteId , 'view']" >{{ classe.specialitelibelle }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="classe.niveauId">
-                            <a [routerLink]="['/niveau', classe.niveauId , 'view']" >{{ classe.niveauId }}</a>
+                            <a [routerLink]="['/niveau', classe.niveauId , 'view']" >{{ classe.niveau }}</a>
                         </div>
                     </td>
                     <td class="text-right">

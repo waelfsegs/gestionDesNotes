@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 import { ISpecialite, Specialite } from 'app/shared/model/specialite.model';
 import { SpecialiteService } from './specialite.service';
+import { ICycle } from 'app/shared/model/cycle.model';
+import { CycleService } from 'app/entities/cycle/cycle.service';
 
 @Component({
   selector: 'jhi-specialite-update',
@@ -14,24 +16,34 @@ import { SpecialiteService } from './specialite.service';
 })
 export class SpecialiteUpdateComponent implements OnInit {
   isSaving = false;
+  cycles: ICycle[] = [];
 
   editForm = this.fb.group({
     id: [],
-    libelle: []
+    libelle: [],
+    cycleId: []
   });
 
-  constructor(protected specialiteService: SpecialiteService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected specialiteService: SpecialiteService,
+    protected cycleService: CycleService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ specialite }) => {
       this.updateForm(specialite);
+
+      this.cycleService.query().subscribe((res: HttpResponse<ICycle[]>) => (this.cycles = res.body || []));
     });
   }
 
   updateForm(specialite: ISpecialite): void {
     this.editForm.patchValue({
       id: specialite.id,
-      libelle: specialite.libelle
+      libelle: specialite.libelle,
+      cycleId: specialite.cycleId
     });
   }
 
@@ -53,7 +65,8 @@ export class SpecialiteUpdateComponent implements OnInit {
     return {
       ...new Specialite(),
       id: this.editForm.get(['id'])!.value,
-      libelle: this.editForm.get(['libelle'])!.value
+      libelle: this.editForm.get(['libelle'])!.value,
+      cycleId: this.editForm.get(['cycleId'])!.value
     };
   }
 
@@ -71,5 +84,9 @@ export class SpecialiteUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: ICycle): any {
+    return item.id;
   }
 }
