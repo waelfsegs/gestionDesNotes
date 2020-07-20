@@ -15,7 +15,7 @@ import { ExcelService } from './Excel-service';
 @Component({
   selector: 'resultat-classe',
   templateUrl: './resultat-classe.component.html',
-  styleUrls:['resultat-classe.scss']
+  styleUrls: ['resultat-classe.scss']
 })
 export class resultatClasseComponent implements OnInit, OnChanges {
   @Input('classid') classid: number = 0;
