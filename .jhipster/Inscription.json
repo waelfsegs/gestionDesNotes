@@ -38,14 +38,21 @@
       "otherEntityRelationshipName": "inscription",
       "relationshipName": "semstre",
       "otherEntityField": "id"
-    }
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "cycle",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "cycle",
+      "otherEntityField": "id"
+    },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "niveau",
       "otherEntityRelationshipName": "inscription",
       "relationshipName": "niveau",
       "otherEntityField": "id"
-    }
+    },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "specialite",

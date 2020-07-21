@@ -21,7 +21,10 @@
       "etudiant": "Etudiant",
       "classe": "Classe",
       "groupe": "Groupe",
-      "semstre": "Semstre"
+      "semstre": "Semstre",
+      "cycle": "Cycle",
+      "niveau": "Niveau",
+      "specialite": "Specialite"
     }
   }
 }

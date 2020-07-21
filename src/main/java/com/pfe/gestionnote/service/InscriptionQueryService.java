@@ -113,6 +113,18 @@ public class InscriptionQueryService extends QueryService<Inscription> {
                 specification = specification.and(buildSpecification(criteria.getSemstreId(),
                     root -> root.join(Inscription_.semstre, JoinType.LEFT).get(Semstre_.id)));
             }
+            if (criteria.getCycleId() != null) {
+                specification = specification.and(buildSpecification(criteria.getCycleId(),
+                    root -> root.join(Inscription_.cycle, JoinType.LEFT).get(Cycle_.id)));
+            }
+            if (criteria.getNiveauId() != null) {
+                specification = specification.and(buildSpecification(criteria.getNiveauId(),
+                    root -> root.join(Inscription_.niveau, JoinType.LEFT).get(Niveau_.id)));
+            }
+            if (criteria.getSpecialiteId() != null) {
+                specification = specification.and(buildSpecification(criteria.getSpecialiteId(),
+                    root -> root.join(Inscription_.specialite, JoinType.LEFT).get(Specialite_.id)));
+            }
         }
         return specification;
     }

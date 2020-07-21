@@ -2,7 +2,7 @@
 <databaseChangeLog
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
     <!--
         Added the constraints for entity Inscription.
     -->
@@ -31,6 +31,24 @@
                                  constraintName="fk_inscription_semstre_id"
                                  referencedColumnNames="id"
                                  referencedTableName="semstre"/>
+
+        <addForeignKeyConstraint baseColumnNames="cycle_id"
+                                 baseTableName="inscription"
+                                 constraintName="fk_inscription_cycle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cycle"/>
+
+        <addForeignKeyConstraint baseColumnNames="niveau_id"
+                                 baseTableName="inscription"
+                                 constraintName="fk_inscription_niveau_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="niveau"/>
+
+        <addForeignKeyConstraint baseColumnNames="specialite_id"
+                                 baseTableName="inscription"
+                                 constraintName="fk_inscription_specialite_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="specialite"/>
 
     </changeSet>
 </databaseChangeLog>

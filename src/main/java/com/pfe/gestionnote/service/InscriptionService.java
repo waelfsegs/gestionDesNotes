@@ -28,7 +28,6 @@ public interface InscriptionService {
      */
     Page<InscriptionDTO> findAll(Pageable pageable);
 
-
     /**
      * Get the "id" inscription.
      *

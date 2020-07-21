@@ -21,6 +21,12 @@ export interface IInscription {
   nomgroup?: string;
   numSemstre?: number;
   dateNais?: Moment;
+  cycleId?: number;
+  niveauId?: number;
+  specialiteId?: number;
+  cyclenom?: string;
+  niveau?: string;
+  specialitelabelle?: string;
 }
 
 export class Inscription implements IInscription {

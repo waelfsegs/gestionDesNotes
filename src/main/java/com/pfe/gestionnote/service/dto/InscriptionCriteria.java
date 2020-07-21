@@ -39,6 +39,12 @@ public class InscriptionCriteria implements Serializable, Criteria {
 
     private LongFilter semstreId;
 
+    private LongFilter cycleId;
+
+    private LongFilter niveauId;
+
+    private LongFilter specialiteId;
+
     public InscriptionCriteria() {
     }
 
@@ -50,6 +56,9 @@ public class InscriptionCriteria implements Serializable, Criteria {
         this.classeId = other.classeId == null ? null : other.classeId.copy();
         this.groupeId = other.groupeId == null ? null : other.groupeId.copy();
         this.semstreId = other.semstreId == null ? null : other.semstreId.copy();
+        this.cycleId = other.cycleId == null ? null : other.cycleId.copy();
+        this.niveauId = other.niveauId == null ? null : other.niveauId.copy();
+        this.specialiteId = other.specialiteId == null ? null : other.specialiteId.copy();
     }
 
     @Override
@@ -113,6 +122,30 @@ public class InscriptionCriteria implements Serializable, Criteria {
         this.semstreId = semstreId;
     }
 
+    public LongFilter getCycleId() {
+        return cycleId;
+    }
+
+    public void setCycleId(LongFilter cycleId) {
+        this.cycleId = cycleId;
+    }
+
+    public LongFilter getNiveauId() {
+        return niveauId;
+    }
+
+    public void setNiveauId(LongFilter niveauId) {
+        this.niveauId = niveauId;
+    }
+
+    public LongFilter getSpecialiteId() {
+        return specialiteId;
+    }
+
+    public void setSpecialiteId(LongFilter specialiteId) {
+        this.specialiteId = specialiteId;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -130,7 +163,10 @@ public class InscriptionCriteria implements Serializable, Criteria {
             Objects.equals(etudiantId, that.etudiantId) &&
             Objects.equals(classeId, that.classeId) &&
             Objects.equals(groupeId, that.groupeId) &&
-            Objects.equals(semstreId, that.semstreId);
+            Objects.equals(semstreId, that.semstreId) &&
+            Objects.equals(cycleId, that.cycleId) &&
+            Objects.equals(niveauId, that.niveauId) &&
+            Objects.equals(specialiteId, that.specialiteId);
     }
 
     @Override
@@ -142,11 +178,13 @@ public class InscriptionCriteria implements Serializable, Criteria {
         etudiantId,
         classeId,
         groupeId,
-        semstreId
+        semstreId,
+        cycleId,
+        niveauId,
+        specialiteId
         );
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "InscriptionCriteria{" +
@@ -157,6 +195,9 @@ public class InscriptionCriteria implements Serializable, Criteria {
                 (classeId != null ? "classeId=" + classeId + ", " : "") +
                 (groupeId != null ? "groupeId=" + groupeId + ", " : "") +
                 (semstreId != null ? "semstreId=" + semstreId + ", " : "") +
+                (cycleId != null ? "cycleId=" + cycleId + ", " : "") +
+                (niveauId != null ? "niveauId=" + niveauId + ", " : "") +
+                (specialiteId != null ? "specialiteId=" + specialiteId + ", " : "") +
             "}";
     }
 
