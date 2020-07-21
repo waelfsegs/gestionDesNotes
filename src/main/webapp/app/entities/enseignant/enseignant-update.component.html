@@ -55,7 +55,7 @@
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.enseignant.departement" for="field_departement">Departement</label>
                     <select class="form-control" id="field_departement" name="departement" formControlName="departementId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="departementOption.id" *ngFor="let departementOption of departements; trackBy: trackById">{{ departementOption.id }}</option>
+                        <option [ngValue]="departementOption.id" *ngFor="let departementOption of departements; trackBy: trackById">{{ departementOption.nomDep }}</option>
                     </select>
                 </div>
             </div>
