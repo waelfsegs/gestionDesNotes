@@ -16,7 +16,8 @@
       "detail": {
         "title": "Specialite"
       },
-      "libelle": "Libelle"
+      "libelle": "Libelle",
+      "cycle": "Cycle"
     }
   }
 }

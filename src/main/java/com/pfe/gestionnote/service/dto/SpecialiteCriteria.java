@@ -28,12 +28,15 @@ public class SpecialiteCriteria implements Serializable, Criteria {
 
     private StringFilter libelle;
 
+    private LongFilter cycleId;
+
     public SpecialiteCriteria() {
     }
 
     public SpecialiteCriteria(SpecialiteCriteria other) {
         this.id = other.id == null ? null : other.id.copy();
         this.libelle = other.libelle == null ? null : other.libelle.copy();
+        this.cycleId = other.cycleId == null ? null : other.cycleId.copy();
     }
 
     @Override
@@ -57,6 +60,14 @@ public class SpecialiteCriteria implements Serializable, Criteria {
         this.libelle = libelle;
     }
 
+    public LongFilter getCycleId() {
+        return cycleId;
+    }
+
+    public void setCycleId(LongFilter cycleId) {
+        this.cycleId = cycleId;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -69,23 +80,25 @@ public class SpecialiteCriteria implements Serializable, Criteria {
         final SpecialiteCriteria that = (SpecialiteCriteria) o;
         return
             Objects.equals(id, that.id) &&
-            Objects.equals(libelle, that.libelle);
+            Objects.equals(libelle, that.libelle) &&
+            Objects.equals(cycleId, that.cycleId);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
         id,
-        libelle
+        libelle,
+        cycleId
         );
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "SpecialiteCriteria{" +
                 (id != null ? "id=" + id + ", " : "") +
                 (libelle != null ? "libelle=" + libelle + ", " : "") +
+                (cycleId != null ? "cycleId=" + cycleId + ", " : "") +
             "}";
     }
 

@@ -1,6 +1,6 @@
 <div>
     <h2 id="page-heading">
-        <span >Filières</span>
+        <span jhiTranslate="gestionNotesFsegsApp.specialite.home.title">Specialites</span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-specialite" [routerLink]="['/specialite/new']">
             <fa-icon icon="plus"></fa-icon>
@@ -18,12 +18,13 @@
         <span jhiTranslate="gestionNotesFsegsApp.specialite.home.notFound">No specialites found</span>
     </div>
 
-    <div class="table-responsive" id="entities" *ngIf="specialites && specialites.length > 0">
+    <div class="table-responsive" id="entities" *ngIf="specialites?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="gestionNotesFsegsApp.specialite.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cycleId"><span jhiTranslate="gestionNotesFsegsApp.specialite.cycle">Cycle</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -31,6 +32,11 @@
                 <tr *ngFor="let specialite of specialites ;trackBy: trackId">
                     <td><a [routerLink]="['/specialite', specialite.id, 'view']">{{ specialite.id }}</a></td>
                     <td>{{ specialite.libelle }}</td>
+                    <td>
+                        <div *ngIf="specialite.cycleId">
+                            <a [routerLink]="['/cycle', specialite.cycleId , 'view']" >{{ specialite.nomcycle }}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
@@ -59,7 +65,7 @@
         </table>
     </div>
 
-    <div *ngIf="specialites && specialites.length > 0">
+    <div *ngIf="specialites?.length > 0">
         <div class="row justify-content-center">
             <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
         </div>

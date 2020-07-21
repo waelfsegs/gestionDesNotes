@@ -3,6 +3,8 @@ export interface IClasse {
   nom?: string;
   specialiteId?: number;
   niveauId?: number;
+  specialitelibelle?:string
+  niveau?:string
 }
 
 export class Classe implements IClasse {

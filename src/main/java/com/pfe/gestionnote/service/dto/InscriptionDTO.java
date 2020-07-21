@@ -36,7 +36,18 @@ public class InscriptionDTO implements Serializable {
 
     private String nomclass;
 	  private String nomgroup;
-	  private Integer numSemstre;
+      private Integer numSemstre;
+      public Long cycleId;
+
+      public Long niveauId;
+
+      public Long specialiteId;
+	
+	
+      public String cyclenom;
+      public String niveau;
+      public String specialitelabelle;
+     
     
     public Long getId() {
         return id;

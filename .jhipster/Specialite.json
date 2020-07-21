@@ -6,7 +6,15 @@
       "fieldType": "String"
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "cycle",
+      "otherEntityRelationshipName": "niveau",
+      "relationshipName": "cycle",
+      "otherEntityField": "id"
+    }
+  ],
   "changelogDate": "20200525001013",
   "entityTableName": "specialite",
   "dto": "mapstruct",

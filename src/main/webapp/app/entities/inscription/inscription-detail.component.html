@@ -40,6 +40,24 @@
                         <a [routerLink]="['/semstre', inscription.semstreId, 'view']">{{ inscription.semstreId }}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.inscription.cycle">Cycle</span></dt>
+                <dd>
+                    <div *ngIf="inscription.cycleId">
+                        <a [routerLink]="['/cycle', inscription.cycleId, 'view']">{{ inscription.cycleId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.inscription.niveau">Niveau</span></dt>
+                <dd>
+                    <div *ngIf="inscription.niveauId">
+                        <a [routerLink]="['/niveau', inscription.niveauId, 'view']">{{ inscription.niveauId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.inscription.specialite">Specialite</span></dt>
+                <dd>
+                    <div *ngIf="inscription.specialiteId">
+                        <a [routerLink]="['/specialite', inscription.specialiteId, 'view']">{{ inscription.specialiteId }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

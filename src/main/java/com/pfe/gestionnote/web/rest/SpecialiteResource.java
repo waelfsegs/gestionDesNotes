@@ -137,7 +137,6 @@ public class SpecialiteResource {
     @DeleteMapping("/specialites/{id}")
     public ResponseEntity<Void> deleteSpecialite(@PathVariable Long id) {
         log.debug("REST request to delete Specialite : {}", id);
-
         specialiteService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }

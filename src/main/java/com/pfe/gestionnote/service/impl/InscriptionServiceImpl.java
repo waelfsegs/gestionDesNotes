@@ -61,7 +61,6 @@ public class InscriptionServiceImpl implements InscriptionService {
             .map(inscriptionMapper::toDto);
     }
 
-
     /**
      * Get one inscription by id.
      *
@@ -84,7 +83,6 @@ public class InscriptionServiceImpl implements InscriptionService {
     @Override
     public void delete(Long id) {
         log.debug("Request to delete Inscription : {}", id);
-
         inscriptionRepository.deleteById(id);
     }
 }

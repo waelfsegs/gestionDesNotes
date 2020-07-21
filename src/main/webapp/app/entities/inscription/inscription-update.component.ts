@@ -17,8 +17,13 @@ import { ISemstre } from 'app/shared/model/semstre.model';
 import { SemstreService } from 'app/entities/semstre/semstre.service';
 import { User, IUser } from 'app/core/user/user.model';
 import { RegisterService } from 'app/account/register/register.service';
-
-type SelectableEntity = IEtudiant | IClasse | IGroupe | ISemstre;
+import { ICycle } from 'app/shared/model/cycle.model';
+import { CycleService } from 'app/entities/cycle/cycle.service';
+import { INiveau } from 'app/shared/model/niveau.model';
+import { NiveauService } from 'app/entities/niveau/niveau.service';
+import { ISpecialite } from 'app/shared/model/specialite.model';
+import { SpecialiteService } from 'app/entities/specialite/specialite.service';
+type SelectableEntity = IEtudiant | IClasse | IGroupe | ISemstre | ICycle | INiveau | ISpecialite;
 
 @Component({
   selector: 'jhi-inscription-update',
@@ -30,6 +35,9 @@ export class InscriptionUpdateComponent implements OnInit {
   classes: IClasse[] = [];
   groupes: IGroupe[] = [];
   semstres: ISemstre[] = [];
+  cycles: ICycle[] = [];
+  niveaus: INiveau[] = [];
+  specialites: ISpecialite[] = [];
   dateDp: any;
   anneeDp: any;
   etudiant: IEtudiant = {};
@@ -49,7 +57,10 @@ export class InscriptionUpdateComponent implements OnInit {
     matricule: [],
     prenom: [],
     tel: [],
-    dateNais: []
+    dateNais: [],
+    cycleId: [],
+    niveauId: [],
+    specialiteId: []
   });
 
   constructor(
@@ -60,6 +71,9 @@ export class InscriptionUpdateComponent implements OnInit {
     protected semstreService: SemstreService,
     protected activatedRoute: ActivatedRoute,
     private registerService: RegisterService,
+    protected cycleService: CycleService,
+    protected niveauService: NiveauService,
+    protected specialiteService: SpecialiteService,
 
     private fb: FormBuilder
   ) {}
@@ -75,6 +89,13 @@ export class InscriptionUpdateComponent implements OnInit {
       this.groupeService.query().subscribe((res: HttpResponse<IGroupe[]>) => (this.groupes = res.body || []));
 
       this.semstreService.query().subscribe((res: HttpResponse<ISemstre[]>) => (this.semstres = res.body || []));
+      this.cycleService.query().subscribe((res: HttpResponse<ICycle[]>) => (this.cycles = res.body || []));
+
+      this.niveauService.query().subscribe((res: HttpResponse<INiveau[]>) => (this.niveaus = res.body || []));
+
+      this.specialiteService.query().subscribe((res: HttpResponse<ISpecialite[]>) => (this.specialites = res.body || []));
+	  
+
     });
   }
   prepreUser(etudiant: IEtudiant) {
@@ -85,6 +106,7 @@ export class InscriptionUpdateComponent implements OnInit {
     (this.user.authorities = ['ROLE_ETUDIANT']), (this.user.langKey = 'fr');
   }
   updateForm(inscription: IInscription): void {
+    console.log(inscription)
     this.editForm.patchValue({
       id: inscription.id,
       date: inscription.date,
@@ -98,7 +120,10 @@ export class InscriptionUpdateComponent implements OnInit {
       prenom: inscription.prenom,
       tel: inscription.tel,
       dateNais: inscription.dateNais,
-      matricule: inscription.matricule
+      matricule: inscription.matricule,
+      cycleId: inscription.cycleId,
+      niveauId: inscription.niveauId,
+      specialiteId: inscription.specialiteId
     });
   }
 
@@ -119,7 +144,7 @@ export class InscriptionUpdateComponent implements OnInit {
     if (inscription.id !== undefined) {
       etudiant.id = inscription.etudiantId;
       this.etudiantService.update(etudiant).subscribe();
-      this.subscribeToSaveResponse(this.inscriptionService.update(inscription));
+      this.subscribeToUpdateResponse(this.inscriptionService.update(inscription));
     } else {
       this.etudiantService.create(etudiant).subscribe(res => {
         if (res.body) {
@@ -139,7 +164,7 @@ export class InscriptionUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       date: this.editForm.get(['date'])!.value,
       annee: this.editForm.get(['annee'])!.value,
-      etudiantId: this.editForm.get(['idetudiant'])!.value,
+      etudiantId: this.editForm.get(['etudiantId'])!.value,
       classeId: this.editForm.get(['classeId'])!.value,
       groupeId: this.editForm.get(['groupeId'])!.value,
       semstreId: this.editForm.get(['semstreId'])!.value,
@@ -148,10 +173,19 @@ export class InscriptionUpdateComponent implements OnInit {
       prenom: this.editForm.get(['prenom'])!.value,
       tel: this.editForm.get(['tel'])!.value,
       dateNais: this.editForm.get(['dateNais'])!.value,
-      matricule: this.editForm.get(['matricule'])!.value
+      matricule: this.editForm.get(['matricule'])!.value,
+      cycleId: this.editForm.get(['cycleId'])!.value,
+      niveauId: this.editForm.get(['niveauId'])!.value,
+      specialiteId: this.editForm.get(['specialiteId'])!.value
+	  
     };
   }
-
+  protected subscribeToUpdateResponse(result: Observable<HttpResponse<IInscription>>): void {
+    result.subscribe(
+      res => {
+        this.onSaveSuccess();
+      })
+  }
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IInscription>>): void {
     result.subscribe(
       res => {

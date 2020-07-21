@@ -14,7 +14,7 @@ import java.time.LocalDate;
  */
 @Entity
 @Table(name = "inscription")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Inscription implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,22 +30,34 @@ public class Inscription implements Serializable {
     private LocalDate annee;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "inscriptions", allowSetters = true)
+    @JsonIgnoreProperties("inscriptions")
     private Etudiant etudiant;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "inscriptions", allowSetters = true)
+    @JsonIgnoreProperties("inscriptions")
     private Classe classe;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "inscriptions", allowSetters = true)
+    @JsonIgnoreProperties("inscriptions")
     private Groupe groupe;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "inscriptions", allowSetters = true)
+    @JsonIgnoreProperties("inscriptions")
     private Semstre semstre;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    @ManyToOne
+    @JsonIgnoreProperties("inscriptions")
+    private Cycle cycle;
+
+    @ManyToOne
+    @JsonIgnoreProperties("inscriptions")
+    private Niveau niveau;
+
+    @ManyToOne
+    @JsonIgnoreProperties("inscriptions")
+    private Specialite specialite;
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -131,7 +143,46 @@ public class Inscription implements Serializable {
     public void setSemstre(Semstre semstre) {
         this.semstre = semstre;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+
+    public Cycle getCycle() {
+        return cycle;
+    }
+
+    public Inscription cycle(Cycle cycle) {
+        this.cycle = cycle;
+        return this;
+    }
+
+    public void setCycle(Cycle cycle) {
+        this.cycle = cycle;
+    }
+
+    public Niveau getNiveau() {
+        return niveau;
+    }
+
+    public Inscription niveau(Niveau niveau) {
+        this.niveau = niveau;
+        return this;
+    }
+
+    public void setNiveau(Niveau niveau) {
+        this.niveau = niveau;
+    }
+
+    public Specialite getSpecialite() {
+        return specialite;
+    }
+
+    public Inscription specialite(Specialite specialite) {
+        this.specialite = specialite;
+        return this;
+    }
+
+    public void setSpecialite(Specialite specialite) {
+        this.specialite = specialite;
+    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -149,7 +200,6 @@ public class Inscription implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "Inscription{" +

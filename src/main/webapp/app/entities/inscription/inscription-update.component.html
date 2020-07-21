@@ -8,7 +8,7 @@
      
             <div class="form-group" [hidden]="!editForm.get('idetudiant')!.value">
                 <label for="idetudiant" jhiTranslate="global.field.id">ID</label>
-                <input type="text" class="form-control" id="idetudiant" name="idetudiant" formControlName="idetudiant" readonly />
+                <input type="text" class="form-control" id="idetudiant" name="idetudiant" formControlName="etudiantId" readonly />
             </div>
 
             <div class="form-group">
@@ -81,26 +81,37 @@
                         </span>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.cycle" for="field_cycle">Cycle</label>
+                    <select class="form-control" id="field_cycle" name="cycle" formControlName="cycleId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cycleOption.id" *ngFor="let cycleOption of cycles; trackBy: trackById">{{ cycleOption.nomcycle }}</option>
+                    </select>
+                </div>
 
                 <div class="form-group">
-                    <label class="form-control-label"  for="field_specialite">specialite</label>
-                    <input type="number" class="form-control" name="specialite" id="field_specialite"
-                         />
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.niveau" for="field_niveau">Niveau</label>
+                    <select class="form-control" id="field_niveau" name="niveau" formControlName="niveauId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="niveauOption.id" *ngFor="let niveauOption of niveaus; trackBy: trackById">{{ niveauOption.niveau }}</option>
+                    </select>
+                </div>
 
-                </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_cin">niveau</label>
-                    <input type="number" class="form-control" name="niveau" id="field_niveau"
-                        />
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.specialite" for="field_specialite">Specialite</label>
+                    <select class="form-control" id="field_specialite" name="specialite" formControlName="specialiteId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="specialiteOption.id" *ngFor="let specialiteOption of specialites; trackBy: trackById">{{ specialiteOption.libelle  }}</option>
+                    </select>
                 </div>
+            </div>
           
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.inscription.classe" for="field_classe">Classe</label>
                     <select class="form-control" id="field_classe" name="classe" formControlName="classeId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="classeOption.id" *ngFor="let classeOption of classes; trackBy: trackById">{{ classeOption.nom }}</option>
-                        <option [ngValue]="classeOption.id" *ngFor="let classeOption of classes; trackBy: trackById">{{ classeOption.nom }}</option>
-                    </select>
+                   </select>
                 </div>
 
                 <div class="form-group">
@@ -118,8 +129,7 @@
                         <option [ngValue]="semstreOption.id" *ngFor="let semstreOption of semstres; trackBy: trackById">{{ semstreOption.numSemstre }}</option>
                     </select>
                 </div>
-            </div>
-
+         
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
                     <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>

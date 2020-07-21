@@ -137,7 +137,6 @@ public class InscriptionResource {
     @DeleteMapping("/inscriptions/{id}")
     public ResponseEntity<Void> deleteInscription(@PathVariable Long id) {
         log.debug("REST request to delete Inscription : {}", id);
-
         inscriptionService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }

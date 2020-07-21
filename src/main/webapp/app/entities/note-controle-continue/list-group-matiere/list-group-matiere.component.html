@@ -1,17 +1,7 @@
 <div class="card card-sm">
-  <div class="card-body row no-gutters align-items-center">
-      <div class="col-auto">
-          <i class="fas fa-search h4 text-body"></i>
-      </div>
-      <div class="col">
-          <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search Group">
-      </div>
-      <div class="col-auto">
-          <button class="btn btn-lg btn-primary" type="submit"> <fa-icon icon="search" [fixedWidth]="true"></fa-icon></button>
-      </div>
-  </div>
+ 
 </div>
 <ul class="list-group">
     <li class="list-group-item active">Group</li>
-    <li class="list-group-item hoverme" *ngFor="let group of listGroup | async" ><a  [routerLink]="['/note-controle-continue', group.id,matiereid, 'group']" >{{group.nomgroup}}</a></li>
+    <li class="list-group-item hoverme" *ngFor="let group of listGroup | async"  [routerLink]="['/note-controle-continue', group.id,matiereid, 'group']" >{{group.nomgroup}}</li>
   </ul>
