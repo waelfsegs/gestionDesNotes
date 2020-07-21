@@ -18,9 +18,16 @@ export class EditNoteComponent implements OnInit, OnDestroy {
   resultatid: number = 0;
   parent: any;
   modalref: any;
+  message1: string = '';
+  message2: string = '';
+  invalidnote1: boolean = true;
+
+  invalidnote2: boolean = true;
   constructor(private resultatService: ResultatService) {}
 
   ngOnInit() {
+    this.invalidnote1 = true;
+    this.invalidnote2 = true;
     if (this.etudiantnotes.notecc1 || this.etudiantnotes.notecc2) {
       this.resultatService
         .query({
@@ -58,6 +65,28 @@ export class EditNoteComponent implements OnInit, OnDestroy {
   onUpdateSuccess() {
     this.parent.loadInscription();
     this.modalref.close();
+  }
+  cheaknotecc1() {
+    this.message1 = '';
+    if (this.etudiantnotes.notecc1) {
+      if (this.etudiantnotes.notecc1 < 0 || this.etudiantnotes.notecc1 > 20) {
+        this.invalidnote1 = true;
+        this.message1 = 'notecc1 doit etre entre 0 et 20';
+      } else {
+        this.invalidnote1 = false;
+      }
+    }
+  }
+  cheaknotecc2() {
+    this.message2 = '';
+    if (this.etudiantnotes.notecc2) {
+      if (this.etudiantnotes.notecc2 < 0 || this.etudiantnotes.notecc2 > 20) {
+        this.invalidnote2 = true;
+        this.message2 = 'notecc2 doit etre entre 0 et 20';
+      } else {
+        this.invalidnote2 = false;
+      }
+    }
   }
   ngOnDestroy() {
     this.unsubscribe.next();

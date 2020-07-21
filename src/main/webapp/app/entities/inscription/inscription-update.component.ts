@@ -23,6 +23,7 @@ import { INiveau } from 'app/shared/model/niveau.model';
 import { NiveauService } from 'app/entities/niveau/niveau.service';
 import { ISpecialite } from 'app/shared/model/specialite.model';
 import { SpecialiteService } from 'app/entities/specialite/specialite.service';
+import * as moment from 'moment';
 type SelectableEntity = IEtudiant | IClasse | IGroupe | ISemstre | ICycle | INiveau | ISpecialite;
 
 @Component({
@@ -94,8 +95,6 @@ export class InscriptionUpdateComponent implements OnInit {
       this.niveauService.query().subscribe((res: HttpResponse<INiveau[]>) => (this.niveaus = res.body || []));
 
       this.specialiteService.query().subscribe((res: HttpResponse<ISpecialite[]>) => (this.specialites = res.body || []));
-	  
-
     });
   }
   prepreUser(etudiant: IEtudiant) {
@@ -106,7 +105,7 @@ export class InscriptionUpdateComponent implements OnInit {
     (this.user.authorities = ['ROLE_ETUDIANT']), (this.user.langKey = 'fr');
   }
   updateForm(inscription: IInscription): void {
-    console.log(inscription)
+    console.log(inscription);
     this.editForm.patchValue({
       id: inscription.id,
       date: inscription.date,
@@ -140,7 +139,9 @@ export class InscriptionUpdateComponent implements OnInit {
     etudiant.prenom = inscription.prenom;
     etudiant.matricule = inscription.matricule;
     etudiant.tel = inscription.tel;
-    etudiant.dateNais = inscription.dateNais;
+
+    etudiant.dateNais = moment(inscription.dateNais);
+
     if (inscription.id !== undefined) {
       etudiant.id = inscription.etudiantId;
       this.etudiantService.update(etudiant).subscribe();
@@ -177,14 +178,12 @@ export class InscriptionUpdateComponent implements OnInit {
       cycleId: this.editForm.get(['cycleId'])!.value,
       niveauId: this.editForm.get(['niveauId'])!.value,
       specialiteId: this.editForm.get(['specialiteId'])!.value
-	  
     };
   }
   protected subscribeToUpdateResponse(result: Observable<HttpResponse<IInscription>>): void {
-    result.subscribe(
-      res => {
-        this.onSaveSuccess();
-      })
+    result.subscribe(res => {
+      this.onSaveSuccess();
+    });
   }
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IInscription>>): void {
     result.subscribe(

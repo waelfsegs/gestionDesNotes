@@ -41,6 +41,7 @@
                     <td><a [routerLink]="['/inscription', inscription.id, 'view']">{{ inscription.id }}</a></td>
                     <td>{{ inscription.date | date:'mediumDate' }}</td>
                     <td>{{ inscription.annee | date:'mediumDate' }}</td>
+                    <td>{{ inscription.dateNais | date:'mediumDate' }}</td>
                     <td>
                         <div *ngIf="inscription.etudiantId">
                             <a [routerLink]="['/etudiant', inscription.etudiantId , 'view']" >{{ inscription.nomEtudiant}}</a>
