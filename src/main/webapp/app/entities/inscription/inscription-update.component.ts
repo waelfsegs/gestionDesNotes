@@ -23,6 +23,7 @@ import { INiveau } from 'app/shared/model/niveau.model';
 import { NiveauService } from 'app/entities/niveau/niveau.service';
 import { ISpecialite } from 'app/shared/model/specialite.model';
 import { SpecialiteService } from 'app/entities/specialite/specialite.service';
+import * as moment from 'moment';
 type SelectableEntity = IEtudiant | IClasse | IGroupe | ISemstre | ICycle | INiveau | ISpecialite;
 
 @Component({
@@ -140,7 +141,9 @@ export class InscriptionUpdateComponent implements OnInit {
     etudiant.prenom = inscription.prenom;
     etudiant.matricule = inscription.matricule;
     etudiant.tel = inscription.tel;
-    etudiant.dateNais = inscription.dateNais;
+    
+    etudiant.dateNais = moment(inscription.dateNais);
+    
     if (inscription.id !== undefined) {
       etudiant.id = inscription.etudiantId;
       this.etudiantService.update(etudiant).subscribe();

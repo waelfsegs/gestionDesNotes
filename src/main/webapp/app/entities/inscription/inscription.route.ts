@@ -20,8 +20,10 @@ export class InscriptionResolve implements Resolve<IInscription> {
     const id = route.params['id'];
     if (id) {
       return this.service.find(id).pipe(
-        flatMap((inscription: HttpResponse<Inscription>) => {
+        flatMap((inscription: HttpResponse<IInscription>) => {
           if (inscription.body) {
+            console.clear()
+            console.log('route',inscription.body)
             return of(inscription.body);
           } else {
             this.router.navigate(['404']);

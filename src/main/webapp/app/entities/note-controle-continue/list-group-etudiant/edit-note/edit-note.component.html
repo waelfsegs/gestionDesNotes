@@ -37,17 +37,22 @@
         <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.resultat.notecc1"
             for="field_notecc1">Notecc 1</label>
         <input type="number" class="form-control" name="notecc1" id="field_notecc1"
-            [(ngModel)]="etudiantnotes.notecc1" />
+            [(ngModel)]="etudiantnotes.notecc1" (ngModelChange)="cheaknotecc1()"/>
     </div>
-
+    <div class="alert alert-danger" role="alert" *ngIf="message1.length>0">
+        {{message1}}
+      </div>
     <div class="form-group">
         <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.resultat.notecc2"
             for="field_notecc2">Notecc 2</label>
         <input type="number" class="form-control" name="notecc2" id="field_notecc2"
-            [(ngModel)]="etudiantnotes.notecc2" />
+            [(ngModel)]="etudiantnotes.notecc2" (ngModelChange)="cheaknotecc2()" />
     </div>
+    <div class="alert alert-danger" role="alert" *ngIf="message2.length>0">
+        {{message2}}
+      </div>
 </div>
 
 <div class="modal-footer">
-    <button class="btn btn-primary" (click)="save()">save</button>
+    <button class="btn btn-primary" (click)="save()" [disabled]="invalidnote1 && invalidnote2">save</button>
 </div>
