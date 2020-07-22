@@ -23,30 +23,36 @@
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="gestionNotesFsegsApp.inscription.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="annee"><span jhiTranslate="gestionNotesFsegsApp.inscription.annee">Annee</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="etudiantId"><span jhiTranslate="gestionNotesFsegsApp.inscription.etudiant">Etudiant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="semstreId"><span >matricule</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th>cycle</th>
+                    
+                    <th>filiere</th>
+                    <th>niveau</th>
                     <th scope="col"  jhiSortBy="classeId"><span jhiTranslate="gestionNotesFsegsApp.inscription.classe">Classe</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="groupeId"><span jhiTranslate="gestionNotesFsegsApp.inscription.groupe">Groupe</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="semstreId"><span jhiTranslate="gestionNotesFsegsApp.inscription.semstre">Semstre</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="semstreId"><span >matricule</span> <fa-icon icon="sort"></fa-icon></th>
-                   <th>cycle</th>
-                   <th>niveau</th>
-                   <th>filiere</th>
+                    <!--<th scope="col"  >Semestre</span> <fa-icon icon="sort"></fa-icon></th-->
+                
+       
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let inscription of inscriptions ;trackBy: trackId">
                     <td><a [routerLink]="['/inscription', inscription.id, 'view']">{{ inscription.id }}</a></td>
-                    <td>{{ inscription.date | date:'mediumDate' }}</td>
                     <td>{{ inscription.annee | date:'mediumDate' }}</td>
-                    <td>{{ inscription.dateNais | date:'mediumDate' }}</td>
                     <td>
                         <div *ngIf="inscription.etudiantId">
                             <a [routerLink]="['/etudiant', inscription.etudiantId , 'view']" >{{ inscription.nomEtudiant}}</a>
                         </div>
+
                     </td>
+                    <td>{{inscription.matricule}}</td>
+                    <td>{{inscription.cyclenom}}</td>
+                    <td>{{inscription.specialitelabelle}}</td>
+                    <td>{{inscription.niveau}}</td>
+                   
                     <td>
                         <div *ngIf="inscription.classeId">
                             <a [routerLink]="['/classe', inscription.classeId , 'view']" >{{ inscription.classe }}</a>
@@ -57,15 +63,8 @@
                             <a [routerLink]="['/groupe', inscription.groupeId , 'view']" >{{ inscription.group }}</a>
                         </div>
                     </td>
-                    <td>
-                        <div *ngIf="inscription.semstreId">
-                            <a [routerLink]="['/semstre', inscription.semstreId , 'view']" >{{ inscription.semstre }}</a>
-                        </div>
-                    </td>
-                    <td>{{inscription.matricule}}</td>
-                    <td>{{inscription.cyclenom}}</td>
-                    <td>{{inscription.niveau}}</td>
-                    <td>{{inscription.specialitelabelle}}</td>
+                   
+                 
                  
                    
                     <td class="text-right">

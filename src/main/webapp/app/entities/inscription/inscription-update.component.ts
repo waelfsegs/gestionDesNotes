@@ -46,7 +46,7 @@ export class InscriptionUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    date: [],
+    //    date: [],
     annee: [],
     etudiantId: [],
     classeId: [],
@@ -108,7 +108,7 @@ export class InscriptionUpdateComponent implements OnInit {
     console.log(inscription);
     this.editForm.patchValue({
       id: inscription.id,
-      date: inscription.date,
+      //  date: inscription.date,
       annee: inscription.annee,
       etudiantId: inscription.etudiantId,
       classeId: inscription.classeId,
@@ -163,7 +163,7 @@ export class InscriptionUpdateComponent implements OnInit {
     return {
       ...new Inscription(),
       id: this.editForm.get(['id'])!.value,
-      date: this.editForm.get(['date'])!.value,
+      //date: this.editForm.get(['date'])!.value,
       annee: this.editForm.get(['annee'])!.value,
       etudiantId: this.editForm.get(['etudiantId'])!.value,
       classeId: this.editForm.get(['classeId'])!.value,

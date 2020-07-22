@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.matiere.coefficientExem" for="field_coefficientExem">Coefficient Exem</label>
+                    <label class="form-control-label" for="field_coefficientExem">Coefficient Examen</label>
                     <input type="number" class="form-control" name="coefficientExem" id="field_coefficientExem"
                            formControlName="coefficientExem"/>
                 </div>
@@ -48,10 +48,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.matiere.regime" for="field_regime">Regime</label>
+                    <label class="form-control-label" jhiTranslate="gestionNotesFsegsApp.matiere.regime" for="field_regime">Régime</label>
                     <select class="form-control" id="field_regime" name="regime" formControlName="regimeId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="regimeOption.id" *ngFor="let regimeOption of regimes; trackBy: trackById">{{ regimeOption.id }}</option>
+                        <option [ngValue]="regimeOption.id" *ngFor="let regimeOption of regimes; trackBy: trackById">{{ regimeOption.type }}</option>
                     </select>
                 </div>
             </div>

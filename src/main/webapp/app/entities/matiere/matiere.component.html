@@ -23,12 +23,14 @@
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="coefficientMatiere"><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientMatiere">Coefficient Matiere</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="coefficientTp"><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientTp">Coefficient Tp</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="coefficientDc"><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientDc">Coefficient Dc</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="coefficientExem"><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientExem">Coefficient Exem</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="designation"><span jhiTranslate="gestionNotesFsegsApp.matiere.designation">Designation</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gestionNotesFsegsApp.matiere.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="designation"><span jhiTranslate="gestionNotesFsegsApp.matiere.designation">Designation</span> <fa-icon icon="sort"></fa-icon></th>
+
+                    <th scope="col"  jhiSortBy="coefficientMatiere"><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientMatiere">Coefficient Matiere</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="coefficientTp"><span >Coefficient CC1</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="coefficientDc"><span>Coefficient CC2</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="coefficientExem"><span>Coefficient Examen</span> <fa-icon icon="sort"></fa-icon></th>
+              
                     <th scope="col"  jhiSortBy="regimeId"><span jhiTranslate="gestionNotesFsegsApp.matiere.regime">Regime</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
@@ -36,15 +38,17 @@
             <tbody>
                 <tr *ngFor="let matiere of matieres ;trackBy: trackId">
                     <td><a [routerLink]="['/matiere', matiere.id, 'view']">{{ matiere.id }}</a></td>
+                    <td>{{ matiere.nom }}</td>
+                    <td>{{ matiere.designation }}</td>
                     <td>{{ matiere.coefficientMatiere }}</td>
-                    <td>{{ matiere.coefficientCC }}</td>
+                    <td>{{ matiere.coefficientTp}}</td>
                     <td>{{ matiere.coefficientDc }}</td>
                     <td>{{ matiere.coefficientExem }}</td>
-                    <td>{{ matiere.designation }}</td>
-                    <td>{{ matiere.nom }}</td>
+                    
+                    
                     <td>
                         <div *ngIf="matiere.regimeId">
-                            <a [routerLink]="['/regime', matiere.regimeId , 'view']" >{{ matiere.regimeId }}</a>
+                            <a [routerLink]="['/regime', matiere.regimeId , 'view']" >{{ matiere.regime }}</a>
                         </div>
                     </td>
                     <td class="text-right">

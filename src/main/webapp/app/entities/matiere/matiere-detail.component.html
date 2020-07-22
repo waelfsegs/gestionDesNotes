@@ -8,30 +8,31 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientMatiere">Coefficient Matiere</span></dt>
-                <dd>
-                    <span>{{ matiere.coefficientMatiere }}</span>
-                </dd>
-                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientTp">Coefficient CC1</span></dt>
-                <dd>
-                    <span>{{ matiere.coefficientTp }}</span>
-                </dd>
-                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientDc">Coefficient CC2</span></dt>
-                <dd>
-                    <span>{{ matiere.coefficientDc }}</span>
-                </dd>
-                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientExem">Coefficient Exem</span></dt>
-                <dd>
-                    <span>{{ matiere.coefficientExem }}</span>
-                </dd>
-                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.designation">Designation</span></dt>
-                <dd>
-                    <span>{{ matiere.designation }}</span>
-                </dd>
                 <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.nom">Nom</span></dt>
                 <dd>
                     <span>{{ matiere.nom }}</span>
                 </dd>
+                <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.coefficientMatiere">Coefficient Matiere</span></dt>
+                <dd>
+                    <span>{{ matiere.coefficientMatiere }}</span>
+                </dd>
+                <dt><span >Coefficient CC1</span></dt>
+                <dd>
+                    <span>{{ matiere.coefficientTp }}</span>
+                </dd>
+                <dt><span >Coefficient CC2</span></dt>
+                <dd>
+                    <span>{{ matiere.coefficientDc }}</span>
+                </dd>
+                <dt><span >Coefficient Examen</span></dt>
+                <dd>
+                    <span>{{ matiere.coefficientExem }}</span>
+                </dd>
+                <dt><span >Désignation</span></dt>
+                <dd>
+                    <span>{{ matiere.designation }}</span>
+                </dd>
+                
                 <dt><span jhiTranslate="gestionNotesFsegsApp.matiere.regime">Regime</span></dt>
                 <dd>
                     <div *ngIf="matiere.regimeId">
